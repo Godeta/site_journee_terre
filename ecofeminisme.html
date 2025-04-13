@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Écoféminisme | Journée internationale de la Terre nourricière</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Configuration de Tailwind avec notre palette de couleurs -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-green': '#4D7C0F',
+                        'earth-brown': '#8B5A2B',
+                        'off-white': '#F5F5F0',
+                        'light-purple': '#D8B4FE',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-off-white font-sans">
+    <!-- Header fixe -->
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false, languageIsEnglish: false }">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl">Terre Nourricière</a>
+            
+            <!-- Navigation desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors font-bold">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="language-selector ml-4">
+                    <span x-show="!languageIsEnglish">FR</span>
+                    <span x-show="languageIsEnglish">EN</span>
+                </button>
+            </nav>
+            
+            <!-- Bouton menu mobile -->
+            <button class="mobile-menu-button md:hidden text-white" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
+            <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors font-bold">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue mobile -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-show="!languageIsEnglish">🇫🇷 Français</span>
+                    <span x-show="languageIsEnglish">🇬🇧 English</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section bannière améliorée avec parallax -->
+    <section class="parallax-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1572506745854-d3be52aeaa73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <div class="parallax-content">
+            <h1>Écoféminisme</h1>
+            <p>"Quand nous prenons soin de la Terre, nous prenons soin de nous-mêmes."</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section introduction avec design amélioré -->
+            <section class="content-section mb-16">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <!-- Image avec effet de cadre -->
+                    <div class="md:w-2/5 overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1464639351491-a172c2aa2911?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Symbole écoféministe" class="w-full">
+                    </div>
+                    
+                    <!-- Texte d'introduction avec animation -->
+                    <div class="md:w-3/5">
+                        <h2 class="section-title text-left">Qu'est-ce que l'écoféminisme?</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p>L'écoféminisme est un mouvement qui établit des liens entre l'exploitation de la nature et l'oppression des femmes. Il considère que ces deux phénomènes sont liés par un système de pensée et d'organisation sociale qui valorise la domination et la hiérarchie.</p>
+                            <p>Né dans les années 1970, ce mouvement combine écologie et féminisme pour proposer une vision du monde où le respect de la nature est indissociable du respect des êtres humains, en particulier des femmes.</p>
+                            <p>L'écoféminisme englobe une diversité de courants, certains plus orientés vers la spiritualité et d'autres vers l'activisme politique, mais tous partagent l'objectif de transformer les relations de pouvoir pour créer une société plus juste et écologique.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section origines et histoire avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Origines et histoire du mouvement</h2>
+                <div class="space-y-4 text-gray-700 mb-8">
+                    <p>Le terme "écoféminisme" a été inventé par la féministe française Françoise d'Eaubonne en 1974 dans son ouvrage "Le Féminisme ou la mort". Elle y établit le lien entre surpopulation, détérioration de l'environnement et domination masculine.</p>
+                    <p>Dans les années 1980, le mouvement s'est développé aux États-Unis avec des figures comme Carolyn Merchant, Vandana Shiva et Starhawk, qui ont élargi la réflexion et l'action écoféministe à différents domaines: économie, éthique, spiritualité et politique.</p>
+                </div>
+                
+                <!-- Timeline avec animation -->
+                <div class="relative">
+                    <!-- Ligne verticale -->
+                    <div class="absolute left-0 md:left-1/2 ml-4 md:ml-0 h-full w-0.5 bg-earth-green transform md:-translate-x-1/2"></div>
+                    
+                    <!-- Éléments de la timeline -->
+                    <div class="space-y-12">
+                        <!-- Élément 1 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">1974</h3>
+                                <p class="text-gray-700">Françoise d'Eaubonne invente le terme "écoféminisme"</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 2 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 order-2 md:order-1">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
+                                <h3 class="text-xl font-bold text-earth-green">1980-1990</h3>
+                                <p class="text-gray-700">Développement du mouvement aux États-Unis et en Inde</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 3 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">1992</h3>
+                                <p class="text-gray-700">Conférence mondiale "Women's Environment and Development Organization" à Miami</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 4 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 order-2 md:order-1">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
+                                <h3 class="text-xl font-bold text-earth-green">2000-Présent</h3>
+                                <p class="text-gray-700">Diversification du mouvement et intégration des questions de justice climatique</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section figures importantes avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Figures importantes de l'écoféminisme</h2>
+                
+                <!-- Cartes de profil avec animations -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1445264718234-a623be589d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Vandana Shiva" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-earth-green mb-2">Vandana Shiva</h3>
+                            <p class="text-gray-700">Physicienne et militante indienne, elle a fondé Navdanya pour promouvoir la biodiversité et les pratiques agricoles durables. Son travail établit des liens entre l'agriculture industrielle, la mondialisation et l'oppression des femmes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Françoise d'Eaubonne" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-earth-green mb-2">Françoise d'Eaubonne</h3>
+                            <p class="text-gray-700">Écrivaine et militante française, elle a créé le terme "écoféminisme" en 1974. Dans son ouvrage "Le Féminisme ou la mort", elle établit le lien entre la surpopulation, la détérioration environnementale et le patriarcat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Starhawk" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-earth-green mb-2">Starhawk</h3>
+                            <p class="text-gray-700">Auteure, activiste et praticienne de la néo-sorcellerie, elle a développé une approche écoféministe qui intègre spiritualité et activisme politique. Son livre "Dreaming the Dark" est un texte fondamental du mouvement.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section principes fondamentaux avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Principes fondamentaux</h2>
+                
+                <!-- Principes en boîtes avec icônes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Interconnexion</h3>
+                        </div>
+                        <p class="text-gray-700">Reconnaissance que l'oppression des femmes et la dégradation de l'environnement sont liées par des systèmes de domination similaires et interconnectés.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Éthique du care</h3>
+                        </div>
+                        <p class="text-gray-700">Valorisation du soin, de l'attention et de la responsabilité envers les autres êtres vivants, incluant humains et non-humains.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-fist-raised"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Justice sociale</h3>
+                        </div>
+                        <p class="text-gray-700">Engagement pour la justice sociale et environnementale, reconnaissant que les groupes marginalisés sont souvent les plus touchés par les crises écologiques.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-yin-yang"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Diversité</h3>
+                        </div>
+                        <p class="text-gray-700">Célébration de la diversité - biologique, culturelle et des expériences humaines - comme source de résilience et de richesse.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section mouvements et actions avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Mouvements et actions écoféministes</h2>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-center mb-12">
+                    <div class="md:w-1/2">
+                        <div class="space-y-4 text-gray-700">
+                            <h3 class="text-xl font-bold text-earth-green mb-2">Chipko Movement (Inde)</h3>
+                            <p>Initié dans les années 1970 par des femmes rurales indiennes, le mouvement Chipko ("s'accrocher" en hindi) a consisté à enlacer des arbres pour empêcher leur abattage par des compagnies forestières.</p>
+                            <p>Ces femmes, qui dépendaient des forêts pour leur subsistance, ont montré comment la protection de l'environnement et les besoins des communautés locales sont intimement liés.</p>
+                            <blockquote class="border-l-4 border-earth-green pl-6 italic my-6 text-gray-600">
+                                "Ce que vous appelez ressources naturelles, nous les appelons notre maison, notre mère."<br>- Une participante du mouvement Chipko
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1501183007986-d0d080b147f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Femmes protégeant des arbres" class="w-full transform transition-transform duration-1000 hover:scale-110">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm">
+                                Le mouvement Chipko a inspiré des actions similaires dans le monde entier
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <div class="space-y-4 text-gray-700">
+                            <h3 class="text-xl font-bold text-earth-green mb-2">Green Belt Movement (Kenya)</h3>
+                            <p>Fondé par Wangari Maathai en 1977, ce mouvement a mobilisé des milliers de femmes pour planter des arbres, luttant ainsi contre la déforestation et l'érosion des sols tout en donnant aux femmes un pouvoir économique et social.</p>
+                            <p>Cette initiative, qui s'inscrit dans une perspective écoféministe même si elle ne s'est pas toujours revendiquée comme telle, illustre parfaitement comment l'autonomisation des femmes et la protection de l'environnement peuvent aller de pair.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Femmes plantant des arbres" class="w-full transform transition-transform duration-1000 hover:scale-110">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm">
+                                Le Green Belt Movement a conduit à la plantation de plus de 51 millions d'arbres
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section ressources avec design amélioré -->
+            <section class="content-section">
+                <h2 class="section-title">Ressources pour en savoir plus</h2>
+                
+                <!-- Livres recommandés -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-earth-green mb-4">Livres essentiels</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-book text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Le Féminisme ou la mort</h4>
+                                    <p class="text-gray-700">Françoise d'Eaubonne (1974)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-book text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Staying Alive: Women, Ecology and Development</h4>
+                                    <p class="text-gray-700">Vandana Shiva (1988)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-book text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Ecofeminism</h4>
+                                    <p class="text-gray-700">Maria Mies et Vandana Shiva (1993)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-book text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">The Death of Nature: Women, Ecology, and the Scientific Revolution</h4>
+                                    <p class="text-gray-700">Carolyn Merchant (1980)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Organisations et sites web -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-earth-green mb-4">Organisations et sites web</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Women's Earth Alliance</h4>
+                                    <p class="text-gray-700">Alliance qui soutient les femmes travaillant sur les questions environnementales à travers le monde.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Women's Environment & Development Organization</h4>
+                                    <p class="text-gray-700">Organisation internationale qui promeut les droits des femmes dans le contexte du développement durable.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+                </div>
+                </main>
+
+                <!-- Footer -->
+    <footer class="bg-earth-green text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Site non officiel – contenu pédagogique</p>
+            <p>&copy; 2025 - Journée internationale de la Terre nourricière</p>
+        </div>
+    </footer>
+</body>
+</html>

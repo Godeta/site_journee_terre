@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europe & Environnement | Journée internationale de la Terre nourricière</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Configuration de Tailwind avec notre palette de couleurs -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-green': '#4D7C0F',
+                        'earth-brown': '#8B5A2B',
+                        'off-white': '#F5F5F0',
+                        'light-purple': '#D8B4FE',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-off-white font-sans">
+    <!-- Header fixe -->
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false, languageIsEnglish: false }">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl">Terre Nourricière</a>
+            
+            <!-- Navigation desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors font-bold">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="language-selector ml-4">
+                    <span x-show="!languageIsEnglish">FR</span>
+                    <span x-show="languageIsEnglish">EN</span>
+                </button>
+            </nav>
+            
+            <!-- Bouton menu mobile -->
+            <button class="mobile-menu-button md:hidden text-white" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
+            <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors font-bold">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue mobile -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-show="!languageIsEnglish">🇫🇷 Français</span>
+                    <span x-show="languageIsEnglish">🇬🇧 English</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section bannière améliorée avec parallax -->
+    <section class="parallax-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519311726-5cced7383240?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+        <div class="parallax-content">
+            <h1>L'Europe & l'Environnement</h1>
+            <p>"Ensemble pour un avenir durable et une planète protégée"</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section introduction avec design amélioré -->
+            <section class="content-section mb-16">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <!-- Image avec effet de cadre -->
+                    <div class="md:w-2/5 overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Drapeau européen" class="w-full">
+                    </div>
+                    
+                    <!-- Texte introductif avec animation -->
+                    <div class="md:w-3/5">
+                        <h2 class="section-title text-left">Politique environnementale européenne</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p>L'Union européenne joue un rôle de premier plan dans la lutte mondiale contre le changement climatique et la protection de l'environnement. Depuis les années 1970, l'UE a mis en place une série de politiques environnementales parmi les plus ambitieuses au monde.</p>
+                            <p>Ces politiques visent à protéger les ressources naturelles, minimiser les impacts environnementaux, encourager l'utilisation durable des ressources et préserver la biodiversité à travers le continent européen.</p>
+                            <p>L'approche européenne se base sur le principe que la protection de l'environnement et la prospérité économique sont indissociables pour assurer un développement véritablement durable.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Timeline historique des politiques environnementales avec animation -->
+            <section class="mb-16">
+                <h2 class="section-title">Évolution des politiques environnementales</h2>
+                <div class="relative">
+                    <!-- Ligne verticale -->
+                    <div class="absolute left-0 md:left-1/2 ml-4 md:ml-0 h-full w-0.5 bg-earth-green transform md:-translate-x-1/2"></div>
+                    
+                    <!-- Éléments de la timeline -->
+                    <div class="space-y-12">
+                        <!-- Élément 1 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">1972</h3>
+                                <p class="text-gray-700">Premier Programme d'action pour l'environnement suite à la Conférence de Stockholm</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 2 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 order-2 md:order-1">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
+                                <h3 class="text-xl font-bold text-earth-green">1987</h3>
+                                <p class="text-gray-700">L'Acte unique européen intègre officiellement l'environnement dans les compétences européennes</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 3 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">1997</h3>
+                                <p class="text-gray-700">Traité d'Amsterdam renforce le développement durable comme objectif de l'UE</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 4 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 order-2 md:order-1">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
+                                <h3 class="text-xl font-bold text-earth-green">2019</h3>
+                                <p class="text-gray-700">Lancement du Pacte vert européen (European Green Deal)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 5 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">2021</h3>
+                                <p class="text-gray-700">Loi européenne sur le climat : objectif légalement contraignant de neutralité climatique d'ici 2050</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Pacte vert européen avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Le Pacte vert européen</h2>
+                <div class="space-y-4 text-gray-700 mb-8">
+                    <p>Le Pacte vert européen est la stratégie phare de l'UE pour transformer l'économie européenne en une économie moderne, efficace dans l'utilisation des ressources et compétitive. Son objectif principal est d'atteindre la neutralité climatique d'ici 2050.</p>
+                    <p>Cette initiative ambitieuse vise à dissocier la croissance économique de l'utilisation des ressources, tout en veillant à ce que personne ne soit laissé pour compte dans cette transition verte.</p>
+                </div>
+                
+                <!-- Stats en boîtes avec animations -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
+                        <i class="fas fa-chart-line text-4xl text-earth-green mb-4"></i>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">-55%</span>
+                        <span class="text-gray-700">d'émissions de gaz à effet de serre d'ici 2030</span>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
+                        <i class="fas fa-solar-panel text-4xl text-earth-green mb-4"></i>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">32%</span>
+                        <span class="text-gray-700">d'énergies renouvelables d'ici 2030</span>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
+                        <i class="fas fa-euro-sign text-4xl text-earth-green mb-4"></i>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">1 000+</span>
+                        <span class="text-gray-700">milliards d'euros d'investissements d'ici 2030</span>
+                    </div>
+                </div>
+                
+                <!-- Axes d'action avec couleur et animations -->
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Énergie propre</h3>
+                        </div>
+                        <p class="text-gray-700">Décarbonisation du système énergétique, priorité à l'efficacité énergétique et développement des énergies renouvelables.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Industrie durable</h3>
+                        </div>
+                        <p class="text-gray-700">Transformation des processus industriels pour développer une économie plus circulaire et réduire l'empreinte carbone.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Bâtiments écologiques</h3>
+                        </div>
+                        <p class="text-gray-700">Rénovation du parc immobilier pour améliorer l'efficacité énergétique des bâtiments et réduire les factures d'énergie.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Agriculture durable</h3>
+                        </div>
+                        <p class="text-gray-700">Stratégie "de la ferme à la table" pour un système alimentaire plus durable et réduction de l'impact environnemental.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Initiatives environnementales clés avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Initiatives environnementales clés</h2>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <div class="space-y-4 text-gray-700">
+                            <p>L'Union européenne déploie un large éventail d'initiatives pour protéger l'environnement et lutter contre le changement climatique. Ces programmes touchent tous les aspects de la durabilité environnementale.</p>
+                            <p>La stratégie pour la biodiversité, le plan d'action pour l'économie circulaire et le développement des énergies renouvelables sont parmi les initiatives phares qui transforment progressivement le paysage environnemental européen.</p>
+                            <blockquote class="border-l-4 border-earth-green pl-6 italic my-6 text-gray-600">
+                                "Le Pacte vert européen est notre nouvelle stratégie de croissance. Il nous aidera à réduire les émissions tout en créant des emplois."
+                                <span class="block mt-2 text-sm">— Ursula von der Leyen, Présidente de la Commission européenne</span>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Énergie renouvelable en Europe" class="w-full transform transition-transform duration-1000 hover:scale-110">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm">
+                                Les énergies renouvelables sont au cœur de la transition énergétique européenne
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cartes d'initiatives avec effet hover -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
+                    <div class="bg-white overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Biodiversité" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-earth-green mb-3">Biodiversité</h3>
+                            <p class="text-gray-700">La stratégie de l'UE pour la biodiversité vise à protéger et restaurer la nature en Europe d'ici 2030. Elle prévoit notamment d'étendre les zones protégées à 30% des terres et mers européennes.</p>
+                            <div class="mt-4">
+                                <a href="#" class="inline-flex items-center text-earth-green hover:text-earth-brown transition-colors">
+                                    En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Économie circulaire" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-earth-green mb-3">Économie circulaire</h3>
+                            <p class="text-gray-700">Le plan d'action pour l'économie circulaire vise à réduire les déchets, promouvoir la réutilisation des matériaux et créer des produits durables dès leur conception pour limiter l'épuisement des ressources.</p>
+                            <div class="mt-4">
+                                <a href="#" class="inline-flex items-center text-earth-green hover:text-earth-brown transition-colors">
+                                    En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Énergies renouvelables" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-earth-green mb-3">Énergies renouvelables</h3>
+                            <p class="text-gray-700">L'UE encourage le développement des énergies renouvelables avec l'objectif d'atteindre au moins 32% d'énergies renouvelables dans son mix énergétique d'ici 2030 et 40% d'ici 2040.</p>
+                            <div class="mt-4">
+                                <a href="#" class="inline-flex items-center text-earth-green hover:text-earth-brown transition-colors">
+                                    En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section carte interactive améliorée -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Carte des initiatives environnementales en Europe</h2>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <p class="text-center mb-6 text-gray-700">Découvrez les différentes initiatives environnementales à travers l'Europe. La carte ci-dessous présente des projets exemplaires dans divers domaines.</p>
+                    
+                    <div class="relative rounded-lg overflow-hidden shadow-md h-96 bg-earth-green bg-opacity-10 flex items-center justify-center">
+                        <!-- Emplacement pour future carte interactive -->
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-map-marked-alt text-4xl text-earth-green mb-4"></i>
+                            <p>Carte interactive des initiatives environnementales européennes</p>
+                            <p class="text-sm mt-2">Cliquez sur un pays pour découvrir ses projets phares</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Légende de la carte -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 rounded-full bg-green-600 mr-2"></div>
+                            <span class="text-sm">Projets d'énergie renouvelable</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 rounded-full bg-blue-600 mr-2"></div>
+                            <span class="text-sm">Conservation de l'eau</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 rounded-full bg-yellow-600 mr-2"></div>
+                            <span class="text-sm">Agriculture durable</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 rounded-full bg-purple-600 mr-2"></div>
+                            <span class="text-sm">Préservation de la biodiversité</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section ressources améliorée -->
+            <section class="content-section">
+                <h2 class="section-title">Ressources et références</h2>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-earth-green mb-2">Sites officiels</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="#" class="text-gray-700 hover:text-earth-green transition-colors">Commission européenne - Action pour le climat</a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="#" class="text-gray-700 hover:text-earth-green transition-colors">Pacte vert européen - Site officiel</a>
+                                </li>
+                                </ul>
+                                </div>
+                                </div>
+                                </div>
+                                </section>
+                                </div>
+                                </main>
+                                
+                <!-- Footer -->
+    <footer class="bg-earth-green text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Site non officiel – contenu pédagogique</p>
+            <p>&copy; 2025 - Journée internationale de la Terre nourricière</p>
+        </div>
+    </footer>
+</body>
+</html>

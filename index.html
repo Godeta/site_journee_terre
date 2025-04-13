@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr" x-data="locale">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="currentLanguage === 'fr' ? 'Journée internationale de la Terre nourricière' : 'International Mother Earth Day'"></title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Configuration de Tailwind avec notre palette de couleurs -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-green': '#4D7C0F',
+                        'earth-brown': '#8B5A2B',
+                        'off-white': '#F5F5F0',
+                        'light-purple': '#D8B4FE',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Script pour la localisation -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('locale', () => ({
+                currentLanguage: 'fr',
+                
+                // Tous les textes du site dans les deux langues
+                texts: {
+                    'site_title': {
+                        'fr': 'Terre Nourricière',
+                        'en': 'Mother Earth'
+                    },
+                    'nav_home': {
+                        'fr': 'Accueil',
+                        'en': 'Home'
+                    },
+                    'nav_wangari': {
+                        'fr': 'Wangari Maathai',
+                        'en': 'Wangari Maathai'
+                    },
+                    'nav_ecofeminism': {
+                        'fr': 'Écoféminisme',
+                        'en': 'Ecofeminism'
+                    },
+                    'nav_europe': {
+                        'fr': 'Europe & Environnement',
+                        'en': 'Europe & Environment'
+                    },
+                    'nav_indre': {
+                        'fr': 'L\'Indre s\'engage',
+                        'en': 'Indre Commitment'
+                    },
+                    'hero_title': {
+                        'fr': 'Journée internationale de la Terre nourricière',
+                        'en': 'International Mother Earth Day'
+                    },
+                    'hero_subtitle': {
+                        'fr': 'Célébrons ensemble notre planète le 22 avril',
+                        'en': 'Let\'s celebrate our planet together on April 22'
+                    },
+                    'about_title': {
+                        'fr': 'À propos de la Journée internationale de la Terre',
+                        'en': 'About International Earth Day'
+                    },
+                    'about_p1': {
+                        'fr': 'La Journée internationale de la Terre nourricière, célébrée chaque année le 22 avril, est une journée mondiale consacrée à la sensibilisation aux enjeux environnementaux et à la promotion d\'actions pour protéger notre planète.',
+                        'en': 'International Mother Earth Day, celebrated annually on April 22, is a global day dedicated to raising awareness about environmental issues and promoting actions to protect our planet.'
+                    },
+                    'about_p2': {
+                        'fr': 'Reconnue officiellement par les Nations Unies en 2009, cette journée symbolise l\'interdépendance entre les humains, les autres espèces vivantes et notre planète. Elle nous rappelle notre responsabilité collective de promouvoir l\'harmonie avec la nature et la Terre.',
+                        'en': 'Officially recognized by the United Nations in 2009, this day symbolizes the interdependence between humans, other living species, and our planet. It reminds us of our collective responsibility to promote harmony with nature and Earth.'
+                    },
+                    'about_p3': {
+                        'fr': 'Chaque année, cette journée mobilise des millions de personnes à travers le monde autour d\'initiatives diverses : plantations d\'arbres, nettoyages de sites naturels, conférences, ateliers éducatifs et débats sur les politiques environnementales.',
+                        'en': 'Each year, this day mobilizes millions of people around the world through various initiatives: tree planting, natural site cleanups, conferences, educational workshops, and debates on environmental policies.'
+                    },
+                    'events_title': {
+                        'fr': 'Événements marquants positifs',
+                        'en': 'Positive Milestone Events'
+                    },
+                    'paris_title': {
+                        'fr': 'Accord de Paris sur le climat',
+                        'en': 'Paris Climate Agreement'
+                    },
+                    'paris_content': {
+                        'fr': 'Signé en 2015, cet accord historique engage 196 pays à limiter le réchauffement climatique à moins de 2°C par rapport aux niveaux préindustriels.',
+                        'en': 'Signed in 2015, this historic agreement commits 196 countries to limit global warming to less than 2°C compared to pre-industrial levels.'
+                    },
+                    'plastic_title': {
+                        'fr': 'Interdiction des plastiques à usage unique',
+                        'en': 'Single-use Plastic Bans'
+                    },
+                    'plastic_content': {
+                        'fr': 'Plus de 60 pays dans le monde ont désormais adopté des interdictions ou des limitations concernant les plastiques à usage unique.',
+                        'en': 'More than 60 countries worldwide have now adopted bans or limitations on single-use plastics.'
+                    },
+                    'restoration_title': {
+                        'fr': 'Restauration des écosystèmes',
+                        'en': 'Ecosystem Restoration'
+                    },
+                    'restoration_content': {
+                        'fr': 'Des projets mondiaux ont permis de restaurer plus de 59 millions d\'hectares de forêts dégradées depuis 2000.',
+                        'en': 'Global projects have restored more than 59 million hectares of degraded forests since 2000.'
+                    },
+                    'renewable_title': {
+                        'fr': 'Croissance des énergies renouvelables',
+                        'en': 'Growth of Renewable Energy'
+                    },
+                    'renewable_content': {
+                        'fr': 'En 2023, les énergies renouvelables représentent plus de 30% de la production mondiale d\'électricité, contre moins de 20% en 2010.',
+                        'en': 'In 2023, renewable energy accounts for more than 30% of global electricity production, up from less than 20% in 2010.'
+                    },
+                    'discover_title': {
+                        'fr': 'Découvrir plus',
+                        'en': 'Discover More'
+                    },
+                    'challenge_title': {
+                        'fr': 'Le défi du quart de siècle',
+                        'en': 'The Quarter Century Challenge'
+                    },
+                    'challenge_content': {
+                        'fr': 'Un engagement mondial pour réduire les émissions de carbone de 25% d\'ici 25 ans à travers des actions individuelles et collectives.',
+                        'en': 'A global commitment to reduce carbon emissions by 25% within 25 years through individual and collective actions.'
+                    },
+                    'wangari_title': {
+                        'fr': 'Wangari Maathai',
+                        'en': 'Wangari Maathai'
+                    },
+                    'wangari_content': {
+                        'fr': 'Découvrez l\'héritage de cette militante écologiste kényane, première femme africaine lauréate du prix Nobel de la paix.',
+                        'en': 'Discover the legacy of this Kenyan environmental activist, the first African woman to receive the Nobel Peace Prize.'
+                    },
+                    'ecofem_title': {
+                        'fr': 'Écoféminisme',
+                        'en': 'Ecofeminism'
+                    },
+                    'ecofem_content': {
+                        'fr': 'Explorez ce mouvement qui établit des liens entre l\'exploitation de la nature et l\'oppression des femmes dans la société.',
+                        'en': 'Explore this movement that establishes connections between the exploitation of nature and the oppression of women in society.'
+                    },
+                    'europe_title': {
+                        'fr': 'Europe & Environnement',
+                        'en': 'Europe & Environment'
+                    },
+                    'europe_content': {
+                        'fr': 'Le Pacte vert européen et les initiatives majeures pour faire de l\'Europe le premier continent neutre en carbone.',
+                        'en': 'The European Green Deal and major initiatives to make Europe the first carbon-neutral continent.'
+                    },
+                    'footer_credit': {
+                        'fr': 'Arnaud GODET - Réseau JSSF',
+                        'en': 'Arnaud GODET - JSSF Network'
+                    },
+                    'footer_copyright': {
+                        'fr': '2025 - Journée internationale de la Terre nourricière',
+                        'en': '2025 - International Mother Earth Day'
+                    }
+                },
+                
+                // Méthode pour obtenir le texte dans la langue actuelle
+                t(key) {
+                    return this.texts[key][this.currentLanguage];
+                },
+                
+                // Méthode pour changer de langue
+                toggleLanguage() {
+                    this.currentLanguage = this.currentLanguage === 'fr' ? 'en' : 'fr';
+                    // Mettre à jour l'attribut lang de la balise html
+                    document.documentElement.lang = this.currentLanguage;
+                }
+            }));
+        });
+    </script>
+</head>
+<body class="bg-off-white font-sans">
+    <!-- Header fixe -->
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false }">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl" x-text="t('site_title')">Terre Nourricière</a>
+            
+            <!-- Navigation desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light-purple transition-colors" x-text="t('nav_home')">Accueil</a>
+                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors" x-text="t('nav_wangari')">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors" x-text="t('nav_ecofeminism')">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors" x-text="t('nav_europe')">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors" x-text="t('nav_indre')">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue -->
+                <button @click="toggleLanguage()" class="language-selector ml-4 bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 rounded-full transition-colors">
+                    <span x-text="currentLanguage === 'fr' ? 'FR' : 'EN'"></span>
+                </button>
+            </nav>
+            
+            <!-- Bouton menu mobile -->
+            <button class="mobile-menu-button md:hidden text-white" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
+            <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_home')">Accueil</a>
+                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_wangari')">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_ecofeminism')">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_europe')">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_indre')">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue mobile -->
+                <button @click="toggleLanguage()" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-text="currentLanguage === 'fr' ? '🇫🇷 Français' : '🇬🇧 English'"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section parallax avec titre -->
+    <section class="parallax-section parallax-bg">
+        <div class="parallax-content">
+            <h1 x-text="t('hero_title')">Journée internationale de la Terre nourricière</h1>
+            <p x-text="t('hero_subtitle')">Célébrons ensemble notre planète le 22 avril</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Section description -->
+        <section class="content-section">
+            <h2 class="section-title" x-text="t('about_title')">À propos de la Journée internationale de la Terre</h2>
+            <div class="max-w-3xl mx-auto text-gray-700">
+                <p class="mb-6" x-text="t('about_p1')">La Journée internationale de la Terre nourricière, célébrée chaque année le 22 avril, est une journée mondiale consacrée à la sensibilisation aux enjeux environnementaux et à la promotion d'actions pour protéger notre planète.</p>
+                <p class="mb-6" x-text="t('about_p2')">Reconnue officiellement par les Nations Unies en 2009, cette journée symbolise l'interdépendance entre les humains, les autres espèces vivantes et notre planète. Elle nous rappelle notre responsabilité collective de promouvoir l'harmonie avec la nature et la Terre.</p>
+                <p x-text="t('about_p3')">Chaque année, cette journée mobilise des millions de personnes à travers le monde autour d'initiatives diverses : plantations d'arbres, nettoyages de sites naturels, conférences, ateliers éducatifs et débats sur les politiques environnementales.</p>
+            </div>
+        </section>
+
+        <!-- Section événements marquants -->
+        <section class="content-section">
+            <h2 class="section-title" x-text="t('events_title')">Événements marquants positifs</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
+                        <h3 class="font-bold text-xl mb-2" x-text="t('paris_title')">Accord de Paris sur le climat</h3>
+                        <p x-text="t('paris_content')">Signé en 2015, cet accord historique engage 196 pays à limiter le réchauffement climatique à moins de 2°C par rapport aux niveaux préindustriels.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
+                        <h3 class="font-bold text-xl mb-2" x-text="t('plastic_title')">Interdiction des plastiques à usage unique</h3>
+                        <p x-text="t('plastic_content')">Plus de 60 pays dans le monde ont désormais adopté des interdictions ou des limitations concernant les plastiques à usage unique.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
+                        <h3 class="font-bold text-xl mb-2" x-text="t('restoration_title')">Restauration des écosystèmes</h3>
+                        <p x-text="t('restoration_content')">Des projets mondiaux ont permis de restaurer plus de 59 millions d'hectares de forêts dégradées depuis 2000.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
+                        <h3 class="font-bold text-xl mb-2" x-text="t('renewable_title')">Croissance des énergies renouvelables</h3>
+                        <p x-text="t('renewable_content')">En 2023, les énergies renouvelables représentent plus de 30% de la production mondiale d'électricité, contre moins de 20% en 2010.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section cartes de redirection -->
+        <section>
+            <h2 class="section-title" x-text="t('discover_title')">Découvrir plus</h2>
+            <div class="card-grid">
+                <!-- Carte 1 -->
+                <a href="#" class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1644827607243-bc73b472ebb7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZWFydGglMjBncmVlbnxlbnwwfHwwfHx8MA%3D%3D" alt="Le défi du quart de siècle">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" x-text="t('challenge_title')">Le défi du quart de siècle</h3>
+                        <p class="text-gray-600" x-text="t('challenge_content')">Un engagement mondial pour réduire les émissions de carbone de 25% d'ici 25 ans à travers des actions individuelles et collectives.</p>
+                    </div>
+                </a>
+                
+                <!-- Carte 2 -->
+                <a href="wangari-maathai.html" class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1644827607243-bc73b472ebb7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZWFydGglMjBncmVlbnxlbnwwfHwwfHx8MA%3D%3D" alt="Wangari Maathai">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" x-text="t('wangari_title')">Wangari Maathai</h3>
+                        <p class="text-gray-600" x-text="t('wangari_content')">Découvrez l'héritage de cette militante écologiste kényane, première femme africaine lauréate du prix Nobel de la paix.</p>
+                    </div>
+                </a>
+                
+                <!-- Carte 3 -->
+                <a href="ecofeminisme.html" class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1644827607243-bc73b472ebb7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZWFydGglMjBncmVlbnxlbnwwfHwwfHx8MA%3D%3D" alt="Écoféminisme">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" x-text="t('ecofem_title')">Écoféminisme</h3>
+                        <p class="text-gray-600" x-text="t('ecofem_content')">Explorez ce mouvement qui établit des liens entre l'exploitation de la nature et l'oppression des femmes dans la société.</p>
+                    </div>
+                </a>
+                
+                <!-- Carte 4 -->
+                <a href="europe-environnement.html" class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1644827607243-bc73b472ebb7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZWFydGglMjBncmVlbnxlbnwwfHwwfHx8MA%3D%3D" alt="Europe & Environnement">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" x-text="t('europe_title')">Europe & Environnement</h3>
+                        <p class="text-gray-600" x-text="t('europe_content')">Le Pacte vert européen et les initiatives majeures pour faire de l'Europe le premier continent neutre en carbone.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-earth-green text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2" x-text="t('footer_credit')">Arnaud GODET - Réseau JSSF</p>
+            <p>&copy; <span x-text="t('footer_copyright')">2025 - Journée internationale de la Terre nourricière</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript pour les effets améliorés -->
+    <script>
+        // Script pour améliorer l'effet parallax et le header au défilement
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrollPosition = window.pageYOffset;
+            
+            // Changement du style du header au défilement
+            if (scrollPosition > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Effet parallax amélioré
+            const parallax = document.querySelector('.parallax-bg');
+            if (parallax) {
+                parallax.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+            }
+        });
+        
+        // Défilement doux vers le contenu
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Indre s'engage | Journée internationale de la Terre nourricière</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Configuration de Tailwind avec notre palette de couleurs -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-green': '#4D7C0F',
+                        'earth-brown': '#8B5A2B',
+                        'off-white': '#F5F5F0',
+                        'light-purple': '#D8B4FE',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-off-white font-sans">
+    <!-- Header fixe -->
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false, languageIsEnglish: false }">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl">Terre Nourricière</a>
+            
+            <!-- Navigation desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors font-bold">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="language-selector ml-4">
+                    <span x-show="!languageIsEnglish">FR</span>
+                    <span x-show="languageIsEnglish">EN</span>
+                </button>
+            </nav>
+            
+            <!-- Bouton menu mobile -->
+            <button class="mobile-menu-button md:hidden text-white" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
+            <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors font-bold">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue mobile -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-show="!languageIsEnglish">🇫🇷 Français</span>
+                    <span x-show="languageIsEnglish">🇬🇧 English</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section parallax avec titre -->
+    <section class="parallax-section parallax-bg-indre">
+        <div class="parallax-content">
+            <h1>L'Indre s'engage</h1>
+            <p>Actions locales pour une terre plus verte</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2 class="section-title">Actions locales pour la planète</h2>
+            <div class="max-w-3xl mx-auto text-gray-700">
+                <p class="mb-6">Le département de l'Indre s'engage activement dans la protection de l'environnement à travers diverses initiatives locales qui mobilisent collectivités, associations et citoyens autour d'objectifs communs : préserver la biodiversité, réduire l'empreinte carbone et promouvoir un développement plus durable.</p>
+                <p class="mb-6">Nichée au cœur de la France, l'Indre abrite une biodiversité remarquable, notamment grâce au Parc naturel régional de la Brenne, ses étangs et ses zones humides qui constituent un écosystème unique à préserver. Les efforts de conservation mis en place visent à protéger ces espaces naturels exceptionnels tout en sensibilisant la population à leur importance.</p>
+            </div>
+        </section>
+
+        <!-- Initiatives locales -->
+        <section class="content-section bg-green-50 py-10 rounded-lg">
+            <h2 class="section-title">Initiatives locales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-earth-green transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-bold text-xl text-earth-brown mb-4">Collectivités engagées</h3>
+                    <p class="mb-4">Les collectivités locales de l'Indre mènent des actions concrètes pour réduire leur impact environnemental et promouvoir le développement durable dans leurs politiques publiques.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Programme "Châteauroux vert" - Aménagement d'espaces verts urbains et corridors écologiques</li>
+                        <li>Initiative "Zéro déchet" d'Issoudun - Réduction et valorisation des déchets municipaux</li>
+                        <li>Projet du Parc naturel régional de la Brenne - Conservation des zones humides et éducation environnementale</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-earth-green transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-bold text-xl text-earth-brown mb-4">Associations et citoyens</h3>
+                    <p class="mb-4">De nombreuses initiatives citoyennes et associatives fleurissent dans l'Indre, témoignant de l'engagement croissant de la population pour la protection de l'environnement.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Indre Nature - Actions de préservation de la biodiversité et sensibilisation du public</li>
+                        <li>Collectif "Indre en Transition" - Promotion des modes de vie durables et résilients</li>
+                        <li>Réseau des jardins partagés - Agriculture urbaine et lien social dans plusieurs communes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agriculture durable -->
+        <section class="content-section">
+            <h2 class="section-title">Agriculture durable dans l'Indre</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="mb-8 text-center text-lg text-gray-700">Le département de l'Indre développe activement des pratiques agricoles respectueuses de l'environnement, soutenant la transition vers une agriculture plus durable et résiliente.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-earth-green hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex justify-center mb-4 text-earth-green">
+                            <i class="fas fa-seedling fa-3x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-earth-brown text-center mb-3">Agriculture biologique</h3>
+                        <p class="text-gray-700">Plus de 120 fermes biologiques certifiées dans le département, couvrant près de 8% de la surface agricole utile.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-earth-green hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex justify-center mb-4 text-earth-green">
+                            <i class="fas fa-store fa-3x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-earth-brown text-center mb-3">Circuits courts</h3>
+                        <p class="text-gray-700">Réseau de 15 AMAP, marchés de producteurs hebdomadaires et plateformes de vente directe connectant agriculteurs et consommateurs.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-earth-green hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex justify-center mb-4 text-earth-green">
+                            <i class="fas fa-leaf fa-3x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-earth-brown text-center mb-3">Innovation agricole</h3>
+                        <p class="text-gray-700">Expérimentations en agroforesterie, pratiques régénératives et réduction des intrants chimiques menées par des agriculteurs pionniers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendrier des événements -->
+        <section class="content-section bg-green-50 py-10 rounded-lg">
+            <h2 class="section-title">Calendrier des événements</h2>
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-6 text-center">
+                    <h3 class="text-xl font-bold text-earth-brown mb-3">Événements à venir dans l'Indre</h3>
+                    <p class="italic text-gray-600">Rejoignez-nous pour ces événements environnementaux dans les prochains mois :</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-start border-l-4 border-earth-green pl-4 hover:bg-green-50 transition-colors p-3 rounded-r-lg">
+                        <div class="mr-4 bg-earth-green text-white h-16 w-16 flex flex-col items-center justify-center rounded-full">
+                            <span class="font-bold text-lg">22</span>
+                            <span class="text-xs">AVRIL</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Célébration de la Journée de la Terre</h4>
+                            <p class="text-gray-700">Place de la République, Châteauroux - 10h à 18h</p>
+                            <p class="text-sm mt-2">Ateliers, expositions et animations sur le thème de la biodiversité.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start border-l-4 border-earth-green pl-4 hover:bg-green-50 transition-colors p-3 rounded-r-lg">
+                        <div class="mr-4 bg-earth-green text-white h-16 w-16 flex flex-col items-center justify-center rounded-full">
+                            <span class="font-bold text-lg">5</span>
+                            <span class="text-xs">JUIN</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Journée mondiale de l'environnement</h4>
+                            <p class="text-gray-700">Activités dans tout le département</p>
+                            <p class="text-sm mt-2">Opérations de nettoyage, conférences et activités de sensibilisation.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start border-l-4 border-earth-green pl-4 hover:bg-green-50 transition-colors p-3 rounded-r-lg">
+                        <div class="mr-4 bg-earth-green text-white h-16 w-16 flex flex-col items-center justify-center rounded-full">
+                            <span class="font-bold text-lg">15</span>
+                            <span class="text-xs">SEPT</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Festival écologique de la Brenne</h4>
+                            <p class="text-gray-700">Maison du Parc, Rosnay</p>
+                            <p class="text-sm mt-2">Expositions, conférences, ateliers et marché de producteurs locaux.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie de projets -->
+        <section class="content-section">
+            <h2 class="section-title">Galerie des projets</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-gray-200 h-64 rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300 flex items-center justify-center relative group">
+                    <div class="absolute inset-0 bg-earth-green bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Restauration de zone humide</p>
+                    </div>
+                    <p class="text-gray-500">[Image projet 1]</p>
+                </div>
+                <div class="bg-gray-200 h-64 rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300 flex items-center justify-center relative group">
+                    <div class="absolute inset-0 bg-earth-green bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Jardins partagés urbains</p>
+                    </div>
+                    <p class="text-gray-500">[Image projet 2]</p>
+                </div>
+                <div class="bg-gray-200 h-64 rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300 flex items-center justify-center relative group">
+                    <div class="absolute inset-0 bg-earth-green bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-bold text-lg">Plantation d'arbres citoyenne</p>
+                    </div>
+                    <p class="text-gray-500">[Image projet 3]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact et participation -->
+        <section class="content-section bg-green-50 py-10 rounded-lg">
+            <h2 class="section-title">Participer aux initiatives locales</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <p class="mb-6 text-center text-lg">Vous souhaitez vous impliquer dans la protection de l'environnement dans l'Indre ? Contactez-nous !</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div>
+                        <h3 class="font-bold text-xl text-earth-brown mb-4">Contacts utiles</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-leaf text-earth-green mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Indre Nature</p>
+                                    <p>Email : contact@indrenature.org</p>
+                                    <p>Tél : 02 XX XX XX XX</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-building text-earth-green mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Service environnement du département</p>
+                                    <p>Email : environnement@indre.fr</p>
+                                    <p>Tél : 02 XX XX XX XX</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-xl text-earth-brown mb-4 text-center">Restez informé</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-1">Votre email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-earth-green" placeholder="exemple@email.com">
+                            </div>
+                            <div>
+                                <label for="interests" class="block text-gray-700 mb-1">Centres d'intérêt</label>
+                                <select id="interests" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-earth-green">
+                                    <option>Biodiversité</option>
+                                    <option>Agriculture durable</option>
+                                    <option>Énergie renouvelable</option>
+                                    <option>Zéro déchet</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-earth-green hover:bg-earth-brown text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+                                S'abonner à la newsletter
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-earth-green text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Arnaud GODET - Réseau JSSF</p>
+            <p>&copy; 2025 - Journée internationale de la Terre nourricière</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript pour les effets améliorés -->
+    <script>
+        // Script pour améliorer l'effet parallax et le header au défilement
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrollPosition = window.pageYOffset;
+            
+            // Changement du style du header au défilement
+            if (scrollPosition > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Effet parallax amélioré
+            const parallax = document.querySelector('.parallax-bg-indre');
+            if (parallax) {
+                parallax.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+            }
+        });
+        
+        // Défilement doux vers le contenu
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

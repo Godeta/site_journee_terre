@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wangari Maathai | Journée internationale de la Terre nourricière</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre fichier CSS personnalisé -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Configuration de Tailwind avec notre palette de couleurs -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-green': '#4D7C0F',
+                        'earth-brown': '#8B5A2B',
+                        'off-white': '#F5F5F0',
+                        'light-purple': '#D8B4FE',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-off-white font-sans">
+    <!-- Header fixe -->
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false, languageIsEnglish: false }">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl">Terre Nourricière</a>
+            
+            <!-- Navigation desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors font-bold">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="language-selector ml-4">
+                    <span x-show="!languageIsEnglish">FR</span>
+                    <span x-show="languageIsEnglish">EN</span>
+                </button>
+            </nav>
+            
+            <!-- Bouton menu mobile -->
+            <button class="mobile-menu-button md:hidden text-white" @click="mobileMenuOpen = !mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
+            <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors">Accueil</a>
+                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors font-bold">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                
+                <!-- Sélecteur de langue mobile -->
+                <button @click="languageIsEnglish = !languageIsEnglish" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-show="!languageIsEnglish">🇫🇷 Français</span>
+                    <span x-show="languageIsEnglish">🇬🇧 English</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section bannière améliorée avec parallax -->
+    <section class="parallax-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('income-activities.jpg');">
+        <div class="parallax-content">
+            <h1>Wangari Maathai</h1>
+            <p>"Lorsque nous plantons des arbres, nous plantons les graines de la paix et de l'espoir."</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section biographie avec design amélioré -->
+            <section class="content-section mb-16">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <!-- Image avec effet de cadre -->
+                    <div class="md:w-2/5 overflow-hidden rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
+                        <img src="Wangari Maathai Unep.png" alt="Wangari Maathai" class="w-full">
+                    </div>
+                    
+                    <!-- Texte biographique avec animation -->
+                    <div class="md:w-3/5">
+                        <h2 class="section-title text-left">Biographie</h2>
+                        <div class="space-y-4 text-gray-700">
+                            <p>Née le 1er avril 1940 à Nyeri, au Kenya, Wangari Maathai est devenue la première femme d'Afrique de l'Est à obtenir un doctorat. Biologiste de formation, elle a consacré sa vie à promouvoir un développement économique en harmonie avec l'environnement et les droits des femmes.</p>
+                            <p>En 1977, elle fonde le Mouvement de la Ceinture Verte, une initiative environnementale qui encourage les femmes à planter des arbres pour lutter contre la déforestation, préserver l'environnement et améliorer leur qualité de vie.</p>
+                            <p>Son engagement pour l'environnement, la démocratie et la paix lui a valu de nombreuses distinctions, culminant avec le Prix Nobel de la Paix en 2004, faisant d'elle la première femme africaine à recevoir cette prestigieuse récompense.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Timeline avec animation -->
+            <section class="mb-16">
+                <h2 class="section-title">Parcours exceptionnel</h2>
+                <div class="relative">
+                    <!-- Ligne verticale -->
+                    <div class="absolute left-0 md:left-1/2 ml-4 md:ml-0 h-full w-0.5 bg-earth-green transform md:-translate-x-1/2"></div>
+                    
+                    <!-- Éléments de la timeline -->
+                    <div class="space-y-12">
+                        <!-- Élément 1 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">1940</h3>
+                                <p class="text-gray-700">Naissance à Nyeri, Kenya</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 2 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 order-2 md:order-1">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
+                                <h3 class="text-xl font-bold text-earth-green">1971</h3>
+                                <p class="text-gray-700">Doctorat en sciences biologiques, première femme d'Afrique de l'Est à obtenir un tel diplôme</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 3 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">1977</h3>
+                                <p class="text-gray-700">Fondation du Mouvement de la Ceinture Verte</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 4 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 order-2 md:order-1">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
+                                <h3 class="text-xl font-bold text-earth-green">2004</h3>
+                                <p class="text-gray-700">Prix Nobel de la Paix, première femme africaine lauréate</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Élément 5 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
+                            <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
+                                <h3 class="text-xl font-bold text-earth-green">2011</h3>
+                                <p class="text-gray-700">Décès à Nairobi, laissant un héritage mondial</p>
+                            </div>
+                            <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
+                                <i class="fas fa-dove"></i>
+                            </div>
+                            <div class="flex-1 md:pl-8 order-3">
+                                <!-- Espace pour garder la symétrie -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Mouvement de la Ceinture Verte avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Le Mouvement de la Ceinture Verte</h2>
+                <div class="space-y-4 text-gray-700 mb-8">
+                    <p>Le Mouvement de la Ceinture Verte, fondé par Wangari Maathai en 1977, est une organisation environnementale qui mobilise les communautés, en particulier les femmes, pour planter des arbres, conserver la biodiversité, restaurer les écosystèmes et améliorer les moyens de subsistance.</p>
+                    <p>Cette initiative a transformé des paysages dégradés en terres fertiles et productives, tout en donnant aux femmes un rôle central dans la protection de l'environnement et la lutte contre les changements climatiques.</p>
+                </div>
+                
+                <!-- Stats en boîtes avec animations -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
+                        <i class="fas fa-tree text-4xl text-earth-green mb-4"></i>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">51+ millions</span>
+                        <span class="text-gray-700">d'arbres plantés</span>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
+                        <i class="fas fa-users text-4xl text-earth-green mb-4"></i>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">900 000+</span>
+                        <span class="text-gray-700">femmes impliquées</span>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
+                        <i class="fas fa-globe-africa text-4xl text-earth-green mb-4"></i>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">30+</span>
+                        <span class="text-gray-700">pays africains</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700">Aujourd'hui, le Mouvement de la Ceinture Verte continue d'inspirer des initiatives similaires à travers le monde, démontrant comment les communautés locales peuvent jouer un rôle crucial dans la conservation de l'environnement et le développement durable.</p>
+            </section>
+            
+            <!-- Section Prix Nobel avec design amélioré -->
+            <section class="content-section mb-16">
+                <h2 class="section-title">Prix Nobel de la Paix</h2>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <div class="space-y-4 text-gray-700">
+                            <p>En 2004, Wangari Maathai est devenue la première femme africaine à recevoir le Prix Nobel de la Paix pour "sa contribution au développement durable, à la démocratie et à la paix".</p>
+                            <p>Cette reconnaissance a souligné le lien intrinsèque entre la préservation de l'environnement, la justice sociale et la paix mondiale, mettant en lumière comment les conflits pour les ressources naturelles peuvent être prévenus par une gestion durable de l'environnement.</p>
+                            <blockquote class="border-l-4 border-earth-green pl-6 italic my-6 text-gray-600">
+                                "La paix sur terre dépend de notre capacité à protéger notre environnement vivant. J'ai toujours su que mon destin est lié à celui de notre terre, que notre avenir et celui de nos enfants sont liés à la manière dont nous conservons cet héritage précieux."
+                            </blockquote>
+                            <p>Ce prix a propulsé son travail et ses idées sur la scène mondiale, inspirant d'innombrables personnes à s'engager dans la protection de l'environnement et le développement durable.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Prix Nobel de la Paix" class="w-full transform transition-transform duration-1000 hover:scale-110">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm">
+                                Le Prix Nobel de la Paix reconnaît les contributions exceptionnelles à la promotion de la paix mondiale
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section héritage avec design amélioré -->
+            <section class="content-section">
+                <h2 class="section-title">Héritage et influence</h2>
+                
+                <!-- Galerie d'influence -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Environnementalisme africain</h3>
+                        </div>
+                        <p class="text-gray-700">Elle a transformé l'approche de la conservation environnementale en Afrique, en liant la protection de l'environnement au développement économique et à l'autonomisation des femmes.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Droits des femmes</h3>
+                        </div>
+                        <p class="text-gray-700">Son travail a démontré comment l'autonomisation des femmes peut conduire à des solutions durables aux défis environnementaux et sociaux.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Justice environnementale</h3>
+                        </div>
+                        <p class="text-gray-700">Elle a popularisé le concept de justice environnementale, soulignant que les communautés pauvres souffrent de manière disproportionnée des dégradations environnementales.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-earth-green">Activisme mondial</h3>
+                        </div>
+                        <p class="text-gray-700">Son modèle d'activisme a inspiré des mouvements environnementaux communautaires dans le monde entier, montrant que le changement commence au niveau local.</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 text-gray-700">
+                    <p>Après son décès en 2011, l'héritage de Wangari Maathai continue de vivre à travers l'Institut Wangari Maathai, qui perpétue sa vision et ses valeurs. Son approche holistique du développement durable inspire toujours de nouvelles générations d'activistes environnementaux et sociaux.</p>
+                    <p>Comme elle l'a si bien dit : "Nous ne pouvons pas nous fatiguer ou abandonner. Nous devons persévérer." Son message d'espoir et de persévérance reste plus pertinent que jamais dans notre lutte mondiale contre le changement climatique et la dégradation environnementale.</p>
+                </div>
+                
+                <!-- Appel à l'action -->
+                <div class="mt-12 bg-earth-green bg-opacity-10 p-8 rounded-lg border-l-4 border-earth-green">
+                    <h3 class="text-xl font-bold text-earth-green mb-4">Continuez son combat</h3>
+                    <p class="mb-6 text-gray-700">Inspirez-vous de Wangari Maathai et rejoignez le mouvement pour protéger notre planète. Chaque action compte, même la plus petite.</p>
+                    <a href="#" class="inline-block bg-earth-green text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-colors transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                        Découvrir comment agir <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-earth-green text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Site non officiel – contenu pédagogique</p>
+            <p>&copy; 2025 - Journée internationale de la Terre nourricière</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript pour les effets améliorés -->
+    <script>
+        // Script pour améliorer l'effet parallax et le header au défilement
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrollPosition = window.pageYOffset;
+            
+            // Changement du style du header au défilement
+            if (scrollPosition > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Effet parallax amélioré
+            const parallax = document.querySelector('.parallax-section');
+            if (parallax) {
+                parallax.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+            }
+            
+            // Animation des éléments au défilement (apparition progressive)
+            const animatedElements = document.querySelectorAll('.content-section');
+            animatedElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+                
+                if (elementPosition < screenHeight * 0.85) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialisation des animations au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Défilement doux vers le contenu
+            document.querySelector('.scroll-indicator').addEventListener('click', function() {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Déclencher une vérification initiale des animations
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 300);
+        });
+    </script>
+</body>
+</html>
