@@ -6,14 +6,26 @@
     <title>Écoféminisme | Journée internationale de la Terre nourricière</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                terre: '#a16c4a',
+                herbe: '#6ea36f',
+              }
+            }
+          }
+        }
+      </script>
     <!-- Alpine.js via CDN -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <script defer src="alpine.js"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="css/google.css" rel="stylesheet">
     <!-- Font Awesome pour icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
     <!-- Notre fichier CSS personnalisé -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Configuration de Tailwind avec notre palette de couleurs -->
     <script>
         tailwind.config = {
@@ -150,7 +162,7 @@
                             </div>
                             <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
                                 <h3 class="text-xl font-bold text-earth-green">1980-1990</h3>
-                                <p class="text-gray-700">Développement du mouvement aux États-Unis et en Inde</p>
+                                <p class="text-gray-700">Développement du mouvement aux États-Unis et en Inde, avec des figures comme Carolyn Merchant, Vandana Shiva et Starhawk</p>
                             </div>
                         </div>
                         
