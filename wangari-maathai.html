@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" x-data="locale">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wangari Maathai | Journée internationale de la Terre nourricière</title>
+    <title x-text="t('page_title')">Wangari Maathai | Journée internationale de la Terre nourricière</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -41,25 +41,245 @@
             }
         }
     </script>
+    
+    <!-- Script pour la gestion des langues -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('locale', () => ({
+                currentLanguage: 'fr',
+                
+                // Tous les textes du site dans les deux langues
+                texts: {
+                    'page_title': {
+                        'fr': 'Wangari Maathai | Journée internationale de la Terre nourricière',
+                        'en': 'Wangari Maathai | International Mother Earth Day'
+                    },
+                    'site_title': {
+                        'fr': 'Terre Nourricière',
+                        'en': 'Mother Earth'
+                    },
+                    'accueil': {
+                        'fr': 'Accueil',
+                        'en': 'Home'
+                    },
+                    'ecofeminisme': {
+                        'fr': 'Écoféminisme',
+                        'en': 'Ecofeminism'
+                    },
+                    'europe_env': {
+                        'fr': 'Europe & Environnement',
+                        'en': 'Europe & Environment'
+                    },
+                    'indre_engage': {
+                        'fr': "L'Indre s'engage",
+                        'en': "Indre's Commitment"
+                    },
+                    'language_fr': {
+                        'fr': '🇫🇷 Français',
+                        'en': '🇫🇷 Français'
+                    },
+                    'language_en': {
+                        'fr': '🇬🇧 English',
+                        'en': '🇬🇧 English'
+                    },
+                    'quote': {
+                        'fr': '"Lorsque nous plantons des arbres, nous plantons les graines de la paix et de l\'espoir." ¹',
+                        'en': '"When we plant trees, we plant the seeds of peace and hope." ¹'
+                    },
+                    'biographie': {
+                        'fr': 'Biographie',
+                        'en': 'Biography'
+                    },
+                    'bio_text_1': {
+                        'fr': "Née le 1er avril 1940 à Nyeri, au Kenya, Wangari Maathai est devenue la première femme professeure d'université au Kenya². Biologiste de formation, elle a consacré sa vie à promouvoir un développement économique en harmonie avec l'environnement et les droits des femmes.",
+                        'en': 'Born on April 1, 1940, in Nyeri, Kenya, Wangari Maathai became the first female university professor in Kenya². A trained biologist, she devoted her life to promoting economic development in harmony with the environment and women\'s rights.'
+                    },
+                    'bio_text_2': {
+                        'fr': "En 1977, elle fonde le Mouvement de la Ceinture Verte, une initiative environnementale qui encourage les femmes à planter des arbres pour lutter contre la déforestation, préserver l'environnement et améliorer leur qualité de vie.",
+                        'en': 'In 1977, she founded the Green Belt Movement, an environmental initiative that encourages women to plant trees to combat deforestation, preserve the environment, and improve their quality of life.'
+                    },
+                    'bio_text_3': {
+                        'fr': "Son engagement pour l'environnement, la démocratie et la paix lui a valu de nombreuses distinctions, culminant avec le Prix Nobel de la Paix en 2004, faisant d'elle la première femme africaine à recevoir cette prestigieuse récompense.",
+                        'en': 'Her commitment to the environment, democracy, and peace earned her numerous distinctions, culminating in the Nobel Peace Prize in 2004, making her the first African woman to receive this prestigious award.'
+                    },
+                    'parcours': {
+                        'fr': 'Parcours exceptionnel',
+                        'en': 'Exceptional Journey'
+                    },
+                    'naissance': {
+                        'fr': 'Naissance à Nyeri, Kenya',
+                        'en': 'Born in Nyeri, Kenya'
+                    },
+                    'doctorat': {
+                        'fr': 'Doctorat en sciences biologiques, première femme d\'Afrique de l\'Est à obtenir un tel diplôme',
+                        'en': 'PhD in Biological Sciences, first East African woman to obtain such a degree'
+                    },
+                    'fondation': {
+                        'fr': 'Fondation du Mouvement de la Ceinture Verte',
+                        'en': 'Foundation of the Green Belt Movement'
+                    },
+                    'nobel': {
+                        'fr': 'Prix Nobel de la Paix, première femme africaine lauréate',
+                        'en': 'Nobel Peace Prize, first African woman laureate'
+                    },
+                    'deces': {
+                        'fr': 'Décès à Nairobi, laissant un héritage mondial',
+                        'en': 'Death in Nairobi, leaving a global legacy'
+                    },
+                    'mouvement_titre': {
+                        'fr': 'Le Mouvement de la Ceinture Verte',
+                        'en': 'The Green Belt Movement'
+                    },
+                    'mouvement_text_1': {
+                        'fr': 'Le Mouvement de la Ceinture Verte, fondé par Wangari Maathai en 1977, est une organisation environnementale qui mobilise les communautés, en particulier les femmes, pour planter des arbres, conserver la biodiversité, restaurer les écosystèmes et améliorer les moyens de subsistance.',
+                        'en': 'The Green Belt Movement, founded by Wangari Maathai in 1977, is an environmental organization that mobilizes communities, particularly women, to plant trees, conserve biodiversity, restore ecosystems, and improve livelihoods.'
+                    },
+                    'mouvement_text_2': {
+                        'fr': "Cette initiative a transformé des paysages dégradés en terres fertiles et productives, tout en donnant aux femmes un rôle central dans la protection de l'environnement et la lutte contre les changements climatiques.",
+                        'en': 'This initiative has transformed degraded landscapes into fertile and productive lands, while giving women a central role in environmental protection and the fight against climate change.'
+                    },
+                    'arbres': {
+                        'fr': 'd\'arbres plantés³',
+                        'en': 'trees planted³'
+                    },
+                    'femmes': {
+                        'fr': 'femmes impliquées⁴',
+                        'en': 'women involved⁴'
+                    },
+                    'pays': {
+                        'fr': 'pays africains⁵',
+                        'en': 'African countries⁵'
+                    },
+                    'mouvement_text_3': {
+                        'fr': 'Aujourd\'hui, le Mouvement de la Ceinture Verte continue d\'inspirer des initiatives similaires à travers le monde, démontrant comment les communautés locales peuvent jouer un rôle crucial dans la conservation de l\'environnement et le développement durable.',
+                        'en': 'Today, the Green Belt Movement continues to inspire similar initiatives around the world, demonstrating how local communities can play a crucial role in environmental conservation and sustainable development.'
+                    },
+                    'mouvement_text_4': {
+                        'fr': 'En s\'appuyant sur une approche fondée sur les bassins versants, le Mouvement de la Ceinture Verte mobilise plus de 4 000 groupes communautaires pour planter des arbres, restaurer les écosystèmes dégradés et promouvoir la récolte de l\'eau, contribuant ainsi à la résilience climatique des zones rurales. ⁵',
+                        'en': 'Using a watershed-based approach, the Green Belt Movement mobilizes more than 4,000 community groups to plant trees, restore degraded ecosystems, and promote water harvesting, thereby contributing to the climate resilience of rural areas. ⁵'
+                    },
+                    'prix_nobel': {
+                        'fr': 'Prix Nobel de la Paix',
+                        'en': 'Nobel Peace Prize'
+                    },
+                    'nobel_text_1': {
+                        'fr': 'En 2004, Wangari Maathai est devenue la première femme africaine à recevoir le Prix Nobel de la Paix pour "sa contribution au développement durable, à la démocratie et à la paix".',
+                        'en': 'In 2004, Wangari Maathai became the first African woman to receive the Nobel Peace Prize for "her contribution to sustainable development, democracy, and peace".'
+                    },
+                    'nobel_text_2': {
+                        'fr': 'Cette reconnaissance a souligné le lien intrinsèque entre la préservation de l\'environnement, la justice sociale et la paix mondiale, mettant en lumière comment les conflits pour les ressources naturelles peuvent être prévenus par une gestion durable de l\'environnement.',
+                        'en': 'This recognition highlighted the intrinsic link between environmental preservation, social justice, and world peace, highlighting how conflicts over natural resources can be prevented through sustainable environmental management.'
+                    },
+                    'nobel_quote': {
+                        'fr': '" Il est évident que de nombreuses guerres sont menées pour des ressources qui deviennent de plus en plus rares. Si nous conservions mieux nos ressources, ces conflits n\'auraient pas lieu… Protéger l\'environnement mondial est directement lié à la préservation de la paix. Ceux d\'entre nous qui comprennent la complexité de l\'environnement ont le devoir d\'agir. Nous ne devons pas nous lasser, nous ne devons pas abandonner, nous devons persister." ⁶',
+                        'en': '" It\'s evident that many wars are fought over resources that are becoming increasingly scarce. If we better conserved our resources, these conflicts wouldn\'t happen... Protecting the global environment is directly related to preserving peace. Those of us who understand the complexity of the environment have a duty to act. We must not tire, we must not give up, we must persist." ⁶'
+                    },
+                    'nobel_text_3': {
+                        'fr': 'Ce prix a propulsé son travail et ses idées sur la scène mondiale, inspirant d\'innombrables personnes à s\'engager dans la protection de l\'environnement et le développement durable.',
+                        'en': 'This prize propelled her work and ideas onto the world stage, inspiring countless people to engage in environmental protection and sustainable development.'
+                    },
+                    'nobel_caption': {
+                        'fr': 'Le Prix Nobel de la Paix reconnaît les contributions exceptionnelles à la promotion de la paix mondiale',
+                        'en': 'The Nobel Peace Prize recognizes exceptional contributions to the promotion of world peace'
+                    },
+                    'heritage': {
+                        'fr': 'Héritage et influence',
+                        'en': 'Legacy and Influence'
+                    },
+                    'env_africain': {
+                        'fr': 'Environnementalisme africain',
+                        'en': 'African Environmentalism'
+                    },
+                    'env_text': {
+                        'fr': 'Elle a transformé l\'approche de la conservation environnementale en Afrique, en liant la protection de l\'environnement au développement économique et à l\'autonomisation des femmes.',
+                        'en': 'She transformed the approach to environmental conservation in Africa by linking environmental protection to economic development and women\'s empowerment.'
+                    },
+                    'droits_femmes': {
+                        'fr': 'Droits des femmes',
+                        'en': 'Women\'s Rights'
+                    },
+                    'droits_text': {
+                        'fr': 'Son travail a démontré comment l\'autonomisation des femmes peut conduire à des solutions durables aux défis environnementaux et sociaux.',
+                        'en': 'Her work demonstrated how women\'s empowerment can lead to sustainable solutions to environmental and social challenges.'
+                    },
+                    'justice_env': {
+                        'fr': 'Justice environnementale',
+                        'en': 'Environmental Justice'
+                    },
+                    'justice_text': {
+                        'fr': 'Elle a popularisé le concept de justice environnementale, soulignant que les communautés pauvres souffrent de manière disproportionnée des dégradations environnementales.',
+                        'en': 'She popularized the concept of environmental justice, emphasizing that poor communities suffer disproportionately from environmental degradation.'
+                    },
+                    'activisme': {
+                        'fr': 'Activisme mondial',
+                        'en': 'Global Activism'
+                    },
+                    'activisme_text': {
+                        'fr': 'Son modèle d\'activisme a inspiré des mouvements environnementaux communautaires dans le monde entier, montrant que le changement commence au niveau local.',
+                        'en': 'Her model of activism has inspired community environmental movements worldwide, showing that change begins at the local level.'
+                    },
+                    'heritage_text_1': {
+                        'fr': 'Après son décès en 2011, l\'héritage de Wangari Maathai continue de vivre⁷ à travers l\'Institut Wangari Maathai, qui perpétue sa vision et ses valeurs. Son approche holistique du développement durable inspire toujours de nouvelles générations d\'activistes environnementaux et sociaux.',
+                        'en': 'After her death in 2011, Wangari Maathai\'s legacy continues to live⁷ through the Wangari Maathai Institute, which perpetuates her vision and values. Her holistic approach to sustainable development continues to inspire new generations of environmental and social activists.'
+                    },
+                    'heritage_text_2': {
+                        'fr': 'De nombreuses personnes perpétuent son combat au sein du mouvement notamment sa fille, Wanjira Mathai, qui a été selectionnée comme l\'une des 100 personnalités africaines les plus influentes par le magasine New African en 2018. Je vous invite à lire son témoignage dans le lien 7 des ressources ci-dessous.',
+                        'en': 'Many people perpetuate her fight within the movement, notably her daughter, Wanjira Mathai, who was selected as one of the 100 most influential African personalities by New African magazine in 2018. I invite you to read her testimony in link 7 of the resources below.'
+                    },
+                    'ressources': {
+                        'fr': 'Ressources et références',
+                        'en': 'Resources and References'
+                    },
+                    'liens': {
+                        'fr': 'Liens',
+                        'en': 'Links'
+                    },
+                    'site_demo': {
+                        'fr': 'Site non officiel – contenu pédagogique',
+                        'en': 'Unofficial site – educational content'
+                    },
+                    'copyright': {
+                        'fr': '© 2025 - Journée internationale de la Terre nourricière',
+                        'en': '© 2025 - International Mother Earth Day'
+                    }
+                },
+                
+                // Méthode pour obtenir le texte dans la langue actuelle
+                t(key) {
+                    if (this.texts[key] && this.texts[key][this.currentLanguage]) {
+                        return this.texts[key][this.currentLanguage];
+                    }
+                    return key;
+                },
+                
+                // Méthode pour changer de langue
+                toggleLanguage() {
+                    this.currentLanguage = this.currentLanguage === 'fr' ? 'en' : 'fr';
+                    // Mettre à jour l'attribut lang de la balise html
+                    document.documentElement.lang = this.currentLanguage;
+                }
+            }));
+        });
+    </script>
 </head>
 <body class="bg-off-white font-sans">
     <!-- Header fixe -->
-    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false, languageIsEnglish: false }">
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false }">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl">Terre Nourricière</a>
+            <a href="index.html" class="font-bold text-2xl" x-text="t('site_title')">Terre Nourricière</a>
             
             <!-- Navigation desktop -->
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="hover:text-light-purple transition-colors">Accueil</a>
+                <a href="index.html" class="hover:text-light-purple transition-colors" x-text="t('accueil')">Accueil</a>
                 <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors font-bold">Wangari Maathai</a>
-                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors">Écoféminisme</a>
-                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors">Europe & Environnement</a>
-                <a href="indre-engage.html" class="hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors" x-text="t('ecofeminisme')">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors" x-text="t('europe_env')">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors" x-text="t('indre_engage')">L'Indre s'engage</a>
                 
                 <!-- Sélecteur de langue -->
-                <button @click="languageIsEnglish = !languageIsEnglish" class="language-selector ml-4">
-                    <span x-show="!languageIsEnglish">FR</span>
-                    <span x-show="languageIsEnglish">EN</span>
+                <button @click="toggleLanguage()" class="language-selector ml-4">
+                    <span x-show="currentLanguage === 'fr'">FR</span>
+                    <span x-show="currentLanguage === 'en'">EN</span>
                 </button>
             </nav>
             
@@ -74,16 +294,16 @@
         <!-- Menu mobile -->
         <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
             <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
-                <a href="index.html" class="py-3 hover:text-light-purple transition-colors">Accueil</a>
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('accueil')">Accueil</a>
                 <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors font-bold">Wangari Maathai</a>
-                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors">Écoféminisme</a>
-                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors">Europe & Environnement</a>
-                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('ecofeminisme')">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('europe_env')">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('indre_engage')">L'Indre s'engage</a>
                 
                 <!-- Sélecteur de langue mobile -->
-                <button @click="languageIsEnglish = !languageIsEnglish" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
-                    <span x-show="!languageIsEnglish">🇫🇷 Français</span>
-                    <span x-show="languageIsEnglish">🇬🇧 English</span>
+                <button @click="toggleLanguage()" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-show="currentLanguage === 'fr'" x-text="t('language_fr')">🇫🇷 Français</span>
+                    <span x-show="currentLanguage === 'en'" x-text="t('language_en')">🇬🇧 English</span>
                 </button>
             </nav>
         </div>
@@ -93,7 +313,7 @@
     <section class="parallax-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('income-activities.jpg');">
         <div class="parallax-content">
             <h1>Wangari Maathai</h1>
-            <p>"Lorsque nous plantons des arbres, nous plantons les graines de la paix et de l'espoir."</p>
+            <p x-text="t('quote')">"Lorsque nous plantons des arbres, nous plantons les graines de la paix et de l'espoir." ¹</p>
         </div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down fa-2x"></i>
@@ -113,11 +333,11 @@
                     
                     <!-- Texte biographique avec animation -->
                     <div class="md:w-3/5">
-                        <h2 class="section-title text-left">Biographie</h2>
+                        <h2 class="section-title text-left" x-text="t('biographie')">Biographie</h2>
                         <div class="space-y-4 text-gray-700">
-                            <p>Née le 1er avril 1940 à Nyeri, au Kenya, Wangari Maathai est devenue la première femme d'Afrique de l'Est à obtenir un doctorat. Biologiste de formation, elle a consacré sa vie à promouvoir un développement économique en harmonie avec l'environnement et les droits des femmes.</p>
-                            <p>En 1977, elle fonde le Mouvement de la Ceinture Verte, une initiative environnementale qui encourage les femmes à planter des arbres pour lutter contre la déforestation, préserver l'environnement et améliorer leur qualité de vie.</p>
-                            <p>Son engagement pour l'environnement, la démocratie et la paix lui a valu de nombreuses distinctions, culminant avec le Prix Nobel de la Paix en 2004, faisant d'elle la première femme africaine à recevoir cette prestigieuse récompense.</p>
+                            <p x-text="t('bio_text_1')">Née le 1er avril 1940 à Nyeri, au Kenya, Wangari Maathai est devenue la première femme professeure d'université au Kenya². Biologiste de formation, elle a consacré sa vie à promouvoir un développement économique en harmonie avec l'environnement et les droits des femmes.</p>
+                            <p x-text="t('bio_text_2')">En 1977, elle fonde le Mouvement de la Ceinture Verte, une initiative environnementale qui encourage les femmes à planter des arbres pour lutter contre la déforestation, préserver l'environnement et améliorer leur qualité de vie.</p>
+                            <p x-text="t('bio_text_3')">Son engagement pour l'environnement, la démocratie et la paix lui a valu de nombreuses distinctions, culminant avec le Prix Nobel de la Paix en 2004, faisant d'elle la première femme africaine à recevoir cette prestigieuse récompense.</p>
                         </div>
                     </div>
                 </div>
@@ -125,7 +345,7 @@
             
             <!-- Timeline avec animation -->
             <section class="mb-16">
-                <h2 class="section-title">Parcours exceptionnel</h2>
+                <h2 class="section-title" x-text="t('parcours')">Parcours exceptionnel</h2>
                 <div class="relative">
                     <!-- Ligne verticale -->
                     <div class="absolute left-0 md:left-1/2 ml-4 md:ml-0 h-full w-0.5 bg-earth-green transform md:-translate-x-1/2"></div>
@@ -136,7 +356,7 @@
                         <div class="relative flex flex-col md:flex-row items-center md:justify-between">
                             <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
                                 <h3 class="text-xl font-bold text-earth-green">1940</h3>
-                                <p class="text-gray-700">Naissance à Nyeri, Kenya</p>
+                                <p class="text-gray-700" x-text="t('naissance')">Naissance à Nyeri, Kenya</p>
                             </div>
                             <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
                                 <i class="fas fa-baby"></i>
@@ -156,7 +376,7 @@
                             </div>
                             <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
                                 <h3 class="text-xl font-bold text-earth-green">1971</h3>
-                                <p class="text-gray-700">Doctorat en sciences biologiques, première femme d'Afrique de l'Est à obtenir un tel diplôme</p>
+                                <p class="text-gray-700" x-text="t('doctorat')">Doctorat en sciences biologiques, première femme d'Afrique de l'Est à obtenir un tel diplôme</p>
                             </div>
                         </div>
                         
@@ -164,7 +384,7 @@
                         <div class="relative flex flex-col md:flex-row items-center md:justify-between">
                             <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
                                 <h3 class="text-xl font-bold text-earth-green">1977</h3>
-                                <p class="text-gray-700">Fondation du Mouvement de la Ceinture Verte</p>
+                                <p class="text-gray-700" x-text="t('fondation')">Fondation du Mouvement de la Ceinture Verte</p>
                             </div>
                             <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
                                 <i class="fas fa-seedling"></i>
@@ -184,7 +404,7 @@
                             </div>
                             <div class="flex-1 md:pl-8 mb-4 md:mb-0 order-3">
                                 <h3 class="text-xl font-bold text-earth-green">2004</h3>
-                                <p class="text-gray-700">Prix Nobel de la Paix, première femme africaine lauréate</p>
+                                <p class="text-gray-700" x-text="t('nobel')">Prix Nobel de la Paix, première femme africaine lauréate</p>
                             </div>
                         </div>
                         
@@ -192,7 +412,7 @@
                         <div class="relative flex flex-col md:flex-row items-center md:justify-between">
                             <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 order-2 md:order-1">
                                 <h3 class="text-xl font-bold text-earth-green">2011</h3>
-                                <p class="text-gray-700">Décès à Nairobi, laissant un héritage mondial</p>
+                                <p class="text-gray-700" x-text="t('deces')">Décès à Nairobi, laissant un héritage mondial</p>
                             </div>
                             <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-earth-green text-white shadow-lg md:mx-0 order-1 md:order-2">
                                 <i class="fas fa-dove"></i>
@@ -207,10 +427,10 @@
             
             <!-- Section Mouvement de la Ceinture Verte avec design amélioré -->
             <section class="content-section mb-16">
-                <h2 class="section-title">Le Mouvement de la Ceinture Verte</h2>
+                <h2 class="section-title" x-text="t('mouvement_titre')">Le Mouvement de la Ceinture Verte</h2>
                 <div class="space-y-4 text-gray-700 mb-8">
-                    <p>Le Mouvement de la Ceinture Verte, fondé par Wangari Maathai en 1977, est une organisation environnementale qui mobilise les communautés, en particulier les femmes, pour planter des arbres, conserver la biodiversité, restaurer les écosystèmes et améliorer les moyens de subsistance.</p>
-                    <p>Cette initiative a transformé des paysages dégradés en terres fertiles et productives, tout en donnant aux femmes un rôle central dans la protection de l'environnement et la lutte contre les changements climatiques.</p>
+                    <p x-text="t('mouvement_text_1')">Le Mouvement de la Ceinture Verte, fondé par Wangari Maathai en 1977, est une organisation environnementale qui mobilise les communautés, en particulier les femmes, pour planter des arbres, conserver la biodiversité, restaurer les écosystèmes et améliorer les moyens de subsistance.</p>
+                    <p x-text="t('mouvement_text_2')">Cette initiative a transformé des paysages dégradés en terres fertiles et productives, tout en donnant aux femmes un rôle central dans la protection de l'environnement et la lutte contre les changements climatiques.</p>
                 </div>
                 
                 <!-- Stats en boîtes avec animations -->
@@ -218,41 +438,42 @@
                     <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
                         <i class="fas fa-tree text-4xl text-earth-green mb-4"></i>
                         <span class="block text-4xl font-bold text-earth-green mb-2">51+ millions</span>
-                        <span class="text-gray-700">d'arbres plantés</span>
+                        <span class="text-gray-700" x-text="t('arbres')">d'arbres plantés³</span>
                     </div>
                     <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
                         <i class="fas fa-users text-4xl text-earth-green mb-4"></i>
-                        <span class="block text-4xl font-bold text-earth-green mb-2">900 000+</span>
-                        <span class="text-gray-700">femmes impliquées</span>
+                        <span class="block text-4xl font-bold text-earth-green mb-2">100 000+</span>
+                        <span class="text-gray-700" x-text="t('femmes')">femmes impliquées⁴</span>
                     </div>
                     <div class="bg-white p-8 rounded-lg text-center shadow-lg transform transition-all duration-500 hover:bg-green-50 hover:-translate-y-2 border-b-4 border-earth-green">
                         <i class="fas fa-globe-africa text-4xl text-earth-green mb-4"></i>
                         <span class="block text-4xl font-bold text-earth-green mb-2">30+</span>
-                        <span class="text-gray-700">pays africains</span>
+                        <span class="text-gray-700" x-text="t('pays')">pays africains⁵</span>
                     </div>
                 </div>
                 
-                <p class="text-gray-700">Aujourd'hui, le Mouvement de la Ceinture Verte continue d'inspirer des initiatives similaires à travers le monde, démontrant comment les communautés locales peuvent jouer un rôle crucial dans la conservation de l'environnement et le développement durable.</p>
+                <p class="text-gray-700" x-text="t('mouvement_text_3')">Aujourd'hui, le Mouvement de la Ceinture Verte continue d'inspirer des initiatives similaires à travers le monde, démontrant comment les communautés locales peuvent jouer un rôle crucial dans la conservation de l'environnement et le développement durable.</p>
+                <p class="text-gray-700 mt-4" x-text="t('mouvement_text_4')">En s'appuyant sur une approche fondée sur les bassins versants, le Mouvement de la Ceinture Verte mobilise plus de 4 000 groupes communautaires pour planter des arbres, restaurer les écosystèmes dégradés et promouvoir la récolte de l'eau, contribuant ainsi à la résilience climatique des zones rurales. ⁵</p>
             </section>
             
             <!-- Section Prix Nobel avec design amélioré -->
             <section class="content-section mb-16">
-                <h2 class="section-title">Prix Nobel de la Paix</h2>
+                <h2 class="section-title" x-text="t('prix_nobel')">Prix Nobel de la Paix</h2>
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="md:w-1/2">
                         <div class="space-y-4 text-gray-700">
-                            <p>En 2004, Wangari Maathai est devenue la première femme africaine à recevoir le Prix Nobel de la Paix pour "sa contribution au développement durable, à la démocratie et à la paix".</p>
-                            <p>Cette reconnaissance a souligné le lien intrinsèque entre la préservation de l'environnement, la justice sociale et la paix mondiale, mettant en lumière comment les conflits pour les ressources naturelles peuvent être prévenus par une gestion durable de l'environnement.</p>
-                            <blockquote class="border-l-4 border-earth-green pl-6 italic my-6 text-gray-600">
-                                "La paix sur terre dépend de notre capacité à protéger notre environnement vivant. J'ai toujours su que mon destin est lié à celui de notre terre, que notre avenir et celui de nos enfants sont liés à la manière dont nous conservons cet héritage précieux."
+                            <p x-text="t('nobel_text_1')">En 2004, Wangari Maathai est devenue la première femme africaine à recevoir le Prix Nobel de la Paix pour "sa contribution au développement durable, à la démocratie et à la paix".</p>
+                            <p x-text="t('nobel_text_2')">Cette reconnaissance a souligné le lien intrinsèque entre la préservation de l'environnement, la justice sociale et la paix mondiale, mettant en lumière comment les conflits pour les ressources naturelles peuvent être prévenus par une gestion durable de l'environnement.</p>
+                            <blockquote class="border-l-4 border-earth-green pl-6 italic my-6 text-gray-600" x-text="t('nobel_quote')">
+                                " Il est évident que de nombreuses guerres sont menées pour des ressources qui deviennent de plus en plus rares. Si nous conservions mieux nos ressources, ces conflits n'auraient pas lieu… Protéger l'environnement mondial est directement lié à la préservation de la paix. Ceux d'entre nous qui comprennent la complexité de l'environnement ont le devoir d'agir. Nous ne devons pas nous lasser, nous ne devons pas abandonner, nous devons persister." ⁶
                             </blockquote>
-                            <p>Ce prix a propulsé son travail et ses idées sur la scène mondiale, inspirant d'innombrables personnes à s'engager dans la protection de l'environnement et le développement durable.</p>
+                            <p x-text="t('nobel_text_3')">Ce prix a propulsé son travail et ses idées sur la scène mondiale, inspirant d'innombrables personnes à s'engager dans la protection de l'environnement et le développement durable.</p>
                         </div>
                     </div>
                     <div class="md:w-1/2">
                         <div class="relative overflow-hidden rounded-lg shadow-xl">
                             <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Prix Nobel de la Paix" class="w-full transform transition-transform duration-1000 hover:scale-110">
-                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm">
+                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-sm" x-text="t('nobel_caption')">
                                 Le Prix Nobel de la Paix reconnaît les contributions exceptionnelles à la promotion de la paix mondiale
                             </div>
                         </div>
@@ -262,7 +483,7 @@
             
             <!-- Section héritage avec design amélioré -->
             <section class="content-section">
-                <h2 class="section-title">Héritage et influence</h2>
+                <h2 class="section-title" x-text="t('heritage')">Héritage et influence</h2>
                 
                 <!-- Galerie d'influence -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -271,9 +492,9 @@
                             <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
                                 <i class="fas fa-leaf"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-earth-green">Environnementalisme africain</h3>
+                            <h3 class="text-xl font-bold text-earth-green" x-text="t('env_africain')">Environnementalisme africain</h3>
                         </div>
-                        <p class="text-gray-700">Elle a transformé l'approche de la conservation environnementale en Afrique, en liant la protection de l'environnement au développement économique et à l'autonomisation des femmes.</p>
+                        <p class="text-gray-700" x-text="t('env_text')">Elle a transformé l'approche de la conservation environnementale en Afrique, en liant la protection de l'environnement au développement économique et à l'autonomisation des femmes.</p>
                     </div>
                     
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -281,9 +502,9 @@
                             <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
                                 <i class="fas fa-female"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-earth-green">Droits des femmes</h3>
+                            <h3 class="text-xl font-bold text-earth-green" x-text="t('droits_femmes')">Droits des femmes</h3>
                         </div>
-                        <p class="text-gray-700">Son travail a démontré comment l'autonomisation des femmes peut conduire à des solutions durables aux défis environnementaux et sociaux.</p>
+                        <p class="text-gray-700" x-text="t('droits_text')">Son travail a démontré comment l'autonomisation des femmes peut conduire à des solutions durables aux défis environnementaux et sociaux.</p>
                     </div>
                     
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -291,9 +512,9 @@
                             <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
                                 <i class="fas fa-balance-scale"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-earth-green">Justice environnementale</h3>
+                            <h3 class="text-xl font-bold text-earth-green" x-text="t('justice_env')">Justice environnementale</h3>
                         </div>
-                        <p class="text-gray-700">Elle a popularisé le concept de justice environnementale, soulignant que les communautés pauvres souffrent de manière disproportionnée des dégradations environnementales.</p>
+                        <p class="text-gray-700" x-text="t('justice_text')">Elle a popularisé le concept de justice environnementale, soulignant que les communautés pauvres souffrent de manière disproportionnée des dégradations environnementales.</p>
                     </div>
                     
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -301,24 +522,62 @@
                             <div class="bg-earth-green rounded-full w-12 h-12 flex items-center justify-center text-white mr-4">
                                 <i class="fas fa-globe"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-earth-green">Activisme mondial</h3>
+                            <h3 class="text-xl font-bold text-earth-green" x-text="t('activisme')">Activisme mondial</h3>
                         </div>
-                        <p class="text-gray-700">Son modèle d'activisme a inspiré des mouvements environnementaux communautaires dans le monde entier, montrant que le changement commence au niveau local.</p>
+                        <p class="text-gray-700" x-text="t('activisme_text')">Son modèle d'activisme a inspiré des mouvements environnementaux communautaires dans le monde entier, montrant que le changement commence au niveau local.</p>
                     </div>
                 </div>
                 
                 <div class="space-y-4 text-gray-700">
-                    <p>Après son décès en 2011, l'héritage de Wangari Maathai continue de vivre à travers l'Institut Wangari Maathai, qui perpétue sa vision et ses valeurs. Son approche holistique du développement durable inspire toujours de nouvelles générations d'activistes environnementaux et sociaux.</p>
-                    <p>Comme elle l'a si bien dit : "Nous ne pouvons pas nous fatiguer ou abandonner. Nous devons persévérer." Son message d'espoir et de persévérance reste plus pertinent que jamais dans notre lutte mondiale contre le changement climatique et la dégradation environnementale.</p>
+                    <p x-text="t('heritage_text_1')">Après son décès en 2011, l'héritage de Wangari Maathai continue de vivre⁷ à travers l'Institut Wangari Maathai, qui perpétue sa vision et ses valeurs. Son approche holistique du développement durable inspire toujours de nouvelles générations d'activistes environnementaux et sociaux.</p>
+                    <p x-text="t('heritage_text_2')">De nombreuses personnes perpétuent son combat au sein du mouvement notamment sa fille, Wanjira Mathai, qui a été selectionnée comme l'une des 100 personnalités africaines les plus influentes par le magasine New African en 2018. Je vous invite à lire son témoignage dans le lien 7 des ressources ci-dessous.</p>
                 </div>
+            </section>
+
+            <!-- Section ressources améliorée -->
+            <section class="content-section">
+                <h2 class="section-title" x-text="t('ressources')">Ressources et références</h2>
                 
-                <!-- Appel à l'action -->
-                <div class="mt-12 bg-earth-green bg-opacity-10 p-8 rounded-lg border-l-4 border-earth-green">
-                    <h3 class="text-xl font-bold text-earth-green mb-4">Continuez son combat</h3>
-                    <p class="mb-6 text-gray-700">Inspirez-vous de Wangari Maathai et rejoignez le mouvement pour protéger notre planète. Chaque action compte, même la plus petite.</p>
-                    <a href="#" class="inline-block bg-earth-green text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-colors transform hover:-translate-y-1 shadow-md hover:shadow-lg">
-                        Découvrir comment agir <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-earth-green mb-2" x-text="t('liens')">Liens</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://strongerstories.org/stories/green-belt-movement/" class="text-gray-700 hover:text-earth-green transition-colors">1- Citation traduite de ce storyboard qui présente le mouvement </a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://www.greenbeltmovement.org/wangari-maathai/biography" class="text-gray-700 hover:text-earth-green transition-colors">2- Biographie de Wangari Maathai, site officiel du mouvement. Les images sont issues de ce site.</a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://www.goldmanprize.org/blog/green-belt-movement-wangari-maathai/" class="text-gray-700 hover:text-earth-green transition-colors">2- 51 millions d'arbres plantés, prix goldman environmental </a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://ctb.ku.edu/en/increasing-participation-and-membership/examples/example2" class="text-gray-700 hover:text-earth-green transition-colors">3- 100 000 femmes impliquées, l'exemple du mouvement de la ceinture verte pour augmenter la participation volontaire.</a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://time.com/5793752/wangari-maathai-100-women-of-the-year/" class="text-gray-700 hover:text-earth-green transition-colors"> 4- Présent dans 30 pays, article Time 2001</a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://www.greenbeltmovement.org/what-we-do" class="text-gray-700 hover:text-earth-green transition-colors">5- Actions du "green-belt-movement"</a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://edition.cnn.com/2011/10/08/world/africa/kenya-maathai-rites/index.html" class="text-gray-700 hover:text-earth-green transition-colors">6- Discours de wangari-maathai</a>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-external-link-alt text-earth-green mt-1 mr-2"></i>
+                                    <a href="https://www.la-croix.com/Sciences-et-ethique/Environnement/DIAPORAMA-Au-Kenya-lheritage-toujours-vivace-celle-plantait-arbres-2018-11-28-1200986000" class="text-gray-700 hover:text-earth-green transition-colors">7- Article de journal sur son héritage toujours vivant aujourd'hui</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -327,8 +586,8 @@
     <!-- Footer -->
     <footer class="bg-earth-green text-white py-6">
         <div class="container mx-auto px-4 text-center">
-            <p class="mb-2">Site non officiel – contenu pédagogique</p>
-            <p>&copy; 2025 - Journée internationale de la Terre nourricière</p>
+            <p class="mb-2" x-text="t('site_demo')">Site non officiel – contenu pédagogique</p>
+            <p x-text="t('copyright')">&copy; 2025 - Journée internationale de la Terre nourricière</p>
         </div>
     </footer>
 

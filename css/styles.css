@@ -295,3 +295,401 @@ footer::before {
 .mobile-menu-button:hover {
   transform: rotate(90deg);
 }
+
+/* Timeline Styles */
+.timeline-container {
+  position: relative;
+  margin: 2rem 0 3rem;
+  padding: 1rem 0;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--earth-green);
+  opacity: 0.3;
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+.timeline-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.timeline-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--earth-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item.active .timeline-icon {
+  background-color: var(--light-purple);
+  transform: scale(1.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-label {
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  transition: all 0.3s ease;
+  max-width: 120px;
+}
+
+.timeline-item.active .timeline-label {
+  color: var(--earth-green);
+  font-weight: 700;
+}
+
+.timeline-item:hover .timeline-icon {
+  transform: scale(1.1);
+  background-color: var(--earth-green);
+  opacity: 0.9;
+}
+
+.timeline-item.active:hover .timeline-icon {
+  background-color: var(--light-purple);
+  transform: scale(1.2);
+}
+
+.timeline-content-area {
+  margin-top: 2rem;
+  min-height: 200px;
+  position: relative;
+}
+
+.timeline-content {
+  background-color: var(--off-white);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--light-purple);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-default-message {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+/* Animation for content */
+.fade-enter {
+  transition: all 0.3s ease-out;
+}
+
+.fade-enter-start {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments for timeline */
+@media (max-width: 768px) {
+  .timeline-items {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .timeline-track {
+    display: none;
+  }
+  
+  .timeline-item {
+    flex: 0 0 45%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-item {
+    flex: 0 0 100%;
+  }
+  
+  .timeline-label {
+    max-width: none;
+  }
+}
+
+/* Styles pour les icônes des régions */
+.region-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.region-icon-container:hover {
+  transform: translateY(-5px);
+}
+
+.region-icon-container.active .region-icon {
+  background-color: #8B5A2B;
+  box-shadow: 0 0 15px rgba(139, 90, 43, 0.6);
+}
+
+.region-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.region-content-area {
+  background-color: #f8f8f5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.region-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Animations pour les transitions */
+.fade-enter {
+  transition: all 0.3s ease-out;
+}
+
+.fade-enter-start {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Styles pour la section Vandana Shiva */
+.vandana-image-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    transition: transform 0.5s ease;
+}
+
+.vandana-image-container:hover {
+    transform: scale(1.05);
+}
+
+.vandana-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vandana-quote {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background-color: rgba(77, 124, 15, 0.9);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 0.85rem;
+    max-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.vandana-image-container:hover .vandana-quote {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styles des onglets */
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: rgba(77, 124, 15, 0.1);
+}
+
+/* Animation des transitions entre onglets */
+.tab-transition-enter {
+    transition: all 0.4s ease-out;
+}
+
+.tab-transition-enter-start {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tab-transition-enter-end {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Timeline dans l'onglet parcours */
+.p-timeline-highlights {
+    position: relative;
+    padding-left: 20px;
+}
+
+.p-timeline-highlights:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #4D7C0F;
+}
+
+.p-timeline-item {
+    position: relative;
+    padding: 0 0 25px 25px;
+}
+
+.p-timeline-dot {
+    position: absolute;
+    left: -5px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #4D7C0F;
+    border: 2px solid white;
+}
+
+.p-timeline-date {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #4D7C0F;
+}
+
+/* Cards dans l'onglet philosophie */
+.philosophy-card {
+    background-color: #f8f8f5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.philosophy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.philosophy-icon {
+    font-size: 2rem;
+    color: #4D7C0F;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Styles pour l'onglet Actions */
+.activism-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activism-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background-color: #f8f8f5;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.activism-item:hover {
+    transform: translateX(10px);
+}
+
+.activism-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.activism-quote {
+    margin-top: 10px;
+    font-style: italic;
+    color: #4D7C0F;
+    padding-left: 15px;
+    border-left: 3px solid #4D7C0F;
+}
+
+/* Styles pour l'onglet Controverses */
+.controversies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.controversy-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #4D7C0F, transparent);
+    margin: 10px 0;
+}
+
+.controversy-tweet {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: #f5f8fa;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e1e8ed;
+    margin-top: 15px;
+}
+
+.controversy-tweet i {
+    font-size: 1.5rem;
+}

@@ -99,7 +99,7 @@
                         'en': 'Each year, this day mobilizes millions of people around the world through various initiatives: tree planting, natural site cleanups, conferences, educational workshops, and debates on environmental policies.'
                     },
                     'events_title': {
-                        'fr': 'Événements marquants positifs',
+                        'fr': 'Réussites impactantes',
                         'en': 'Positive Milestone Events'
                     },
                     'paris_title': {
@@ -263,30 +263,106 @@
             </div>
         </section>
 
-        <!-- Section événements marquants -->
-        <section class="content-section">
-            <h2 class="section-title" x-text="t('events_title')">Événements marquants positifs</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
-                        <h3 class="font-bold text-xl mb-2" x-text="t('paris_title')">Accord de Paris sur le climat</h3>
-                        <p x-text="t('paris_content')">Signé en 2015, cet accord historique engage 196 pays à limiter le réchauffement climatique à moins de 2°C par rapport aux niveaux préindustriels.</p>
+        <!-- Section événements marquants - Timeline -->
+<section class="content-section">
+    <h2 class="section-title" x-text="t('events_title')">Événements marquants positifs</h2>
+    
+    <div class="max-w-4xl mx-auto" x-data="{ activeEvent: null }">
+        <!-- Timeline Navigation -->
+        <div class="timeline-container">
+            <div class="timeline-track"></div>
+            
+            <!-- Timeline Items -->
+            <div class="timeline-items">
+                <div class="timeline-item" 
+                     :class="{ 'active': activeEvent === 'paris' }"
+                     @click="activeEvent = activeEvent === 'paris' ? null : 'paris'">
+                    <div class="timeline-icon">
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
-                        <h3 class="font-bold text-xl mb-2" x-text="t('plastic_title')">Interdiction des plastiques à usage unique</h3>
-                        <p x-text="t('plastic_content')">Plus de 60 pays dans le monde ont désormais adopté des interdictions ou des limitations concernant les plastiques à usage unique.</p>
+                    <div class="timeline-label" x-text="t('paris_title')">Réserve mondiale de semences</div>
+                </div>
+                
+                <div class="timeline-item"
+                     :class="{ 'active': activeEvent === 'plastic' }"
+                     @click="activeEvent = activeEvent === 'plastic' ? null : 'plastic'">
+                    <div class="timeline-icon">
+                        <i class="fas fa-ban"></i>
                     </div>
-                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
-                        <h3 class="font-bold text-xl mb-2" x-text="t('restoration_title')">Restauration des écosystèmes</h3>
-                        <p x-text="t('restoration_content')">Des projets mondiaux ont permis de restaurer plus de 59 millions d'hectares de forêts dégradées depuis 2000.</p>
+                    <div class="timeline-label" x-text="t('plastic_title')">Interdiction des plastiques</div>
+                </div>
+                
+                <div class="timeline-item"
+                     :class="{ 'active': activeEvent === 'restoration' }"
+                     @click="activeEvent = activeEvent === 'restoration' ? null : 'restoration'">
+                    <div class="timeline-icon">
+                        <i class="fas fa-tree"></i>
                     </div>
-                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-earth-green">
-                        <h3 class="font-bold text-xl mb-2" x-text="t('renewable_title')">Croissance des énergies renouvelables</h3>
-                        <p x-text="t('renewable_content')">En 2023, les énergies renouvelables représentent plus de 30% de la production mondiale d'électricité, contre moins de 20% en 2010.</p>
+                    <div class="timeline-label" x-text="t('restoration_title')">Restauration des écosystèmes</div>
+                </div>
+                
+                <div class="timeline-item"
+                     :class="{ 'active': activeEvent === 'renewable' }"
+                     @click="activeEvent = activeEvent === 'renewable' ? null : 'renewable'">
+                    <div class="timeline-icon">
+                        <i class="fas fa-solar-panel"></i>
                     </div>
+                    <div class="timeline-label" x-text="t('renewable_title')">Énergies renouvelables</div>
                 </div>
             </div>
-        </section>
+        </div>
+        
+        <!-- Event Content Area -->
+        <div class="timeline-content-area">
+            <!-- Paris Content -->
+            <div class="timeline-content" 
+                 x-show="activeEvent === 'paris'" 
+                 x-transition:enter="fade-enter"
+                 x-transition:enter-start="fade-enter-start"
+                 x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2" x-text="t('paris_title')">Réserve mondiale de semences</h3>
+                <p x-text="t('paris_content')"></p>
+            </div>
+            
+            <!-- Plastic Content -->
+            <div class="timeline-content" 
+                 x-show="activeEvent === 'plastic'"
+                 x-transition:enter="fade-enter"
+                 x-transition:enter-start="fade-enter-start"
+                 x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2" x-text="t('plastic_title')">Interdiction des plastiques</h3>
+                <p x-text="t('plastic_content')"></p>
+            </div>
+            
+            <!-- Restoration Content -->
+            <div class="timeline-content" 
+                 x-show="activeEvent === 'restoration'"
+                 x-transition:enter="fade-enter"
+                 x-transition:enter-start="fade-enter-start"
+                 x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2" x-text="t('restoration_title')">Restauration des écosystèmes</h3>
+                <p x-text="t('restoration_content')"></p>
+            </div>
+            
+            <!-- Renewable Content -->
+            <div class="timeline-content" 
+                 x-show="activeEvent === 'renewable'"
+                 x-transition:enter="fade-enter"
+                 x-transition:enter-start="fade-enter-start"
+                 x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2" x-text="t('renewable_title')">Énergies renouvelables</h3>
+                <p x-text="t('renewable_content')"></p>
+            </div>
+            
+            <!-- Default Message -->
+            <div class="timeline-default-message" x-show="activeEvent === null">
+                <p class="text-center text-gray-500 italic">
+                    <span x-text="currentLanguage === 'fr' ? 'Cliquez sur un événement pour afficher les détails' : 'Click on an event to display details'"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Section cartes de redirection -->
         <section>
