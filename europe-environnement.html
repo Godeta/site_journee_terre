@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" x-data="locale">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europe & Environnement | Journée internationale de la Terre nourricière</title>
+    <title x-text="currentLanguage === 'fr' ? 'Europe & Environnement | Journée internationale de la Terre nourricière' : 'Europe & Environment | International Mother Earth Day'"></title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -41,27 +41,178 @@
             }
         }
     </script>
+    
+    <!-- Script pour la localisation -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('locale', () => ({
+                currentLanguage: 'fr',
+                
+                // Tous les textes du site dans les deux langues
+                texts: {
+                    'site_title': {
+                        'fr': 'Terre Nourricière',
+                        'en': 'Mother Earth'
+                    },
+                    'nav_home': {
+                        'fr': 'Accueil',
+                        'en': 'Home'
+                    },
+                    'nav_wangari': {
+                        'fr': 'Wangari Maathai',
+                        'en': 'Wangari Maathai'
+                    },
+                    'nav_ecofeminism': {
+                        'fr': 'Écoféminisme',
+                        'en': 'Ecofeminism'
+                    },
+                    'nav_europe': {
+                        'fr': 'Europe & Environnement',
+                        'en': 'Europe & Environment'
+                    },
+                    'nav_indre': {
+                        'fr': 'L\'Indre s\'engage',
+                        'en': 'Indre Commitment'
+                    },
+                    'europe_title': {
+                        'fr': 'L\'Europe & l\'Environnement',
+                        'en': 'Europe & Environment'
+                    },
+                    'europe_subtitle': {
+                        'fr': '"Le développement durable est celui qui répond aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs."',
+                        'en': '"Sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs."'
+                    },
+                    'policy_title': {
+                        'fr': 'Politique environnementale européenne',
+                        'en': 'European Environmental Policy'
+                    },
+                    'policy_intro': {
+                        'fr': 'L\'Union européenne joue un rôle de premier plan dans la lutte mondiale contre le changement climatique et la protection de l\'environnement. Depuis les années 1970, l\'UE a mis en place une série de politiques environnementales parmi les plus ambitieuses au monde.',
+                        'en': 'The European Union plays a leading role in the global fight against climate change and environmental protection. Since the 1970s, the EU has implemented some of the most ambitious environmental policies in the world.'
+                    },
+                    'policy_intro2': {
+                        'fr': 'Ces politiques visent à protéger les ressources naturelles, minimiser les impacts environnementaux, encourager l\'utilisation durable des ressources et préserver la biodiversité à travers le continent européen.',
+                        'en': 'These policies aim to protect natural resources, minimize environmental impacts, encourage sustainable resource use, and preserve biodiversity across the European continent.'
+                    },
+                    'policy_intro3': {
+                        'fr': 'L\'approche européenne se base sur le principe que la protection de l\'environnement et la prospérité économique sont indissociables pour assurer un développement véritablement durable.',
+                        'en': 'The European approach is based on the principle that environmental protection and economic prosperity are inseparable for truly sustainable development.'
+                    },
+                    'key_policies': {
+                        'fr': 'Points clés de la politique environnementale européenne',
+                        'en': 'Key European Environmental Policy Points'
+                    },
+                    'key_policy_instruction': {
+                        'fr': 'Cliquez sur un élément pour afficher les détails',
+                        'en': 'Click on an item to display details'
+                    },
+                    'green_deal_title': {
+                        'fr': 'Pacte vert européen',
+                        'en': 'European Green Deal'
+                    },
+                    'green_deal_content': {
+                        'fr': 'Lancé en décembre 2019, le Pacte vert européen est la stratégie de croissance de l\'UE visant à faire de l\'Europe le premier continent neutre en carbone d\'ici 2050. Ce plan d\'action ambitieux mobilise plus de 1 000 milliards d\'euros d\'investissements et propose une feuille de route pour rendre l\'économie européenne durable. Il couvre tous les secteurs, de l\'énergie aux transports, en passant par l\'agriculture et les bâtiments, avec pour objectif de réduire les émissions de gaz à effet de serre d\'au moins 55% d\'ici 2030 par rapport aux niveaux de 1990.',
+                        'en': 'Launched in December 2019, the European Green Deal is the EU\'s growth strategy aimed at making Europe the first carbon-neutral continent by 2050. This ambitious action plan mobilizes over 1 trillion euros in investments and provides a roadmap to make the European economy sustainable. It covers all sectors, from energy to transport, agriculture, and buildings, with the goal of reducing greenhouse gas emissions by at least 55% by 2030 compared to 1990 levels.'
+                    },
+                    'circular_economy_title': {
+                        'fr': 'Économie circulaire',
+                        'en': 'Circular Economy'
+                    },
+                    'circular_economy_content': {
+                        'fr': 'Le plan d\'action pour l\'économie circulaire adopté en 2020 est l\'une des principales composantes du Pacte vert européen. Il vise à réduire l\'empreinte de consommation de l\'UE et à doubler son taux d\'utilisation circulaire des matériaux dans la décennie à venir. Des mesures concrètes ciblent la conception des produits pour qu\'ils soient plus durables, réparables et recyclables, la réduction des déchets et la transformation des secteurs à forte intensité de ressources comme le textile, l\'électronique, les plastiques et la construction. L\'objectif est de faire de la circularité la norme dans l\'économie européenne.',
+                        'en': 'The Circular Economy Action Plan adopted in 2020 is one of the main components of the European Green Deal. It aims to reduce the EU\'s consumption footprint and double its circular material use rate in the coming decade. Concrete measures target product design to make them more durable, repairable, and recyclable, waste reduction, and the transformation of resource-intensive sectors such as textiles, electronics, plastics, and construction. The goal is to make circularity the norm in the European economy.'
+                    },
+                    'biodiversity_title': {
+                        'fr': 'Stratégie biodiversité 2030',
+                        'en': '2030 Biodiversity Strategy'
+                    },
+                    'biodiversity_content': {
+                        'fr': 'La stratégie de l\'UE en faveur de la biodiversité à l\'horizon 2030 vise à mettre la biodiversité européenne sur la voie du rétablissement d\'ici 2030. Elle comprend des engagements concrets : créer un réseau cohérent de zones protégées couvrant 30% des terres et 30% des mers en Europe, restaurer les écosystèmes dégradés, débloquer 20 milliards d\'euros par an pour la biodiversité, et placer l\'UE à l\'avant-garde de la lutte contre la crise mondiale de la biodiversité. Cette stratégie est étroitement liée à la stratégie "De la ferme à la table" pour développer un système alimentaire durable.',
+                        'en': 'The EU Biodiversity Strategy for 2030 aims to put Europe\'s biodiversity on the path to recovery by 2030. It includes concrete commitments: creating a coherent network of protected areas covering 30% of land and 30% of sea in Europe, restoring degraded ecosystems, unlocking €20 billion per year for biodiversity, and placing the EU at the forefront of tackling the global biodiversity crisis. This strategy is closely linked to the "Farm to Fork" strategy to develop a sustainable food system.'
+                    },
+                    'pollution_title': {
+                        'fr': 'Plan d\'action zéro pollution',
+                        'en': 'Zero Pollution Action Plan'
+                    },
+                    'pollution_content': {
+                        'fr': 'Adopté en 2021, le plan d\'action "Vers une pollution zéro dans l\'air, l\'eau et le sol" fixe des objectifs clés à atteindre d\'ici 2030 : réduire de 55% les décès prématurés dus à la pollution atmosphérique, diminuer de 30% la part des personnes chroniquement dérangées par le bruit des transports, réduire de 50% les pertes de nutriments, les déchets plastiques en mer et les microplastiques libérés dans l\'environnement. Le plan prévoit également une révision des normes de qualité de l\'air pour les aligner davantage sur les recommandations de l\'OMS et un renforcement des législations sur les eaux urbaines résiduaires et les émissions industrielles.',
+                        'en': 'Adopted in 2021, the "Towards Zero Pollution for Air, Water and Soil" action plan sets key targets to be achieved by 2030: reducing premature deaths due to air pollution by 55%, decreasing the share of people chronically disturbed by transport noise by 30%, reducing nutrient losses, marine plastic litter, and microplastics released into the environment by 50%. The plan also includes a revision of air quality standards to align them more closely with WHO recommendations and a strengthening of legislation on urban wastewater and industrial emissions.'
+                    },
+                    'energy_title': {
+                        'fr': 'Transition énergétique',
+                        'en': 'Energy Transition'
+                    },
+                    'energy_content': {
+                        'fr': 'La directive sur les énergies renouvelables révisée en 2023 vise à porter la part des énergies renouvelables dans le mix énergétique de l\'UE à 42,5% d\'ici 2030, avec un objectif indicatif de 45%. Pour y parvenir, les États membres doivent accélérer les procédures d\'autorisation pour les projets d\'énergies renouvelables, avec des "zones d\'accélération" dédiées où les processus d\'autorisation seront considérablement simplifiés. La directive renforce également les critères de durabilité pour la bioénergie et encourage les accords d\'achat d\'électricité renouvelable. Elle est complétée par la directive sur l\'efficacité énergétique qui vise une réduction de 11,7% de la consommation d\'énergie d\'ici 2030.',
+                        'en': 'The Renewable Energy Directive revised in 2023 aims to increase the share of renewable energy in the EU\'s energy mix to 42.5% by 2030, with an indicative target of 45%. To achieve this, Member States must speed up permitting procedures for renewable energy projects, with dedicated "acceleration areas" where authorization processes will be significantly simplified. The directive also strengthens sustainability criteria for bioenergy and encourages renewable power purchase agreements. It is complemented by the Energy Efficiency Directive which targets an 11.7% reduction in energy consumption by 2030.'
+                    },
+                    'climate_title': {
+                        'fr': 'Loi européenne sur le climat',
+                        'en': 'European Climate Law'
+                    },
+                    'climate_content': {
+                        'fr': 'Entrée en vigueur en juillet 2021, la loi européenne sur le climat inscrit dans la législation l\'objectif de neutralité climatique de l\'UE d\'ici 2050. Elle établit un cadre juridiquement contraignant pour réduire les émissions nettes de gaz à effet de serre, avec un objectif intermédiaire de réduction d\'au moins 55% d\'ici 2030 par rapport aux niveaux de 1990. La loi prévoit la création d\'un conseil scientifique consultatif européen sur le changement climatique et renforce les mécanismes de suivi des progrès. Elle impose également à la Commission de proposer un objectif climatique pour 2040 et d\'évaluer la cohérence des mesures nationales avec l\'objectif de neutralité climatique.',
+                        'en': 'Entered into force in July 2021, the European Climate Law enshrines in legislation the EU\'s climate neutrality objective by 2050. It establishes a legally binding framework for reducing net greenhouse gas emissions, with an intermediate target of at least 55% reduction by 2030 compared to 1990 levels. The law provides for the creation of a European Scientific Advisory Board on Climate Change and strengthens progress monitoring mechanisms. It also requires the Commission to propose a 2040 climate target and assess the consistency of national measures with the climate neutrality objective.'
+                    },
+                    'resources_title': {
+                        'fr': 'Ressources et références',
+                        'en': 'Resources and references'
+                    },
+                    'official_sites': {
+                        'fr': 'Sites officiels',
+                        'en': 'Official sites'
+                    },
+                    'climate_action': {
+                        'fr': 'Commission européenne - Action pour le climat',
+                        'en': 'European Commission - Climate Action'
+                    },
+                    'green_deal_site': {
+                        'fr': 'Pacte vert européen - Site officiel',
+                        'en': 'European Green Deal - Official site'
+                    },
+                    'footer_credit': {
+                        'fr': 'Arnaud GODET - 2025',
+                        'en': 'Arnaud GODET - 2025'
+                    },
+                    'footer_copyright': {
+                        'fr': '2025 - Journée internationale de la Terre nourricière',
+                        'en': '2025 - International Mother Earth Day'
+                    }
+                },
+                
+                // Méthode pour obtenir le texte dans la langue actuelle
+                t(key) {
+                    return this.texts[key][this.currentLanguage];
+                },
+                
+                // Méthode pour changer de langue
+                toggleLanguage() {
+                    this.currentLanguage = this.currentLanguage === 'fr' ? 'en' : 'fr';
+                    // Mettre à jour l'attribut lang de la balise html
+                    document.documentElement.lang = this.currentLanguage;
+                }
+            }));
+        });
+    </script>
 </head>
 
-  
 <body class="bg-off-white font-sans">
     <!-- Header fixe -->
-    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false, languageIsEnglish: false }">
+    <header class="fixed w-full bg-earth-green bg-opacity-80 text-white z-50" x-data="{ mobileMenuOpen: false }">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl">Terre Nourricière</a>
+            <a href="index.html" class="font-bold text-2xl" x-text="t('site_title')">Terre Nourricière</a>
             
             <!-- Navigation desktop -->
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="hover:text-light-purple transition-colors">Accueil</a>
-                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors">Wangari Maathai</a>
-                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors">Écoféminisme</a>
-                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors font-bold">Europe & Environnement</a>
-                <a href="indre-engage.html" class="hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                <a href="index.html" class="hover:text-light-purple transition-colors" x-text="t('nav_home')">Accueil</a>
+                <a href="wangari-maathai.html" class="hover:text-light-purple transition-colors" x-text="t('nav_wangari')">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="hover:text-light-purple transition-colors" x-text="t('nav_ecofeminism')">Écoféminisme</a>
+                <a href="europe-environnement.html" class="hover:text-light-purple transition-colors font-bold" x-text="t('nav_europe')">Europe & Environnement</a>
+                <a href="indre-engage.html" class="hover:text-light-purple transition-colors" x-text="t('nav_indre')">L'Indre s'engage</a>
                 
                 <!-- Sélecteur de langue -->
-                <button @click="languageIsEnglish = !languageIsEnglish" class="language-selector ml-4">
-                    <span x-show="!languageIsEnglish">FR</span>
-                    <span x-show="languageIsEnglish">EN</span>
+                <button @click="toggleLanguage()" class="language-selector ml-4 bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 rounded-full transition-colors">
+                    <span x-text="currentLanguage === 'fr' ? 'FR' : 'EN'"></span>
                 </button>
             </nav>
             
@@ -76,25 +227,650 @@
         <!-- Menu mobile -->
         <div class="mobile-menu md:hidden" x-show="mobileMenuOpen" x-transition>
             <nav class="flex flex-col px-6 py-4 bg-earth-green text-white">
-                <a href="index.html" class="py-3 hover:text-light-purple transition-colors">Accueil</a>
-                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors">Wangari Maathai</a>
-                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors">Écoféminisme</a>
-                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors font-bold">Europe & Environnement</a>
-                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors">L'Indre s'engage</a>
+                <a href="index.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_home')">Accueil</a>
+                <a href="wangari-maathai.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_wangari')">Wangari Maathai</a>
+                <a href="ecofeminisme.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_ecofeminism')">Écoféminisme</a>
+                <a href="europe-environnement.html" class="py-3 hover:text-light-purple transition-colors font-bold" x-text="t('nav_europe')">Europe & Environnement</a>
+                <a href="indre-engage.html" class="py-3 hover:text-light-purple transition-colors" x-text="t('nav_indre')">L'Indre s'engage</a>
                 
                 <!-- Sélecteur de langue mobile -->
-                <button @click="languageIsEnglish = !languageIsEnglish" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
-                    <span x-show="!languageIsEnglish">🇫🇷 Français</span>
-                    <span x-show="languageIsEnglish">🇬🇧 English</span>
+                <button @click="toggleLanguage()" class="my-3 px-4 py-2 rounded-full bg-white text-earth-green self-start hover:bg-light-purple transition-colors">
+                    <span x-text="currentLanguage === 'fr' ? '🇫🇷 Français' : '🇬🇧 English'"></span>
                 </button>
             </nav>
         </div>
     </header>
-    <div class="container mx-auto p-4 work-in-progress">
-        <br> <br>
-        <h1 class="text-5xl font-bold text-center mb-4">Travail en cours</h1>
-        <p class="text-lg text-gray-700 text-center">Ce contenu est actuellement en cours de mise à jour. Nous nous excusons pour la gêne occasionnée et vous remercions de votre patience. Le contenu sera mis à jour prochainement.</p>
-      </div>
-</body>
 
-</html>
+    <!-- Section bannière améliorée avec parallax -->
+    <section class="parallax-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('europe.avif');">
+        <div class="parallax-content">
+            <h1 x-text="t('europe_title')">L'Europe & l'Environnement</h1>
+            <p x-text="t('europe_subtitle')">"Ensemble pour un avenir durable et une planète protégée"</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Section présentation UE -->
+<section class="content-section mb-16">
+    <h2 class="section-title">L'Union Européenne en bref</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <!-- Carte Identité UE -->
+        <div class="bg-white rounded-lg shadow-lg p-6 transform transition-all duration-500 hover:scale-105">
+            <div class="flex justify-center mb-4">
+                <i class="fas fa-flag text-earth-green text-4xl"></i>
+            </div>
+            <h3 class="font-bold text-xl text-center mb-3">L'UE aujourd'hui</h3>
+            <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center"><i class="fas fa-check-circle text-earth-green mr-2"></i> <span x-text="currentLanguage === 'fr' ? '27 pays membres' : '27 member countries'"></span></li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-earth-green mr-2"></i> <span x-text="currentLanguage === 'fr' ? '447 millions d\'habitants' : '447 million inhabitants'"></span></li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-earth-green mr-2"></i> <span x-text="currentLanguage === 'fr' ? '4,2 millions km²' : '4.2 million km²'"></span></li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-earth-green mr-2"></i> <span x-text="currentLanguage === 'fr' ? '1er marché mondial' : 'World\'s largest market'"></span></li>
+            </ul>
+        </div>
+        
+        <!-- Histoire et dates clés -->
+        <div class="bg-white rounded-lg shadow-lg p-6 transform transition-all duration-500 hover:scale-105">
+            <div class="flex justify-center mb-4">
+                <i class="fas fa-history text-earth-green text-4xl"></i>
+            </div>
+            <h3 class="font-bold text-xl text-center mb-3" x-text="currentLanguage === 'fr' ? 'Dates clés' : 'Key dates'">Dates clés</h3>
+            <div class="space-y-3 text-gray-700">
+                <div class="flex items-start">
+                    <span class="font-bold mr-2">1951:</span>
+                    <span x-text="currentLanguage === 'fr' ? 'CECA, ancêtre de l\'UE' : 'ECSC, EU ancestor'"></span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold mr-2">1957:</span>
+                    <span x-text="currentLanguage === 'fr' ? 'Traité de Rome (CEE)' : 'Treaty of Rome (EEC)'"></span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold mr-2">1992:</span>
+                    <span x-text="currentLanguage === 'fr' ? 'Traité de Maastricht (UE)' : 'Maastricht Treaty (EU)'"></span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-bold mr-2">2002:</span>
+                    <span x-text="currentLanguage === 'fr' ? 'Introduction de l\'Euro' : 'Euro introduction'"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Piliers de l'UE -->
+        <div class="bg-white rounded-lg shadow-lg p-6 transform transition-all duration-500 hover:scale-105">
+            <div class="flex justify-center mb-4">
+                <i class="fas fa-columns text-earth-green text-4xl"></i>
+            </div>
+            <h3 class="font-bold text-xl text-center mb-3" x-text="currentLanguage === 'fr' ? 'Les piliers de l\'UE' : 'EU pillars'">Les piliers de l'UE</h3>
+            <div class="space-y-3 text-gray-700">
+                <div class="flex items-center">
+                    <i class="fas fa-balance-scale text-earth-green mr-2"></i>
+                    <span x-text="currentLanguage === 'fr' ? 'État de droit' : 'Rule of law'"></span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-handshake text-earth-green mr-2"></i>
+                    <span x-text="currentLanguage === 'fr' ? 'Marché unique' : 'Single market'"></span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-users text-earth-green mr-2"></i>
+                    <span x-text="currentLanguage === 'fr' ? 'Libre circulation' : 'Free movement'"></span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-globe-europe text-earth-green mr-2"></i>
+                    <span x-text="currentLanguage === 'fr' ? 'Action extérieure commune' : 'Common external action'"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carte de l'UE -->
+    <div class="mt-8 flex justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-xs transform transition-all duration-500 hover:scale-105">
+            <h3 class="font-bold text-xl text-center mb-3" x-text="currentLanguage === 'fr' ? 'L\'UE en un coup d\'œil' : 'EU at a glance'">L'UE en un coup d'œil</h3>
+            <div class="overflow-hidden rounded-lg">
+                <img src="UE_map.png" alt="Carte de l'Union Européenne" class="w-full h-auto object-cover" >
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-2" x-text="currentLanguage === 'fr' ? 'La carte des 27 États membres' : 'Map of the 27 member states'">La carte des 27 États membres</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Section des politiques environnementales avec interaction -->
+<div class="max-w-4xl mx-auto">
+    <section class="content-section mb-16">
+        <h2 class="section-title" x-text="t('key_policies')">Points clés de la politique environnementale européenne</h2>
+        
+        <div class="max-w-4xl mx-auto" x-data="{ activePolicy: null }">
+            <!-- Policies Navigation -->
+            <div class="timeline-container">
+                <div class="timeline-track"></div>
+                
+                <!-- Policy Items -->
+                <div class="timeline-items">
+                    <div class="timeline-item" 
+                         :class="{ 'active': activePolicy === 'green_deal' }"
+                         @click="activePolicy = activePolicy === 'green_deal' ? null : 'green_deal'">
+                        <div class="timeline-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="timeline-label" x-text="t('green_deal_title')">Pacte vert européen</div>
+                    </div>
+                    
+                    <div class="timeline-item"
+                         :class="{ 'active': activePolicy === 'circular' }"
+                         @click="activePolicy = activePolicy === 'circular' ? null : 'circular'">
+                        <div class="timeline-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="timeline-label" x-text="t('circular_economy_title')">Économie circulaire</div>
+                    </div>
+                    
+                    <div class="timeline-item"
+                         :class="{ 'active': activePolicy === 'biodiversity' }"
+                         @click="activePolicy = activePolicy === 'biodiversity' ? null : 'biodiversity'">
+                        <div class="timeline-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="timeline-label" x-text="t('biodiversity_title')">Stratégie biodiversité 2030</div>
+                    </div>
+                    
+                    <div class="timeline-item"
+                         :class="{ 'active': activePolicy === 'pollution' }"
+                         @click="activePolicy = activePolicy === 'pollution' ? null : 'pollution'">
+                        <div class="timeline-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="timeline-label" x-text="t('pollution_title')">Plan d'action zéro pollution</div>
+                    </div>
+                    
+                    <div class="timeline-item"
+                         :class="{ 'active': activePolicy === 'energy' }"
+                         @click="activePolicy = activePolicy === 'energy' ? null : 'energy'">
+                        <div class="timeline-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="timeline-label" x-text="t('energy_title')">Transition énergétique</div>
+                    </div>
+                    
+                    <div class="timeline-item"
+                         :class="{ 'active': activePolicy === 'climate' }"
+                         @click="activePolicy = activePolicy === 'climate' ? null : 'climate'">
+                        <div class="timeline-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <div class="timeline-label" x-text="t('climate_title')">Loi européenne sur le climat</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-500 italic mt-4 mb-6" x-show="activePolicy === null" x-text="t('key_policy_instruction')">
+                Cliquez sur un élément pour afficher les détails
+            </p>
+            
+            <!-- Policy Content Area -->
+<div class="timeline-content-area">
+    <!-- Green Deal Content -->
+    <div class="timeline-content" 
+         x-show="activePolicy === 'green_deal'" 
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end">
+        <h3 class="font-bold text-xl mb-2" x-text="t('green_deal_title')">Pacte vert européen</h3>
+        <p x-text="t('green_deal_content')" class="mb-4"></p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Avantages -->
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-earth-green">
+                <h4 class="font-bold text-earth-green mb-2" x-text="currentLanguage === 'fr' ? 'Avantages' : 'Advantages'">Avantages</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Création estimée de 1 million d\'emplois verts d\'ici 2030' : 'Estimated creation of 1 million green jobs by 2030'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Réduction significative de la dépendance aux énergies fossiles' : 'Significant reduction in fossil fuel dependency'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Plans de financement concrets avec le Fonds pour une transition juste' : 'Concrete financing plans with the Just Transition Fund'"></li>
+                </ul>
+            </div>
+            
+            <!-- Inconvénients -->
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold text-red-600 mb-2" x-text="currentLanguage === 'fr' ? 'Défis et limites' : 'Challenges and limitations'">Défis et limites</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Inégalités entre États membres dans la capacité de transition' : 'Inequalities between Member States in transition capacity'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Résistance des secteurs industriels fortement émetteurs' : 'Resistance from high-emitting industrial sectors'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Risque de déplacement des émissions vers des pays non-UE' : 'Risk of emission displacement to non-EU countries'"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Circular Economy Content -->
+    <div class="timeline-content" 
+         x-show="activePolicy === 'circular'"
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end">
+        <h3 class="font-bold text-xl mb-2" x-text="t('circular_economy_title')">Économie circulaire</h3>
+        <p x-text="t('circular_economy_content')" class="mb-4"></p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Avantages -->
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-earth-green">
+                <h4 class="font-bold text-earth-green mb-2" x-text="currentLanguage === 'fr' ? 'Avantages' : 'Advantages'">Avantages</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Réduction de 35% des déchets d\'emballage depuis 2018' : 'Reduction of 35% in packaging waste since 2018'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Nouvelles normes de conception écoresponsable des produits' : 'New eco-design standards for products'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Développement de nouveaux marchés pour les matériaux recyclés' : 'Development of new markets for recycled materials'"></li>
+                </ul>
+            </div>
+            
+            <!-- Inconvénients -->
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold text-red-600 mb-2" x-text="currentLanguage === 'fr' ? 'Défis et limites' : 'Challenges and limitations'">Défis et limites</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Absence d\'objectifs contraignants pour certains secteurs' : 'Lack of binding targets for certain sectors'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Difficultés dans la mise en œuvre des systèmes de collecte' : 'Difficulties in implementing collection systems'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Disparités importantes entre pays dans les taux de recyclage' : 'Significant disparities between countries in recycling rates'"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Biodiversity Content -->
+    <div class="timeline-content" 
+         x-show="activePolicy === 'biodiversity'"
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end">
+        <h3 class="font-bold text-xl mb-2" x-text="t('biodiversity_title')">Stratégie biodiversité 2030</h3>
+        <p x-text="t('biodiversity_content')" class="mb-4"></p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Avantages -->
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-earth-green">
+                <h4 class="font-bold text-earth-green mb-2" x-text="currentLanguage === 'fr' ? 'Avantages' : 'Advantages'">Avantages</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Extension du réseau Natura 2000, le plus grand réseau d\'aires protégées au monde' : 'Expansion of Natura 2000, the world\'s largest network of protected areas'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Restauration de plus de 25 000 km de rivières à l\'état naturel' : 'Restoration of over 25,000 km of rivers to their natural state'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Plantation prévue de 3 milliards d\'arbres d\'ici 2030' : 'Planned planting of 3 billion trees by 2030'"></li>
+                </ul>
+            </div>
+            
+            <!-- Inconvénients -->
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold text-red-600 mb-2" x-text="currentLanguage === 'fr' ? 'Défis et limites' : 'Challenges and limitations'">Défis et limites</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Conflits avec les objectifs de production agricole intensive' : 'Conflicts with intensive agricultural production goals'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Manque de financement adéquat pour atteindre les objectifs' : 'Lack of adequate funding to achieve objectives'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Application inégale des mesures de protection entre États membres' : 'Uneven application of protection measures between Member States'"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pollution Content -->
+    <div class="timeline-content" 
+         x-show="activePolicy === 'pollution'"
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end">
+        <h3 class="font-bold text-xl mb-2" x-text="t('pollution_title')">Plan d'action zéro pollution</h3>
+        <p x-text="t('pollution_content')" class="mb-4"></p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Avantages -->
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-earth-green">
+                <h4 class="font-bold text-earth-green mb-2" x-text="currentLanguage === 'fr' ? 'Avantages' : 'Advantages'">Avantages</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Amélioration mesurable de la qualité de l\'air dans les zones urbaines' : 'Measurable improvement in air quality in urban areas'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Normes plus strictes pour les polluants industriels' : 'Stricter standards for industrial pollutants'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Révision des standards de qualité de l\'eau selon les dernières données scientifiques' : 'Revision of water quality standards based on latest scientific data'"></li>
+                </ul>
+            </div>
+            
+            <!-- Inconvénients -->
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold text-red-600 mb-2" x-text="currentLanguage === 'fr' ? 'Défis et limites' : 'Challenges and limitations'">Défis et limites</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Procédures d\'infraction nombreuses pour non-respect des directives' : 'Numerous infringement procedures for non-compliance with directives'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Problème des polluants émergents non encore réglementés' : 'Problem of emerging pollutants not yet regulated'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Coûts élevés de mise en conformité pour certains secteurs industriels' : 'High compliance costs for certain industrial sectors'"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Energy Content -->
+    <div class="timeline-content" 
+         x-show="activePolicy === 'energy'"
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end">
+        <h3 class="font-bold text-xl mb-2" x-text="t('energy_title')">Transition énergétique</h3>
+        <p x-text="t('energy_content')" class="mb-4"></p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Avantages -->
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-earth-green">
+                <h4 class="font-bold text-earth-green mb-2" x-text="currentLanguage === 'fr' ? 'Avantages' : 'Advantages'">Avantages</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Forte croissance des capacités éoliennes et solaires installées' : 'Strong growth in installed wind and solar capacities'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Réduction de la dépendance énergétique extérieure de l\'UE' : 'Reduction of EU\'s external energy dependency'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Baisse significative du coût des énergies renouvelables' : 'Significant decrease in renewable energy costs'"></li>
+                </ul>
+            </div>
+            
+            <!-- Inconvénients -->
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold text-red-600 mb-2" x-text="currentLanguage === 'fr' ? 'Défis et limites' : 'Challenges and limitations'">Défis et limites</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Inégalités dans la transition entre pays riches et pays moins développés de l\'UE' : 'Inequalities in transition between rich and less developed EU countries'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Manque d\'infrastructures de réseau pour l\'intégration des renouvelables à grande échelle' : 'Lack of grid infrastructure for large-scale renewable integration'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Résistance aux projets éoliens et solaires dans certaines régions' : 'Resistance to wind and solar projects in certain regions'"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Climate Law Content -->
+    <div class="timeline-content" 
+         x-show="activePolicy === 'climate'"
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end">
+        <h3 class="font-bold text-xl mb-2" x-text="t('climate_title')">Loi européenne sur le climat</h3>
+        <p x-text="t('climate_content')" class="mb-4"></p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Avantages -->
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-earth-green">
+                <h4 class="font-bold text-earth-green mb-2" x-text="currentLanguage === 'fr' ? 'Avantages' : 'Advantages'">Avantages</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Objectifs légalement contraignants avec mécanismes de suivi' : 'Legally binding targets with monitoring mechanisms'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Signal fort aux investisseurs et aux marchés' : 'Strong signal to investors and markets'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Leadership mondial renforcé de l\'UE dans l\'action climatique' : 'Strengthened global leadership of the EU in climate action'"></li>
+                </ul>
+            </div>
+            
+            <!-- Inconvénients -->
+            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold text-red-600 mb-2" x-text="currentLanguage === 'fr' ? 'Défis et limites' : 'Challenges and limitations'">Défis et limites</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li x-text="currentLanguage === 'fr' ? 'Objectif 2030 considéré insuffisant par de nombreux scientifiques du climat' : '2030 target considered insufficient by many climate scientists'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Mécanismes de sanction limités en cas de non-respect des engagements' : 'Limited sanction mechanisms for non-compliance with commitments'"></li>
+                    <li x-text="currentLanguage === 'fr' ? 'Incertitudes sur la mise en œuvre avec les changements politiques dans les États membres' : 'Uncertainties about implementation with political changes in Member States'"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+ <!-- Nouvelle section : Agriculture en Europe -->
+<section class="content-section mb-16">
+    <h2 class="section-title text-center">L'agriculture en Europe</h2>
+
+    <div class="vandana-portrait-container" x-data="{ activeTab: 'france' }">
+        <!-- Image illustrative -->
+        <div class="flex flex-col md:flex-row items-center mb-8">
+            <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                <div class="vandana-image-container">
+                    <img src="agriculture-europe.jpg" alt="Agriculture en Europe" class="rounded-lg mx-auto border-4 border-earth-green shadow-xl">
+                    <div class="vandana-quote">
+                        <p>"Cultiver notre souveraineté, c'est semer notre avenir."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-2/3 md:pl-8">
+                <p class="text-lg italic mb-4">L'agriculture reste un pilier majeur de l'identité européenne, à la croisée des enjeux de souveraineté, de biodiversité et de justice sociale. Cette section explore la situation actuelle, les spécificités françaises et les perspectives d'avenir.</p>
+
+                <!-- Navigation par onglets -->
+                <div class="flex border-b border-earth-green mb-6">
+                    <button @click="activeTab = 'timeline'" :class="{'text-earth-green border-b-2 border-earth-green font-bold': activeTab === 'timeline'}" class="tab-button">Dates clés</button>
+                    <button @click="activeTab = 'etat'" :class="{'text-earth-green border-b-2 border-earth-green font-bold': activeTab === 'etat'}" class="tab-button">Situation actuelle</button>
+                    <button @click="activeTab = 'avenir'" :class="{'text-earth-green border-b-2 border-earth-green font-bold': activeTab === 'avenir'}" class="tab-button">Estimations à venir</button>
+                    <button @click="activeTab = 'france'" :class="{'text-earth-green border-b-2 border-earth-green font-bold': activeTab === 'france'}" class="tab-button">La France</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu des onglets -->
+        <div class="vandana-content-container">
+            <!-- Timeline -->
+            <div x-show="activeTab === 'timeline'" class="tab-content" x-transition>
+                <!-- Présentation en deux colonnes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Colonne Dates clés -->
+            <div>
+                <h3 class="text-xl font-bold text-earth-green mb-4">Dates clés de l'agriculture européenne</h3>
+                <div class="p-timeline-highlights">
+                    <div class="p-timeline-item">
+                        <span class="p-timeline-dot"></span>
+                        <div class="p-timeline-content">
+                            <span class="p-timeline-date">1962</span>
+                            <p>Lancement officiel de la Politique Agricole Commune (PAC)</p>
+                        </div>
+                    </div>
+                    <div class="p-timeline-item">
+                        <span class="p-timeline-dot"></span>
+                        <div class="p-timeline-content">
+                            <span class="p-timeline-date">1992</span>
+                            <p>Réforme de la PAC intégrant les enjeux environnementaux</p>
+                        </div>
+                    </div>
+                    <div class="p-timeline-item">
+                        <span class="p-timeline-dot"></span>
+                        <div class="p-timeline-content">
+                            <span class="p-timeline-date">2003</span>
+                            <p>Découplage des aides agricoles et de la production</p>
+                        </div>
+                    </div>
+                    <div class="p-timeline-item">
+                        <span class="p-timeline-dot"></span>
+                        <div class="p-timeline-content">
+                            <span class="p-timeline-date">2023</span>
+                            <p>Nouvelle PAC : éco-régimes et conditionnalités sociales</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="italic mt-4">Contenu - illustration à venir (ligne du temps visuelle avec dates et icônes).</p>
+            </div>
+
+            <!-- Colonne Institutions européennes -->
+            <div>
+                <h3 class="text-xl font-bold text-earth-green mb-4">Institutions européennes & impact agricole</h3>
+                <div class="space-y-6">
+                    <div class="bg-white shadow-md rounded-lg p-4 border-l-4 border-earth-green">
+                        <h4 class="text-lg font-semibold text-earth-green">Commission européenne</h4>
+                        <p class="text-sm">Propose les lois européennes, dont celles qui régissent la PAC. Elle joue un rôle moteur dans les réformes et l’orientation des aides agricoles via ses directions générales (DG AGRI).</p>
+                        <p class="italic text-sm mt-1">Rôle exécutif — propose, pilote et met en œuvre les règlements agricoles.</p>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4 border-l-4 border-earth-green">
+                        <h4 class="text-lg font-semibold text-earth-green">Parlement européen</h4>
+                        <p class="text-sm">Vote les lois agricoles en co-décision avec le Conseil. Il exerce un contrôle démocratique et peut influer sur les orientations agricoles à travers les commissions parlementaires (AGRI).</p>
+                        <p class="italic text-sm mt-1">Pouvoir législatif — amende et valide les textes proposés par la Commission.</p>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4 border-l-4 border-earth-green">
+                        <h4 class="text-lg font-semibold text-earth-green">Conseil de l'Union européenne</h4>
+                        <p class="text-sm">Réunit les ministres de l’agriculture des États membres pour adopter les lois européennes agricoles avec le Parlement.</p>
+                        <p class="italic text-sm mt-1">Pouvoir de décision — adopte la PAC avec le Parlement.</p>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4 border-l-4 border-earth-green">
+                        <h4 class="text-lg font-semibold text-earth-green">Cour de justice de l’UE</h4>
+                        <p class="text-sm">Veille à l'application correcte du droit agricole européen. Elle peut sanctionner un État qui ne respecte pas les règlements PAC.</p>
+                        <p class="italic text-sm mt-1">Pouvoir judiciaire — contrôle du respect des lois agricoles européennes.</p>
+                    </div>
+                </div>
+                <p class="italic mt-4">Contenu - illustration à venir (logos, organigramme des pouvoirs).</p>
+            </div>
+        </div>
+            </div>
+
+            <!-- Situation actuelle -->
+            <div x-show="activeTab === 'etat'" class="tab-content" x-transition>
+                <h3 class="text-xl font-bold text-earth-green mb-4">État des lieux de l'agriculture européenne</h3>
+                <p class="mb-4">L'Europe dispose d'une agriculture diversifiée mais confrontée à une baisse du taux d'auto-approvisionnement. Les politiques agricoles communes (PAC) et la compétition mondiale rendent certains produits moins rentables localement, ce qui accentue les déséquilibres d'import/export.</p>
+                <p class="mb-4 italic">Contenu - illustration à venir (évolution du taux d'auto-approvisionnement).</p>
+            </div>
+
+            <!-- Estimations à venir -->
+            <div x-show="activeTab === 'avenir'" class="tab-content" x-transition>
+                <h3 class="text-xl font-bold text-earth-green mb-4">Perspectives futures</h3>
+                <p class="mb-4">Les projections indiquent une hausse des dépendances en matière d'engrais (importés à 80%) et d'alimentation animale (fortement dépendante du Brésil et de l'Argentine). Toutefois, les circuits courts et une consommation plus sobre pourraient infléchir cette trajectoire.</p>
+                <p class="mb-4 italic">Contenu - illustration à venir (graphiques sur dépendances et alternatives).</p>
+            </div>
+
+            <!-- La France -->
+            <div x-show="activeTab === 'france'" class="tab-content" x-transition>
+                <h3 class="text-xl font-bold text-earth-green mb-4">La France, puissance agricole</h3>
+                <p class="mb-4">Avec la plus grande surface agricole de l'Union européenne, la France pourrait théoriquement assurer sa propre sécurité alimentaire. Chaque habitant dispose en moyenne de 4 300 m² agricoles, ce qui est supérieur aux 4 000 m² estimés nécessaires. Sur 30 produits majeurs analysés, 17 sont en surproduction, mais seuls 7 dépassent les 85 % d'autosuffisance une fois les exportations déduites.</p>
+                <p class="mb-4">La dépendance est particulièrement marquée pour les engrais et l'alimentation animale, en provenance notamment du Brésil et d'Argentine. Des efforts vers plus de transformation locale, de consommation responsable et de circuits courts sont en cours.</p>
+                <p class="mb-4 italic">Contenu - illustration à venir (graphiques, carte de la production nationale).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Section ressources et liens -->
+<section class="content-section mb-16">
+    <h2 class="section-title" x-text="t('resources_title')">Ressources et références</h2>
+    
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
+        <div class="space-y-6">
+            <!-- Sites officiels -->
+            <div>
+                <h3 class="font-bold text-xl mb-3" x-text="t('official_sites')">Sites officiels</h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="https://ec.europa.eu/clima/index_fr" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="t('climate_action')">Commission européenne - Action pour le climat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_fr" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="t('green_deal_site')">Pacte vert européen - Site officiel</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.are.admin.ch/are/en/home/media/publications/sustainable-development/brundtland-report.html" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Rapport Brundtland - Développement durable' : 'Brundtland Report - Sustainable Development'">Rapport Brundtland - Développement durable</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://skepticalscience.com/The-Scientific-Guide-to-Global-Warming-Skepticism.html" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Site de skepticisme sur le climat, explique avec pédagogie ce que nous savons sur le réchauffement climatique en répondant aux arguments climatosceptiques les plus fréquents' : 'Scientific Guide to Global Warming Skepticism, explain with pedagogy what we know about climate change by answering the most common arguments of skeptics'">Site science sur le climat</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Textes législatifs -->
+            <div>
+                <h3 class="font-bold text-xl mb-3" x-text="currentLanguage === 'fr' ? 'Textes législatifs' : 'Legislative texts'">Textes législatifs</h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32021R1119" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-file-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Règlement (UE) 2021/1119 - Loi européenne sur le climat' : 'Regulation (EU) 2021/1119 - European Climate Law'">Règlement (UE) 2021/1119 - Loi européenne sur le climat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://environment.ec.europa.eu/strategy/biodiversity-strategy-2030_fr" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-file-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Stratégie de l\'UE en faveur de la biodiversité à l\'horizon 2030' : 'EU Biodiversity Strategy for 2030'">Stratégie de l'UE en faveur de la biodiversité à l'horizon 2030</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Organisations -->
+            <div>
+                <h3 class="font-bold text-xl mb-3" x-text="currentLanguage === 'fr' ? 'Organisations et observatoires' : 'Organizations and observatories'">Organisations et observatoires</h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="https://www.eea.europa.eu/fr" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-building mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Agence européenne pour l\'environnement' : 'European Environment Agency'">Agence européenne pour l'environnement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://climate.copernicus.eu/" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-satellite mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Service Copernicus sur le changement climatique' : 'Copernicus Climate Change Service'">Service Copernicus sur le changement climatique</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+                            </main>
+                            
+                             <!-- Footer -->
+    <footer class="bg-earth-green text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Arnaud GODET</p>
+            <p>&copy; 2025 - Journée internationale de la Terre nourricière</p>
+        </div>
+    </footer>
+                            
+                            <!-- Script pour l'animation du parallax et les transitions -->
+                            <script>
+                                // Animation d'apparition lors du scroll
+                                function checkScroll() {
+                                    const sections = document.querySelectorAll('.content-section');
+                                    
+                                    sections.forEach(section => {
+                                        const sectionTop = section.getBoundingClientRect().top;
+                                        const windowHeight = window.innerHeight;
+                                        
+                                        if (sectionTop < windowHeight * 0.75) {
+                                            section.classList.add('visible');
+                                        }
+                                    });
+                                }
+                                
+                                // Effet parallax pour la bannière
+                                function parallaxEffect() {
+                                    const parallax = document.querySelector('.parallax-section');
+                                    if (parallax) {
+                                        const scrollTop = window.pageYOffset;
+                                        parallax.style.backgroundPositionY = (scrollTop * 0.4) + 'px';
+                                    }
+                                }
+                                
+                                // Initialisation
+                                window.addEventListener('load', () => {
+                                    checkScroll();
+                                    parallaxEffect();
+                                    
+                                    // Scroll indicator animation
+                                    const scrollIndicator = document.querySelector('.scroll-indicator');
+                                    if (scrollIndicator) {
+                                        setTimeout(() => {
+                                            scrollIndicator.classList.add('animate-bounce');
+                                        }, 1000);
+                                    }
+                                });
+                                
+                                window.addEventListener('scroll', () => {
+                                    checkScroll();
+                                    parallaxEffect();
+                                    
+                                    // Hide scroll indicator on scroll
+                                    const scrollIndicator = document.querySelector('.scroll-indicator');
+                                    if (scrollIndicator && window.pageYOffset > 100) {
+                                        scrollIndicator.classList.add('opacity-0');
+                                    }
+                                });
+                            </script>
+                            
+                            </body>
+                            </html>

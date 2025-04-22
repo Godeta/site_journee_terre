@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <style>[x-cloak] { display: none !important; }</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Écoféminisme | Journée internationale de la Terre nourricière</title>
@@ -198,7 +199,8 @@
                         <h3 class="font-bold text-xl mb-2 text-earth-green">Les luttes des pays du Sud</h3>
                         <p class="mb-3">En Inde, le mouvement Chipko dans les années 1970, où des femmes ont entouré des arbres de leurs bras pour empêcher leur abattage, représente une forme précoce d'activisme écoféministe. Vandana Shiva est devenue une figure emblématique en reliant la dégradation environnementale aux structures coloniales et patriarcales.</p>
                         <p class="mb-3">En Afrique, le mouvement de la Ceinture Verte fondé par Wangari Maathai au Kenya a mobilisé des milliers de femmes pour planter des arbres et lutter contre la déforestation, combinant action environnementale et émancipation féminine.</p>
-                        <p>Dans les années 2000, l'Amérique latine a vu émerger des mouvements écoféministes puissants, notamment dans les luttes contre l'extractivisme et pour la souveraineté alimentaire, avec des figures comme Berta Cáceres au Honduras et les mouvements autochtones féministes.</p>
+                        <p>Dans les années 2000, l'Amérique latine a vu émerger des mouvements écoféministes puissants, notamment dans les luttes contre l'extractivisme et pour la souveraineté alimentaire, avec des figures comme Berta Cáceres au Honduras et les mouvements autochtones féministes.</p> <br>
+                        <p> On constate des différences entre le féminisme des pays du Sud et du Nord. Le féminisme égalitaire des pays du Nord valorise l’émancipation des femmes par le salariat et l’égalité des droits, en rupture avec les rôles domestiques. À l’inverse, dans les pays du Sud, un mouvement plus écoféministe met en avant la valeur de la féminité, en s’appuyant sur les savoirs et rôles traditionnels des femmes comme leviers de résistance. Pour mieux comprendre cette différence et ses enjeux, <a href="https://france.attac.org/nos-publications/les-possibles/numero-14-ete-2017/debats/article/l-ecofeminisme-et-les-mobilisations-pour-l-environnement-dans-les-pays-du-sud" class="text-earth-green"> vous pouvez lire cet article. </a></p>
                     </div>
                     
                     <!-- Message par défaut -->
@@ -479,6 +481,35 @@
                         </div>
                     </div>
                 </div>
+                <!-- Rwanda Example Section -->
+  <div class="mt-16" x-data="{ activeEvent: null }">
+    <button class="text-earth-green font-semibold underline hover:no-underline" @click="activeEvent = activeEvent === 'rwanda' ? null : 'rwanda'">
+      Le Rwanda : un exemple des bienfaits de l'implication des femmes en politique ?
+    </button>
+
+    <div class="timeline-content mt-4" 
+         x-show="activeEvent === 'rwanda'"  
+         x-transition:enter="fade-enter"
+         x-transition:enter-start="fade-enter-start"
+         x-transition:enter-end="fade-enter-end"
+         x-cloak>
+
+      <h3 class="text-xl font-bold text-earth-green mb-2">Le Rwanda : Un Phénix Africain Plus Progressiste que la France ?</h3>
+      <p class="mb-4">Souvent associé à la tragédie du génocide de 1994, le Rwanda est aujourd'hui un exemple étonnant de résilience et de progrès, notamment en matière d'environnement et d'égalité entre les sexes.</p>
+
+      <h4 class="font-semibold text-lg text-gray-800 mb-1">Une politique environnementale ambitieuse</h4>
+      <p class="mb-4">Dès 2008, le Rwanda a interdit les sacs plastiques, bien avant la France. Cette mesure s’inscrit dans une vision de reconstruction durable du pays et une prise de conscience aiguë des impacts du changement climatique sur une économie encore largement agricole.<br>
+      <a href="https://www.bbc.com/news/world-africa-43520495" target="_blank" class="text-earth-green hover:underline">Source : BBC</a></p>
+
+      <h4 class="font-semibold text-lg text-gray-800 mb-1">Une représentation politique féminine exceptionnelle</h4>
+      <p class="mb-4">Le Rwanda est régulièrement en tête du classement mondial en matière de représentation des femmes au parlement, avec plus de 60 % de députées. Cela dépasse largement la France. Cette avancée découle d’une volonté de reconstruire une société plus inclusive après le génocide.<br>
+      <a href="https://www.unwomen.org/en/news/stories/2019/3/news-rwanda-tops-ranking-of-women-in-parliament" target="_blank" class="text-earth-green hover:underline">Source : ONU Femmes</a></p>
+
+      <h4 class="font-semibold text-lg text-gray-800 mb-1">Un modèle de reconstruction par l'inclusion</h4>
+      <p>Le traumatisme du passé a permis l’ouverture de nouveaux rôles pour les femmes. Le Rwanda démontre qu’un pays en reconstruction peut être pionnier en matière de justice environnementale et sociale, à condition d’avoir une vision politique claire et ambitieuse.<br>
+      <a href="https://www.worldbank.org/en/news/feature/2019/03/08/gender-equality-in-rwanda" target="_blank" class="text-earth-green hover:underline">Source : Banque Mondiale</a></p>
+    </div>
+  </div>
             </section>
             
             <!-- Section ressources avec design amélioré -->
@@ -538,6 +569,15 @@
                                 <div>
                                     <h4 class="font-bold"> Vandana shiva portraits </h4>
                                     <p class="text-gray-700">Pour écrire la partie sur Vandana Shiva je me suis inspiré des deux liens suivants : celui-ci issu du site de la Sorbonne : <a href="https://unwomensonu.wordpress.com/2019/11/27/vandana-shiva-lecofeminisme-nest-pas-une-mode-cest-la-perspective-dune-vie-perenne/" class="text-green-700 hover:text-light-purple transition-colors"> cliquez-ici pour voir le portrait.</a> Celui ci m'a beaucoup inspiré pour l'organisation du contenu en parcours, philosophie, action et controverse : <a href="https://usbeketrica.com/fr/article/vandana-shiva-l-eco-feministe-en-campagne-perpetuelle" class="text-green-700 hover:text-light-purple transition-colors" > cliquez-ici pour voir le portrait.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-earth-green mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold"> Podcasts </h4>
+                                    <p class="text-gray-700">Deux épisodes de podcasts que je recommande sur le sujet, en 4min l'épisode de "Le féminisme expliqué à mon beauf" résume bien le concept  <a href="https://open.spotify.com/episode/5rkZhRwk0lsCSIovHH9Bib?si=glGHYuZVQpyrQ49N1pllIQ" class="text-green-700 hover:text-light-purple transition-colors"> cliquez-ici pour écouter l'épisode.</a> Il y a aussi deux épisodes de 1h par Arte qui suivent des femmes dans des combats écoféministes : <a href="https://open.spotify.com/episode/5hnw0I4HsChWR2R3F3UtlV" class="text-green-700 hover:text-light-purple transition-colors" > cliquez-ici pour écouter l'épisode.</a></p>
                                 </div>
                             </div>
                         </div>
