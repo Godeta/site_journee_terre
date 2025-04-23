@@ -159,8 +159,8 @@
                         'en': 'Resources and references'
                     },
                     'official_sites': {
-                        'fr': 'Sites officiels',
-                        'en': 'Official sites'
+                        'fr': 'Sites',
+                        'en': 'Sites'
                     },
                     'climate_action': {
                         'fr': 'Commission européenne - Action pour le climat',
@@ -611,12 +611,12 @@
 <section class="content-section mb-16">
     <h2 class="section-title text-center">L'agriculture en Europe</h2>
 
-    <div class="vandana-portrait-container" x-data="{ activeTab: 'france' }">
+    <div class="vandana-portrait-container" x-data="{ activeTab: 'timeline' }">
         <!-- Image illustrative -->
         <div class="flex flex-col md:flex-row items-center mb-8">
             <div class="w-full md:w-1/3 mb-6 md:mb-0">
                 <div class="vandana-image-container">
-                    <img src="agriculture-europe.jpg" alt="Agriculture en Europe" class="rounded-lg mx-auto border-4 border-earth-green shadow-xl">
+                    <img src="agriculture.avif" alt="Agriculture en Europe" class="rounded-lg mx-auto border-4 border-earth-green shadow-xl">
                     <div class="vandana-quote">
                         <p>"Cultiver notre souveraineté, c'est semer notre avenir."</p>
                     </div>
@@ -674,7 +674,8 @@
                         </div>
                     </div>
                 </div>
-                <p class="italic mt-4">Contenu - illustration à venir (ligne du temps visuelle avec dates et icônes).</p>
+                <a href="https://www.consilium.europa.eu/en/policies/cap-funding-rules-2023-2027/" target="_blank" class="text-earth-green hover:text-light-purple transition-colors">Plus d'informations sur la PAC </a>
+                <img src="UE_agriculture.jpg"> <p class="italic text-sm mt-1"> Rencontre ministères de l'agriculture lithuanien et français</p>
             </div>
 
             <!-- Colonne Institutions européennes -->
@@ -702,7 +703,7 @@
                         <p class="italic text-sm mt-1">Pouvoir judiciaire — contrôle du respect des lois agricoles européennes.</p>
                     </div>
                 </div>
-                <p class="italic mt-4">Contenu - illustration à venir (logos, organigramme des pouvoirs).</p>
+                
             </div>
         </div>
             </div>
@@ -731,6 +732,285 @@
         </div>
     </div>
 </section>
+
+<!-- Section : Énergie en Europe -->
+<section class="content-section mb-16" x-data="{ activeSection: 'timeline' }">
+    <h2 class="section-title">L'énergie en Europe</h2>
+  
+    <!-- Navigation entre les sections -->
+    <div class="flex justify-center gap-4 mb-10 flex-wrap">
+      <button @click="activeSection = 'timeline'" :class="{ 'text-earth-green font-bold border-b-2 border-earth-green': activeSection === 'timeline' }" class="tab-button">1. Timeline & Mix</button>
+      <button @click="activeSection = 'nucleaire'" :class="{ 'text-earth-green font-bold border-b-2 border-earth-green': activeSection === 'nucleaire' }" class="tab-button">2. Focus Nucléaire</button>
+      <button @click="activeSection = 'transitions'" :class="{ 'text-earth-green font-bold border-b-2 border-earth-green': activeSection === 'transitions' }" class="tab-button">3. Transitions & controverses</button>
+      <button @click="activeSection = 'avenir'" :class="{ 'text-earth-green font-bold border-b-2 border-earth-green': activeSection === 'avenir' }" class="tab-button">4. Perspectives d'avenir</button>
+      <button @click="activeSection = 'monde'" :class="{ 'text-earth-green font-bold border-b-2 border-earth-green': activeSection === 'monde' }" class="tab-button">
+        5. Europe dans le Monde
+      </button>      
+    </div>
+  
+    <!-- Partie 1 : Timeline & Mix énergétique -->
+    <div x-show="activeSection === 'timeline'" x-transition>
+      <div class="energy-split">
+        <!-- Timeline -->
+        <div>
+          <h3 class="text-xl font-bold text-earth-green mb-4">Dates clés des politiques énergétiques</h3>
+          <div class="p-timeline-highlights">
+            <div class="p-timeline-item">
+              <span class="p-timeline-dot"></span>
+              <div class="p-timeline-content">
+                <span class="p-timeline-date">1951</span>
+                <p>Création de la CECA – mise en commun du charbon et de l’acier pour garantir la paix en Europe.</p>
+              </div>
+            </div>
+            <div class="p-timeline-item">
+              <span class="p-timeline-dot"></span>
+              <div class="p-timeline-content">
+                <span class="p-timeline-date">1957</span>
+                <p>Traité Euratom – coopération nucléaire pour un usage pacifique de l’énergie.</p>
+              </div>
+            </div>
+            <div class="p-timeline-item">
+              <span class="p-timeline-dot"></span>
+              <div class="p-timeline-content">
+                <span class="p-timeline-date">2007</span>
+                <p>Paquet climat-énergie – triple objectif : réduire les émissions, améliorer l’efficacité, développer les renouvelables.</p>
+              </div>
+            </div>
+            <div class="p-timeline-item">
+              <span class="p-timeline-dot"></span>
+              <div class="p-timeline-content">
+                <span class="p-timeline-date">2019</span>
+                <p>Green Deal européen – feuille de route vers la neutralité carbone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Mix énergétique -->
+        <div>
+          <h3 class="text-xl font-bold text-earth-green mb-4">Mix énergétique européen</h3>
+          <p>Le mix énergétique européen se compose historiquement d'énergies fossiles, nucléaires et renouvelables. Les proportions évoluent avec les politiques climatiques et les contextes géopolitiques.</p>
+          <img src="IEA_energy.png">
+          <img src="IEA_electricity.png">
+        </div>
+      </div>
+    </div>
+  
+    <!-- Partie 2 : Focus sur le nucléaire -->
+    <div x-show="activeSection === 'nucleaire'" x-transition>
+      <h3 class="text-2xl font-bold text-earth-green mb-6 text-center">Focus : Le nucléaire en Europe</h3>
+      <div class="nuclear-tabs" x-data="{ activeTab: 'fonctionnement' }">
+        <div class="flex nuclear-tabs mb-4 justify-center">
+          <button @click="activeTab = 'fonctionnement'" :class="{ 'active': activeTab === 'fonctionnement' }" class="nuclear-tab">Fonctionnement</button>
+          <button @click="activeTab = 'avantages'" :class="{ 'active': activeTab === 'avantages' }" class="nuclear-tab">Avantages / Inconvénients</button>
+          <button @click="activeTab = 'securite'" :class="{ 'active': activeTab === 'securite' }" class="nuclear-tab">Sécurité</button>
+          <button @click="activeTab = 'chiffres'" :class="{ 'active': activeTab === 'chiffres' }" class="nuclear-tab">Chiffres clés</button>
+        </div>
+  
+        <div class="nuclear-content" x-show="activeTab === 'fonctionnement'" x-transition>
+          <p>Ici explication sur le fonctionnement d'une centrale nucléaire avec schéma interactif à venir.</p>
+        </div>
+        <div class="nuclear-content" x-show="activeTab === 'avantages'" x-transition>
+          <p>Ici tableau ou cartes des avantages et inconvénients du nucléaire.</p>
+        </div>
+        <div class="nuclear-content" x-show="activeTab === 'securite'" x-transition>
+          <p>Ici contenu sur la sécurité nucléaire, incidents historiques et mesures en place.</p>
+        </div>
+        <div class="nuclear-content" x-show="activeTab === 'chiffres'" x-transition>
+          <p>Ici infographies avec les chiffres clés en France et dans l’Union européenne.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Partie 3 : Transitions et controverses -->
+    <div x-show="activeSection === 'transitions'" x-transition>
+        
+    <h2 class="section-title text-center">Transitions & controverses</h2>
+      <!-- Récap visuel des chiffres clés -->
+<div class="transitions-summary">
+    <div class="summary-item">
+      <div class="summary-icon"><i class="fas fa-gas-pump fa-2x"></i></div>
+      <div class="summary-value">45% → 15%</div>
+      <div class="summary-text">Réduction des importations de gaz russe (2021 → 2023)</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon"><i class="fas fa-euro-sign fa-2x"></i></div>
+      <div class="summary-value">110 Mrd </div>
+      <div class="summary-text">Investissements dans les énergies renouvelables (2023)</div>
+    </div>
+    <div class="summary-item polluant">
+      <div class="summary-icon"><i class="fas fa-bolt fa-2x"></i></div>
+      <div class="summary-value">33 %</div>
+      <div class="summary-text">Électricité & chaleur – <strong>1er secteur émetteur d'émissions CO2</strong></div>
+    </div>
+    <div class="summary-item polluant">
+      <div class="summary-icon"><i class="fas fa-truck fa-2x"></i></div>
+      <div class="summary-value">29,4 %</div>
+      <div class="summary-text">Transports – <strong>2e secteur émetteur d'émissions CO2</strong></div>
+    </div>
+  </div>
+  
+
+    <!-- Section Transitions & controverses avec text dépliable -->
+<section class="content-section mb-16" x-data="{ open: '' }">
+  
+    <div class="accordion mt-8">
+      <!-- Diversification & financements -->
+      <div class="accordion-item mb-4">
+        <div class="accordion-header" @click="open === 'diversification' ? open = '' : open = 'diversification'">
+          <span class="text-lg font-semibold">Diversification et financements</span>
+          <i :class="open === 'diversification' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
+        </div>
+        <div class="accordion-content" x-show="open === 'diversification'" x-transition>
+          <h4 class="font-medium mb-2">Réduction de la dépendance et investissements</h4>
+          <p>
+            Après l'invasion de l’Ukraine par la Russie en février 2022, l’UE a fait chuter sa part de gaz russe dans ses importations
+            de 45 % (2021) à 15 % (2023). En parallèle, les investissements dans les énergies renouvelables ont atteint
+            <strong>110 milliards €</strong> en 2023, soutenus par la Banque européenne d’investissement.
+          </p>
+          <a href="https://www.eib.org/fr/essays/europe-energy-transition-renewable"
+             class="source-link inline-flex items-center mt-2">
+            En savoir plus <i class="fas fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+      </div>
+  
+      <!-- Inégalités dans la transition -->
+      <div class="accordion-item mb-4">
+        <div class="accordion-header" @click="open === 'inegalites' ? open = '' : open = 'inegalites'">
+          <span class="text-lg font-semibold">Inégalités dans la transition</span>
+          <i :class="open === 'inegalites' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
+        </div>
+        <div class="accordion-content" x-show="open === 'inegalites'" x-transition>
+          <h4 class="font-medium mb-2">Disparités par pays</h4>
+          <p>
+            Les choix nationaux diffèrent fortement : l’Allemagne, sortie du nucléaire, dépend encore du charbon pour 25 % de son électricité,
+            alors que la France produit 70 % de son électricité grâce au nucléaire.  
+            La Pologne reste à plus de 70 % au charbon,  
+            tandis que le Danemark atteint 50 % d’éolien offshore et l’Espagne plus de 30 % de solaire photovoltaïque.
+          </p>
+          <a href="https://www.lemonde.fr/idees/article/2024/09/27/herodote-explore-la-geopolitique-du-dereglement-climatique-en-europe_6336275_3232.html"
+             class="source-link inline-flex items-center mt-2">
+            En savoir plus <i class="fas fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+      </div>
+  
+      <!-- Impact mondial -->
+      <div class="accordion-item mb-4">
+        <div class="accordion-header" @click="open === 'impact' ? open = '' : open = 'impact'">
+          <span class="text-lg font-semibold">Exemples internationaux de mix énergétique</span>
+          <i :class="open === 'impact' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
+        </div>
+        <div class="accordion-content" x-show="open === 'impact'" x-transition>
+          <h4 class="font-medium mb-2">Le Bhoutan et le Costa Rica</h4>
+          <p>
+            Le Bhoutan est le premier pays à bilan carbone négatif grâce à son hydroélectricité (98 %) et ses forêts,
+            tandis que le Costa Rica produit près de 100 % de son électricité à partir de sources renouvelables
+            (hydro, géothermie, éolien).
+          </p>
+          <a href="https://climateactiontracker.org/countries/bhutan/" class="source-link inline-flex items-center mt-2">
+            En savoir plus sur le Bhutan <i class="fas fa-external-link-alt ml-1"></i>
+          </a>
+          <br>
+          <a href="https://www.trade.gov/market-intelligence/costa-ricas-renewable-energy"
+             class="source-link inline-flex items-center mt-1">
+            En savoir plus sur le Costa Rica <i class="fas fa-external-link-alt ml-1"></i>
+          </a>
+        </div>
+      </div>
+  
+      <!-- Secteurs en retard -->
+      <div class="accordion-item">
+        <div class="accordion-header" @click="open === 'sectors' ? open = '' : open = 'sectors'">
+          <span class="text-lg font-semibold">Secteurs en retard</span>
+          <i :class="open === 'sectors' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
+        </div>
+        <div class="accordion-content" x-show="open === 'sectors'" x-transition>
+            <h4 class="section-title">Répartition des énergies et des émissions en Europe</h4>
+            <p class="mb-6 text-center">En Europe, la transition énergétique est un enjeu majeur pour atteindre la neutralité carbone d'ici 2050. Les émissions de gaz à effet de serre sont liées aux sources d’énergie dominantes. Voici une synthèse claire des secteurs clés et des leviers de réduction.</p>
+          
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-content">
+                  <h5 class="card-title">Électricité & Chaleur (≈ 33 %)</h5>
+                  <p><strong>Sources :</strong> Gaz (17 %), charbon (11,7 %), pétrole (1,4 %), renouvelables (45,4 %), nucléaire (22,8 %).</p>
+                  <p><strong>Pistes d'amélioration :</strong> Déploiement solaire/éolien, sortie du charbon, stockage (batteries, hydrogène), modernisation des réseaux.</p>
+                </div>
+              </div>
+          
+              <div class="card">
+                <div class="card-content">
+                  <h5 class="card-title">Transport (≈ 29,4 %)</h5>
+                  <p><strong>Sources :</strong> Pétrole (majoritaire), électricité (VE en croissance).</p>
+                  <p><strong>Pistes d'amélioration :</strong> Véhicules zéro émission, transports collectifs, biocarburants durables, fret ferroviaire.</p>
+                </div>
+              </div>
+          
+              <div class="card">
+                <div class="card-content">
+                  <h5 class="card-title">Industrie (≈ 21 %)</h5>
+                  <p><strong>Sources :</strong> Gaz, charbon, électricité (sidérurgie, chimie, ciment).</p>
+                  <p><strong>Pistes d'amélioration :</strong> Fours électriques, hydrogène vert, captage CO₂, recyclage (aluminium, etc.).</p>
+                </div>
+              </div>
+          
+              <div class="card">
+                <div class="card-content">
+                  <h5 class="card-title">Bâtiments (≈ 16 %)</h5>
+                  <p><strong>Sources :</strong> Gaz, fioul, électricité, biomasse.</p>
+                  <p><strong>Pistes d'amélioration :</strong> Isolation thermique, pompes à chaleur, réseaux de chaleur, sensibilisation des usagers.</p>
+                </div>
+              </div>
+          
+              <div class="card">
+                <div class="card-content">
+                  <h5 class="card-title">Agriculture (≈ 8 %)</h5>
+                  <p><strong>Sources :</strong> Méthane (élevage), protoxyde d’azote (engrais), carburants fossiles.</p>
+                  <p><strong>Pistes d'amélioration :</strong> Agriculture de précision, méthanisation, protéines alternatives, agroécologie.</p>
+                </div>
+              </div>
+          
+              <div class="card">
+                <div class="card-content">
+                  <h5 class="card-title">Stratégies transversales</h5>
+                  <p>Tarification carbone (ETS), plan REPowerEU (300 Md€), interconnexions électriques, innovation et coopération UE.</p>
+                </div>
+              </div>
+            </div>
+          
+            <p class="mt-6 italic text-sm text-center">Sources :
+              <a href="https://www.consilium.europa.eu/fr/infographics/electricity-eu/" class="source-link" target="_blank">Consilium</a>,
+              <a href="https://www.statistiques.developpement-durable.gouv.fr" class="source-link" target="_blank">Ministère de la Transition écologique</a>,
+              <a href="https://www.eea.europa.eu/fr" class="source-link" target="_blank">Agence européenne de l’environnement</a>
+            </p>
+          </div>
+          
+    </div>
+  </section>
+    
+    </div>
+  
+    <!-- Partie 4 : Perspectives d’avenir -->
+    <div x-show="activeSection === 'avenir'" x-transition>
+      <h3 class="text-2xl font-bold text-earth-green mb-6">Perspectives d'avenir</h3>
+      <p>L'Union européenne vise la neutralité carbone d'ici 2050. Pour cela, plusieurs leviers sont envisagés : déploiement de petits réacteurs nucléaires (SMR), développement de réseaux électriques intelligents, stockage à grande échelle, généralisation de l'autoconsommation.</p>
+      <p class="mt-4">L'hydrogène est également perçu comme un vecteur clé, notamment dans les secteurs difficilement électrifiables comme l'industrie lourde ou le transport aérien. Le citoyen devient acteur via la sobriété énergétique, l'autoproduction et les coopératives locales.</p>
+      <p class="mt-4 italic">Illustration à venir : frise 2030-2050, pictos innovations énergétiques, schéma d'un quartier en autoconsommation.</p>
+    </div>
+    <!-- Partie 5 : Europe dans le Monde -->
+<div x-show="activeSection === 'monde'" x-transition>
+    <h3 class="text-2xl font-bold text-earth-green mb-6">L'Europe dans le Monde</h3>
+    <p>L’Europe représente environ 8 % de la population mondiale, mais sa consommation énergétique par habitant reste relativement élevée par rapport à la moyenne mondiale, bien que plus faible que celle des États-Unis ou du Canada.</p>
+    <p class="mt-4">Sur le plan de la production, l’Europe est dépendante de nombreuses importations : gaz russe, uranium canadien, pétrole du Moyen-Orient. Elle investit cependant massivement dans les énergies renouvelables.</p>
+    <p class="mt-4">En termes de pollution, l’UE a significativement réduit ses émissions de CO₂ depuis 1990, contrairement à d'autres régions du monde où elles continuent d'augmenter (ex. : Asie du Sud-Est).</p>
+    <p class="mt-4 italic">Illustration à venir : graphiques comparatifs par habitant, cartes des flux énergétiques mondiaux, histogramme des émissions de CO₂.</p>
+  </div>
+  
+  </section>
+  
+
+energie, démocratie et climatosceptiques  ,pouvoir legislatif de l'Europe, 
 
     <!-- Section ressources et liens -->
 <section class="content-section mb-16">
@@ -766,6 +1046,32 @@
                             <span x-text="currentLanguage === 'fr' ? 'Site de skepticisme sur le climat, explique avec pédagogie ce que nous savons sur le réchauffement climatique en répondant aux arguments climatosceptiques les plus fréquents' : 'Scientific Guide to Global Warming Skepticism, explain with pedagogy what we know about climate change by answering the most common arguments of skeptics'">Site science sur le climat</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="https://internationalbusinessguide.org/hungry-planet/" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Infographies sur notre consommation sur la planète' : 'Infographics on our consumption on the planet'">Infographies</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtu.be/XHk0Yg7PgGw" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Emission le dessous des cartes, politique écologique de l\'Allemagne' : ' French tv show on Germany environmental policy'">Le dessous des cartes</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://youtu.be/YQACUT9x9Zk" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Vidéo du journal Le Monde sur les difficultés de l\'Allemagne pour leurs engagements écologiques ' : ' Le Monde journal video on German environmental commitments'">Le Monde allemagne</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtu.be/CqM-kkDWaaE" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Vidéo de Brut sur l\'agriculture française ' : ' Brut video on French agriculture'">Brut agriculture</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
             

@@ -693,3 +693,133 @@ footer::before {
 .controversy-tweet i {
     font-size: 1.5rem;
 }
+
+/* Mise en page énergie */
+.energy-split {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.energy-split > div {
+  flex: 1 1 45%;
+}
+
+.nuclear-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 2px solid var(--earth-green);
+  margin-bottom: 1rem;
+}
+
+.nuclear-tab {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text-gray);
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nuclear-tab:hover {
+  background-color: rgba(77, 124, 15, 0.05);
+}
+
+.nuclear-tab.active {
+  color: var(--earth-green);
+  border-color: var(--light-purple);
+}
+
+.nuclear-content {
+  padding: 1rem;
+  background-color: #f8f8f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  min-height: 160px;
+  transition: all 0.4s ease;
+}
+
+/* Accordéon interactif pour Transitions & controverses */
+.accordion-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+.accordion-content {
+  padding: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+.accordion-icon {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+.accordion-icon.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Style des liens de source */
+.source-link {
+  color: var(--earth-green);
+  text-decoration: underline;
+}
+.source-link:hover {
+  color: var(--light-purple);
+}
+
+/* Récapitulatif visuel des chiffres clés */
+.transitions-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-item {
+  background-color: var(--off-white);
+  border: 1px solid var(--earth-green);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.summary-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.summary-icon {
+  color: var(--earth-green);
+  margin-bottom: 0.5rem;
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--earth-green);
+  margin-bottom: 0.25rem;
+}
+
+.summary-text {
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  line-height: 1.2;
+}
+/* Spécial pour les secteurs polluants */
+.summary-item.polluant .summary-value {
+  color: #B91C1C; /* rouge foncé */
+}
+.summary-item.polluant .summary-icon {
+  color: #DC2626; /* rouge vif */
+}
