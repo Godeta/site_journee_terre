@@ -1040,34 +1040,86 @@
       <p class="mt-2">Les institutions fixent un cap, mais les territoires, les entreprises, les associations, les citoyens en seront les moteurs. Cela implique des choix technologiques, mais aussi culturels et politiques. L’échelle locale est un terrain privilégié d’expérimentation : coopératives d’énergie, tiers-lieux, jardins partagés ou transports doux montrent qu’un autre modèle est possible.</p>
       <p class="mt-2">En somme, l’avenir est à co-construire. Il ne s'agit pas seulement d'innover techniquement, mais de réinventer notre rapport au vivant, à la consommation, au collectif.</p>
     </div>
-    <section class="mt-8">
-    <!-- Diversification & financements -->
-    <div class="accordion-item mb-4">
+    <!-- Plus de détails dépliable -->
+    <div class="accordion-item mb-4" x-data="{ open: '' }">
         <div class="accordion-header" @click="open === 'diversification' ? open = '' : open = 'diversification'">
           <span class="text-lg font-semibold">Plus de détails sur les solutions</span>
           <i :class="open === 'diversification' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
         </div>
         <div class="accordion-content" x-show="open === 'diversification'" x-transition>
-          <h4 class="font-medium mb-2">Réduction de la dépendance et investissements</h4>
-          <p>
-            Après l'invasion de l’Ukraine par la Russie en février 2022, l’UE a fait chuter sa part de gaz russe dans ses importations
-            de 45 % (2021) à 15 % (2023). En parallèle, les investissements dans les énergies renouvelables ont atteint
-            <strong>110 milliards €</strong> en 2023, soutenus par la Banque européenne d’investissement.
-          </p>
-          <a href="https://www.eib.org/fr/essays/europe-energy-transition-renewable"
-             class="source-link inline-flex items-center mt-2">
-            En savoir plus <i class="fas fa-external-link-alt ml-1"></i>
-          </a>
+          
+            <h4 class="font-medium text-xl text-green-800 mb-4">Les leviers technologiques : des solutions prometteuses mais à encadrer</h4>
 
-          <p class="mt-4">
-            Dans le sud de l’Estonie, l’ancien site de récolte de tourbe de Sopi-Tootsi accueillera bientôt <strong>le plus grand parc éolien des pays baltes</strong>, capable d’alimenter près de <strong>197 000 foyers</strong>, soit environ <strong>10 %</strong> des besoins en électricité du pays.
-          </p>
-          <p class="mt-2">
-            Ce projet, mené par Enefit Green, illustre l’engagement croissant des États membres vers une production énergétique locale, propre et indépendante. L’Estonie vise à produire <strong>100 % de son électricité à partir de sources renouvelables d’ici 2030</strong>.
-          </p>
+            <h5 class="font-semibold text-lg mt-4 mb-1">1. Les petits réacteurs nucléaires modulaires (SMR)</h5>
+            <p>
+            Les SMR sont des réacteurs nucléaires de faible puissance (jusqu’à 300 MW) conçus pour être plus sûrs, modulaires et rapides à déployer que les centrales traditionnelles. 
+            La France, la Pologne et plusieurs autres pays européens s’intéressent à ces technologies pour décarboner leur mix énergétique tout en assurant une production stable.
+            </p>
+            <p class="source">💡 Source : <a href="https://www.oecd-nea.org/upload/docs/application/pdf/2023-12/aen_ra_2022.pdf" class="text-green-700 hover:text-green-900"> Agence internationale de l’énergie (AIE), rapport 2022 sur le nucléaire civil. </a></p>
+            <p>
+            Cependant, le déploiement de ces réacteurs pose des questions sur les déchets, la prolifération, et la dépendance technologique. Ils doivent être intégrés dans une stratégie énergétique globale comprenant sobriété, efficacité, et développement des renouvelables.
+            </p>
+
+            <h5 class="font-semibold text-lg mt-4 mb-1">2. Les réseaux électriques intelligents (smart grids)</h5>
+            <p>
+            Les réseaux intelligents permettent de mieux intégrer les énergies renouvelables intermittentes (éolien, solaire) dans le système électrique en temps réel. 
+            Ils facilitent aussi l’implication des consommateurs via la gestion dynamique de la demande (smart meters, flexibilité).
+            </p>
+            <p class="source">💡 Source : <a href="https://digital-strategy.ec.europa.eu/fr/policies/eu-policy-digitalisation-energy" class="text-green-700 hover:text-green-900"> Commission européenne, appui à la transformation numérique et écologique du système énergetique. </a>  </p>
+            <p>
+            Ces infrastructures, combinées au stockage (batteries, hydrogène), peuvent transformer les territoires européens en écosystèmes énergétiques résilients et bas-carbone.
+            </p>
+
+            <h4 class="font-medium text-xl text-green-800 mt-8 mb-4">Changer de paradigme : l’innovation sociale et la gouvernance</h4>
+
+            <h5 class="font-semibold text-lg mt-4 mb-1">3. Économie régénérative et économie du donut</h5>
+            <p>
+            L’Europe doit aller au-delà de la croissance verte vers des modèles inspirés de l’économie régénérative et de l’économie du donut (Kate Raworth). 
+            Il s’agit de maintenir les activités humaines à l’intérieur d’un espace sûr pour l’humanité, entre limites planétaires et besoins sociaux.
+            </p>
+            <p class="source">💡 Source : <a href="https://doughnuteconomics.org/about-doughnut-economics" class="text-green-700 hover:text-green-900"> Kate Raworth, Doughnut Economics, 2017. </a> </p>
+            <p>
+            Cela implique de repenser l’indicateur de prospérité (au-delà du PIB), promouvoir des politiques publiques favorables à l’économie circulaire, aux communs, et à la résilience locale.
+            </p>
+
+            <h5 class="font-semibold text-lg mt-4 mb-1">4. Justice climatique et démocratie environnementale</h5>
+            <p>
+            Le rapport <em><a href="https://ec.europa.eu/assets/clima/our_planet_our_future/files/assets/common/downloads/our_planet_our_future.pdf" class="text-green-700 hover:text-green-900"> Our Planet, Our Future </a></em> insiste sur le rôle fondamental de la justice sociale pour la transition écologique. En Europe, 
+            les inégalités d’exposition aux risques environnementaux doivent être prises en compte dans les politiques climatiques. Cela signifie renforcer :
+            </p>
+            <ul class="list-disc list-inside ml-4 mb-4">
+            <li>la participation citoyenne aux décisions (assemblées citoyennes pour le climat) ;</li>
+            <li>l’éducation à l’environnement, dès l’école ;</li>
+            <li>des transitions justes, accompagnant les travailleurs des secteurs fossiles vers de nouveaux métiers durables.</li>
+            </ul>
+
+            <h4 class="font-medium text-xl text-green-800 mt-8 mb-4">Des exemples concrets d’initiatives européennes</h4>
+            <p>
+            Le Pacte vert pour l’Europe (<em>Green Deal</em>) vise la neutralité carbone d’ici 2050. Il finance des projets de rénovation thermique, de mobilité douce, de production décarbonée.
+            </p>
+            <p>
+            Le programme <strong>Horizon Europe</strong> soutient la recherche sur les SMR, le stockage d’énergie, l’agroécologie, etc.
+            </p>
+            <p>
+            Les territoires en transition, comme la région de Fribourg (Allemagne) ou Leuven (Belgique), montrent que des alternatives locales, démocratiques et durables sont possibles.
+            </p>
+
+            <h4 class="font-medium text-xl text-green-800 mt-8 mb-4">Conclusion : une bifurcation collective</h4>
+            <p>
+            L’Europe possède les ressources, les connaissances et les structures démocratiques pour devenir un leader de la transition écologique mondiale. 
+            Mais cela nécessite :
+            </p>
+            <ul class="list-disc list-inside ml-4 mb-4">
+            <li>une volonté politique ferme ;</li>
+            <li>des investissements publics massifs ;</li>
+            <li>une mobilisation citoyenne continue ;</li>
+            <li>un changement culturel profond valorisant le “bien vivre” plutôt que le “toujours plus”.</li>
+            </ul>
+            <p>
+            Comme le dit <a href="https://ec.europa.eu/assets/clima/our_planet_our_future/files/assets/common/downloads/our_planet_our_future.pdf" class="text-green-700 hover:text-green-900"> le rapport, </a> <em> “Les actions que nous faire aujourd'hui vont déterminer le monde dans lequel nous vivrons dans 10, 20 ou 50 ans.”</em> : il est encore temps d’agir.
+            </p>
         </div>
-        
-      </div> </section>
+      </div> 
   
     <p class="mt-4 italic">
       Plus d'informations  
@@ -1090,8 +1142,9 @@
   
   </section>
   
-
-démocratie et climatosceptiques  ,pouvoir legislatif de l'Europe, 
+Reste à faire : 
+agriculture, énergie : Europe dans le monde et Focus Nucléaire
+démocratie et climatosceptiques (montée des extrêmes ? ingénieurs du chaos, bulle réseaux...), pouvoir legislatif de l'Europe (en quoi la legislation européenne à un impact mondial, rgpd, téléphones, encadrer les pratiques pour éviter les dystopies...)
 
     <!-- Section ressources et liens -->
 <section class="content-section mb-16">
