@@ -327,13 +327,21 @@
     </div>
     
     <!-- Carte de l'UE -->
-    <div class="mt-8 flex justify-center">
-        <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-xs transform transition-all duration-500 hover:scale-105">
+    <div class="mt-8 flex grid grid-cols-1 md:grid-cols-2 gap-20 ml-20">
+        <div class="ml-20 bg-white rounded-lg shadow-lg p-4 w-full max-w-xs transform transition-all duration-500 hover:scale-105">
             <h3 class="font-bold text-xl text-center mb-3" x-text="currentLanguage === 'fr' ? 'L\'UE en un coup d\'œil' : 'EU at a glance'">L'UE en un coup d'œil</h3>
             <div class="overflow-hidden rounded-lg">
                 <img src="UE_map.png" alt="Carte de l'Union Européenne" class="w-full h-auto object-cover" >
             </div>
-            <p class="text-center text-sm text-gray-500 mt-2" x-text="currentLanguage === 'fr' ? 'La carte des 27 États membres' : 'Map of the 27 member states'">La carte des 27 États membres</p>
+            <p class="text-center text-sm text-gray-500 mt-2" x-text="currentLanguage === 'fr' ? 'La carte des 27 États membres. Le dernier pays ayant rejoint l\'UE est la Croatie lors du Traité de Bruxelles le 1er juillet 2013' : 'Map of the 27 member states. The last country to join the EU was Croatia on the Treaty of Brussels on July 1, 2013'">La carte des 27 États membres</p>
+        </div>
+    <!-- Carte de l'UE -->
+        <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-xs transform transition-all duration-500 hover:scale-105">
+            <h3 class="font-bold text-xl text-center mb-3" x-text="currentLanguage === 'fr' ? 'Situation écologique problématique' : 'Problematic ecological situation'">L'UE en un coup d'œil</h3>
+            <div class="overflow-hidden rounded-lg">
+                <img src="eco_hungry.png" alt="Carte de l'Union Européenne" class="w-full h-auto object-cover" >
+            </div>
+         <p class="justify-center text-center " >  <a href="https://internationalbusinessguide.org/hungry-planet/" target="_blank" class=" text-sm text-green-700 mt-2" x-text="currentLanguage === 'fr' ? 'Voir l\'infographie' : 'See the infographics'">Infographie</a> </p>
         </div>
     </div>
 </section>
@@ -663,7 +671,7 @@
                         <span class="p-timeline-dot"></span>
                         <div class="p-timeline-content">
                             <span class="p-timeline-date">2003</span>
-                            <p>Découplage des aides agricoles et de la production</p>
+                            <p>Découplage des aides agricoles et de la production. <a href="https://www.insee.fr/fr/statistiques/1372290?sommaire=1372309#:~:text=Désormais%2C%20le%20découplage%20des%20aides,de%20développement%20rural%20est%20renforcée." target="_blank" class="text-earth-green hover:text-light-purple transition-colors">Source.</a></p>
                         </div>
                     </div>
                     <div class="p-timeline-item">
@@ -872,7 +880,15 @@
              class="source-link inline-flex items-center mt-2">
             En savoir plus <i class="fas fa-external-link-alt ml-1"></i>
           </a>
+
+          <p class="mt-4">
+            Dans le sud de l’Estonie, l’ancien site de récolte de tourbe de Sopi-Tootsi accueillera bientôt <strong>le plus grand parc éolien des pays baltes</strong>, capable d’alimenter près de <strong>197 000 foyers</strong>, soit environ <strong>10 %</strong> des besoins en électricité du pays.
+          </p>
+          <p class="mt-2">
+            Ce projet, mené par Enefit Green, illustre l’engagement croissant des États membres vers une production énergétique locale, propre et indépendante. L’Estonie vise à produire <strong>100 % de son électricité à partir de sources renouvelables d’ici 2030</strong>.
+          </p>
         </div>
+        
       </div>
   
       <!-- Inégalités dans la transition -->
@@ -923,18 +939,21 @@
       <!-- Secteurs en retard -->
       <div class="accordion-item">
         <div class="accordion-header" @click="open === 'sectors' ? open = '' : open = 'sectors'">
-          <span class="text-lg font-semibold">Secteurs en retard</span>
+          <span class="text-lg font-semibold">Répartition par secteurs</span>
           <i :class="open === 'sectors' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
         </div>
         <div class="accordion-content" x-show="open === 'sectors'" x-transition>
             <h4 class="section-title">Répartition des énergies et des émissions en Europe</h4>
-            <p class="mb-6 text-center">En Europe, la transition énergétique est un enjeu majeur pour atteindre la neutralité carbone d'ici 2050. Les émissions de gaz à effet de serre sont liées aux sources d’énergie dominantes. Voici une synthèse claire des secteurs clés et des leviers de réduction.</p>
+            <p class="mb-6 text-center">En Europe, la transition énergétique est un enjeu majeur pour atteindre la neutralité carbone d'ici 2050. Les émissions de gaz à effet de serre sont liées aux sources d’énergie dominantes. Voici une synthèse claire des secteurs clés et des leviers de réduction.
+                <a href="https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/chiffres-cles-du-climat/fr/index" class="source-link inline-flex items-center mt-2"> Pour des infos précises sur la France, on voit la répartition des émissions par secteurs dans ce rapport. </a>
           
+            </p>
+            
             <div class="card-grid">
               <div class="card">
                 <div class="card-content">
                   <h5 class="card-title">Électricité & Chaleur (≈ 33 %)</h5>
-                  <p><strong>Sources :</strong> Gaz (17 %), charbon (11,7 %), pétrole (1,4 %), renouvelables (45,4 %), nucléaire (22,8 %).</p>
+                  <strong>Sources :</strong> Gaz (17 %), charbon (11,7 %), pétrole (1,4 %), renouvelables (45,4 %), nucléaire (22,8 %). <a href="https://www.consilium.europa.eu/fr/infographics/how-is-eu-electricity-produced-and-sold/" target="_blank" class="text-earth-green hover:text-light-purple transition-colors"> (plus de détails)</a> </p>
                   <p><strong>Pistes d'amélioration :</strong> Déploiement solaire/éolien, sortie du charbon, stockage (batteries, hydrogène), modernisation des réseaux.</p>
                 </div>
               </div>
@@ -980,24 +999,86 @@
             </div>
           
             <p class="mt-6 italic text-sm text-center">Sources :
-              <a href="https://www.consilium.europa.eu/fr/infographics/electricity-eu/" class="source-link" target="_blank">Consilium</a>,
-              <a href="https://www.statistiques.developpement-durable.gouv.fr" class="source-link" target="_blank">Ministère de la Transition écologique</a>,
-              <a href="https://www.eea.europa.eu/fr" class="source-link" target="_blank">Agence européenne de l’environnement</a>
+              <a href="https://www.consilium.europa.eu/fr/infographics/how-is-eu-electricity-produced-and-sold/" class="source-link" target="_blank">Consilium, mentionné plus haut</a>,
+              <a href="https://www.iea.org/regions/europe/emissions" class="source-link" target="_blank">Agence internationale de l'énergie informations sur les émissions par secteurs</a>
             </p>
+            <div class="mt-6 p-4 border-l-4 border-blue-500 bg-blue-50 text-sm text-gray-700">
+                <p class="mb-2">
+                  Il est important de noter qu'une autre source, issue de l'<strong>Agence européenne pour l'environnement</strong>, donne des données différentes pour la répartition des émissions de gaz à effet de serre en Europe.
+                </p>
+                <p class="mb-2">
+                  Selon cette source, l’approvisionnement en énergie était responsable de <strong>27,4 %</strong> des émissions, le transport domestique de <strong>23,8 %</strong>, l’industrie de <strong>20,3 %</strong>, les activités résidentielles et commerciales de <strong>11,9 %</strong>, et l’agriculture de <strong>10,8 %</strong>.
+                </p>
+                <p class="mb-2">
+                  <a href="https://www.europarl.europa.eu/topics/fr/article/20180301STO98928/emissions-de-gaz-a-effet-de-serre-par-pays-et-par-secteur-infographie" target="_blank" class="text-blue-700 underline hover:text-blue-900">
+                    Cliquez ici pour plus de détails
+                  </a>.
+                </p>
+                <p class="italic">
+                  Ces différences peuvent être dues à la définition des différents secteurs, aux méthodologies de calcul, aux années de référence, ou aux sources de données utilisées.
+                </p>
+              </div>
+              
           </div>
           
+</div>        
+  
     </div>
   </section>
     
     </div>
   
     <!-- Partie 4 : Perspectives d’avenir -->
-    <div x-show="activeSection === 'avenir'" x-transition>
-      <h3 class="text-2xl font-bold text-earth-green mb-6">Perspectives d'avenir</h3>
-      <p>L'Union européenne vise la neutralité carbone d'ici 2050. Pour cela, plusieurs leviers sont envisagés : déploiement de petits réacteurs nucléaires (SMR), développement de réseaux électriques intelligents, stockage à grande échelle, généralisation de l'autoconsommation.</p>
-      <p class="mt-4">L'hydrogène est également perçu comme un vecteur clé, notamment dans les secteurs difficilement électrifiables comme l'industrie lourde ou le transport aérien. Le citoyen devient acteur via la sobriété énergétique, l'autoproduction et les coopératives locales.</p>
-      <p class="mt-4 italic">Illustration à venir : frise 2030-2050, pictos innovations énergétiques, schéma d'un quartier en autoconsommation.</p>
+<div x-show="activeSection === 'avenir'" x-transition>
+    <h3 class="text-2xl font-bold text-earth-green mb-6">Perspectives d'avenir</h3>
+    <p>L'Union européenne vise la neutralité carbone d'ici 2050. Pour cela, plusieurs leviers sont envisagés : déploiement de petits réacteurs nucléaires (SMR), développement de réseaux électriques intelligents, stockage à grande échelle, généralisation de l'autoconsommation.</p>
+    <p class="mt-4">L'hydrogène est également perçu comme un vecteur clé, notamment dans les secteurs difficilement électrifiables comme l'industrie lourde ou le transport aérien. Le citoyen devient acteur via la sobriété énergétique, l'autoproduction et les coopératives locales.</p>
+  
+    <div class="avenir-card mt-8">
+      <h4>Une transition à inventer collectivement</h4>
+      <p>Face à l'urgence climatique et à l'épuisement des ressources, la transition écologique n'est pas une option, mais une nécessité. Cette transition ne sera réussie que si elle est pensée collectivement, à toutes les échelles.</p>
+      <p class="mt-2">Les institutions fixent un cap, mais les territoires, les entreprises, les associations, les citoyens en seront les moteurs. Cela implique des choix technologiques, mais aussi culturels et politiques. L’échelle locale est un terrain privilégié d’expérimentation : coopératives d’énergie, tiers-lieux, jardins partagés ou transports doux montrent qu’un autre modèle est possible.</p>
+      <p class="mt-2">En somme, l’avenir est à co-construire. Il ne s'agit pas seulement d'innover techniquement, mais de réinventer notre rapport au vivant, à la consommation, au collectif.</p>
     </div>
+    <section class="mt-8">
+    <!-- Diversification & financements -->
+    <div class="accordion-item mb-4">
+        <div class="accordion-header" @click="open === 'diversification' ? open = '' : open = 'diversification'">
+          <span class="text-lg font-semibold">Plus de détails sur les solutions</span>
+          <i :class="open === 'diversification' ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'" class="accordion-icon"></i>
+        </div>
+        <div class="accordion-content" x-show="open === 'diversification'" x-transition>
+          <h4 class="font-medium mb-2">Réduction de la dépendance et investissements</h4>
+          <p>
+            Après l'invasion de l’Ukraine par la Russie en février 2022, l’UE a fait chuter sa part de gaz russe dans ses importations
+            de 45 % (2021) à 15 % (2023). En parallèle, les investissements dans les énergies renouvelables ont atteint
+            <strong>110 milliards €</strong> en 2023, soutenus par la Banque européenne d’investissement.
+          </p>
+          <a href="https://www.eib.org/fr/essays/europe-energy-transition-renewable"
+             class="source-link inline-flex items-center mt-2">
+            En savoir plus <i class="fas fa-external-link-alt ml-1"></i>
+          </a>
+
+          <p class="mt-4">
+            Dans le sud de l’Estonie, l’ancien site de récolte de tourbe de Sopi-Tootsi accueillera bientôt <strong>le plus grand parc éolien des pays baltes</strong>, capable d’alimenter près de <strong>197 000 foyers</strong>, soit environ <strong>10 %</strong> des besoins en électricité du pays.
+          </p>
+          <p class="mt-2">
+            Ce projet, mené par Enefit Green, illustre l’engagement croissant des États membres vers une production énergétique locale, propre et indépendante. L’Estonie vise à produire <strong>100 % de son électricité à partir de sources renouvelables d’ici 2030</strong>.
+          </p>
+        </div>
+        
+      </div> </section>
+  
+    <p class="mt-4 italic">
+      Plus d'informations  
+      <a href="https://ec.europa.eu/assets/clima/our_planet_our_future/files/assets/common/downloads/our_planet_our_future.pdf" class="text-green-700 hover:text-green-900">
+        voir le rapport de la commission européenne très bien illustré et synthétique
+      </a>
+    </p>
+    <img src="Infographie-Rapport_synthese_GIEC_0.jpg" alt="Infographie GIEC" class="mt-6 rounded-lg shadow-md">
+  </div>
+  
+
     <!-- Partie 5 : Europe dans le Monde -->
 <div x-show="activeSection === 'monde'" x-transition>
     <h3 class="text-2xl font-bold text-earth-green mb-6">L'Europe dans le Monde</h3>
@@ -1010,7 +1091,7 @@
   </section>
   
 
-energie, démocratie et climatosceptiques  ,pouvoir legislatif de l'Europe, 
+démocratie et climatosceptiques  ,pouvoir legislatif de l'Europe, 
 
     <!-- Section ressources et liens -->
 <section class="content-section mb-16">
@@ -1105,7 +1186,7 @@ energie, démocratie et climatosceptiques  ,pouvoir legislatif de l'Europe,
                         </a>
                     </li>
                     <li>
-                        <a href="https://climate.copernicus.eu/" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                        <a href="https://climate.copernicus.eu/esotc/2024" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
                             <i class="fas fa-satellite mr-2"></i>
                             <span x-text="currentLanguage === 'fr' ? 'Service Copernicus sur le changement climatique' : 'Copernicus Climate Change Service'">Service Copernicus sur le changement climatique</span>
                         </a>

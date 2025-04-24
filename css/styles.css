@@ -823,3 +823,17 @@ footer::before {
 .summary-item.polluant .summary-icon {
   color: #DC2626; /* rouge vif */
 }
+.avenir-card {
+  background-color: #f0fdf4; /* vert très pâle */
+  border-left: 6px solid #15803d; /* vert foncé pour marquer la section */
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.avenir-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #166534;
+  margin-bottom: 0.5rem;
+}
