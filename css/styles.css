@@ -851,3 +851,102 @@ footer::before {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
+
+/* Styles pour la section Risques et menaces */
+.risk-icon {
+  background-color: #DC2626;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
+}
+
+.timeline-item:hover .risk-icon {
+  background-color: #B91C1C;
+}
+
+.timeline-item.active .risk-icon {
+  background-color: #EF4444;
+  transform: scale(1.2);
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.3);
+}
+
+.text-risk-red {
+  color: #DC2626;
+}
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.risk-card {
+  background-color: #FEF2F2;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #DC2626;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.risk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.risk-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: #DC2626;
+}
+
+.risk-card-header i {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.risk-card-header h4 {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.risk-card p {
+  font-size: 0.95rem;
+  color: #4B5563;
+}
+
+.risk-alert {
+  display: flex;
+  align-items: flex-start;
+  background-color: #FFFBEB;
+  border: 1px solid #F59E0B;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  color: #92400E;
+}
+
+.risk-alert i {
+  font-size: 1.75rem;
+  color: #F59E0B;
+  flex-shrink: 0;
+}
+
+.risk-alert p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Responsivité pour la section risques */
+@media (max-width: 768px) {
+  .risk-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .risk-alert {
+    flex-direction: column;
+  }
+  
+  .risk-alert i {
+    margin-bottom: 0.75rem;
+  }
+}

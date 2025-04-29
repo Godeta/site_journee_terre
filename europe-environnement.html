@@ -344,6 +344,7 @@
          <p class="justify-center text-center " >  <a href="https://internationalbusinessguide.org/hungry-planet/" target="_blank" class=" text-sm text-green-700 mt-2" x-text="currentLanguage === 'fr' ? 'Voir l\'infographie' : 'See the infographics'">Infographie</a> </p>
         </div>
     </div>
+    <br><p> Attention ! Bien que j'ai essayé d'être le plus objectif possible et de citer au maximum mes sources, celles-ci peuvent être orientées, les informations biaisées par mes opinions personnelles et mes connaissances personnelles sont limités (je ne suis pas un spécialiste du sujet au contraire je construis cette page pour apprendre). Avec ceci en tête, gardez un certain esprit critique et bonne lecture !</p>
 </section>
 
         <!-- Section des politiques environnementales avec interaction -->
@@ -410,6 +411,15 @@
                             <i class="fas fa-temperature-low"></i>
                         </div>
                         <div class="timeline-label" x-text="t('climate_title')">Loi européenne sur le climat</div>
+                    </div>
+                    <!-- Section des risques et menaces environnementaux -->
+                    <div class="timeline-item"
+                    :class="{ 'active': activePolicy === 'risks' }"
+                    @click="activePolicy = activePolicy === 'risks' ? null : 'risks'">
+                    <div class="timeline-icon risk-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="timeline-label" x-text="t('risks_title')">Risques et menaces</div>
                     </div>
                 </div>
             </div>
@@ -611,6 +621,67 @@
             </div>
         </div>
     </div>
+    <div class="timeline-content risk-content" 
+    x-show="activePolicy === 'risks'"
+    x-transition:enter="fade-enter"
+    x-transition:enter-start="fade-enter-start"
+    x-transition:enter-end="fade-enter-end">
+    <h3 class="font-bold text-xl mb-2 text-risk-red" x-text="t('risks_title')">Risques et menaces</h3>
+    <p x-text="t('risks_content')" class="mb-4">Cette section présente les risques majeurs qui pourraient compromettre les objectifs des politiques environnementales européennes.</p>
+
+    <div class="risk-grid">
+    <div class="risk-card">
+        <div class="risk-card-header">
+            <i class="fas fa-industry"></i>
+            <h4 x-text="currentLanguage === 'fr' ? 'Lobbying industriel' : 'Industrial lobbying'">Lobbying industriel</h4>
+        </div>
+        <p x-text="currentLanguage === 'fr' ? 'Influence considérable des groupes industriels sur l\'affaiblissement des réglementations environnementales, notamment dans les secteurs des énergies fossiles, automobile et agrochimique. Les lobbies industriels pèsent fortement sur les décisions, comme lors du vote sur la loi de la restauration de la nature ou sur le règlement concernant les pesticides. Leur intérêt peut être de diluer ou d\'annuler de nombreuses normes environnementales arguant qu\’il y a « trop de législation verte » freinant les entreprises.' : 'Considerable influence of industrial groups in weakening environmental regulations, particularly in the fossil fuel, automotive and agrochemical sectors.'">Influence considérable des groupes industriels sur l'affaiblissement des réglementations environnementales, notamment dans les secteurs des énergies fossiles, automobile et agrochimique. Les lobbies industriels pèsent fortement sur les décisions, comme lors du vote sur la loi de la restauration de la nature ou sur le règlement concernant les pesticides.</p>
+        <a href="https://www.europarl.europa.eu/at-your-service/fr/transparency/lobby-groups" target="_blank" class="text-green-700 hover:text-green-900" x-text="currentLanguage === 'fr' ? 'En savoir plus sur les lobbies en Europe' : 'Read more about lobbying in Europe'">En savoir plus sur les lobbies en Europe</a>
+    </div>
+    
+    <div class="risk-card">
+        <div class="risk-card-header">
+            <i class="fas fa-ban"></i>
+            <h4 x-text="currentLanguage === 'fr' ? 'Green bashing' : 'Green bashing'">Green bashing</h4>
+        </div>
+        <p x-text="currentLanguage === 'fr' ? 'Le « green bashing » désigne un phénomène de dénigrement des politiques et acteurs écologiques par des responsables politiques ou médiatiques, souvent au nom de la défense du pouvoir d\'achat ou de l\'économie nationale. En Allemagne, les conservateurs de la CDU/CSU ont qualifié les Verts de <<matériau usagé>> et les ont accusés de détruire l\'économie. En France, le RN s\'oppose au pacte vert. Aux Pays-Bas, la droite populiste rejette de nouvelles taxes carbone et défend l\'agriculture intensive contre les normes écologiques.' : 'Green bashing refers to a phenomenon of denigrating environmental policies and actors by political or media figures, often in the name of defending purchasing power or the national economy. In Germany, CDU/CSU conservatives have described the Greens as <<used material>> and accused them of destroying the economy. In France, the National Rally opposes the Green Deal which it considers problematic for the country\'s growth. In the Netherlands, the populist right rejects new carbon taxes and defends intensive agriculture against ecological standards.'">Le « green bashing » désigne un phénomène de dénigrement des politiques et acteurs écologiques par des responsables politiques ou médiatiques, souvent au nom de la défense du pouvoir d'achat ou de l'économie nationale. En Allemagne, les conservateurs de la CDU/CSU ont qualifié les Verts de "matériau usagé" et les ont accusés de "détruire l'économie". En France, le Rassemblement national s'oppose au pacte vert qu'il considère comme problématique pour la croissance du pays. Aux Pays-Bas, la droite populiste rejette de nouvelles taxes carbone et défend l'agriculture intensive contre les normes écologiques.</p>
+        <a href="https://www.politico.eu/article/mettons-a-bas-le-pacte-vert-ensemble-exhorte-jordan-bardella-aux-conservateurs-de-lue" target="_blank" class="text-green-700 hover:text-green-900" x-text="currentLanguage === 'fr' ? 'Article sur la volonté de l\'extrême droite de détruire le pacte vert' : 'Article on far right opposing to the green deal'">Article sur l'opposition de la volonté de l'extrême droite de détruire le pacte vert</a>
+    </div>
+    
+    <div class="risk-card">
+        <div class="risk-card-header">
+            <i class="fas fa-file-contract"></i>
+            <h4 x-text="currentLanguage === 'fr' ? 'Des actes pas toujours à la hauteur' : 'Insufficient implementation'">Application insuffisante</h4>
+        </div>
+        <p x-text="currentLanguage === 'fr' ? 'Écart important entre les ambitions affichées et la mise en œuvre réelle des politiques, le pacte vert Européen qui a d\'abord été une réussite, risque d\'avoir un recul sur ses ambitions climatiques avec la nouvelle tendeance plus à droite du parlement. Depuis les dernières élections on a le PPE (188 sièges) et deux groupes d\'extrême droite (Patriotes et ENS) totalisant 109 sièges.' : 'Significant gap between stated ambitions and actual implementation of policies, with low compliance rates with directives in several Member States.'">Écart important entre les ambitions affichées et la mise en œuvre réelle des politiques, avec un faible taux de respect des directives dans plusieurs États membres.</p>
+        <a href="https://podcast.ausha.co/echanges-climatiques/le-pacte-vert-europeen-est-il-en-danger-avec-phuc-vinh-nguyen/" target="_blank" class="text-green-700 hover:text-green-900" x-text="currentLanguage === 'fr' ? 'Podcast sur le sujet du pacte vert européen' : 'Read more'">Lire la suite</a>
+    </div>
+    
+    <div class="risk-card">
+        <div class="risk-card-header">
+            <i class="fas fa-leaf"></i>
+            <h4 x-text="currentLanguage === 'fr' ? 'Risques pour le Pacte vert européen' : 'Risks for the European Green Deal'">Risques pour le Pacte vert européen</h4>
+        </div>
+        <p x-text="currentLanguage === 'fr' ? 'L\'interdiction de vente des véhicules thermiques neufs d\'ici 2035 est particulièrement menacée: le Parlement français (majorité RN) a voté en février 2025 contre cette date, l\'Italie sous Meloni revendique une révision du Green Deal, et les populistes néerlandais proposaient initialement de sortir de l\'Accord de Paris. Une coalition ponctuelle droite/extrême droite au PE pourrait \"mettre en péril\" la transition écologique européenne.' : 'The ban on selling new thermal vehicles by 2035 is particularly threatened: the French Parliament (RN majority) voted in February 2025 against this date, Italy under Meloni is calling for a revision of the Green Deal, and Dutch populists initially proposed to leave the Paris Agreement. A one-off right/far-right coalition in the EP could \"jeopardize\" the European ecological transition.'">L'interdiction de vente des véhicules thermiques neufs d'ici 2035 est particulièrement menacée: le Parlement français (majorité RN) a voté en février 2025 contre cette date, l'Italie sous Meloni revendique une révision du Green Deal, et les populistes néerlandais proposaient initialement de sortir de l'Accord de Paris. Une coalition ponctuelle droite/extrême droite au PE pourrait "mettre en péril" la transition écologique européenne.</p>
+        <a href="https://www.lefigaro.fr/flash-eco/assemblee-nationale-les-deputes-rejettent-l-interdiction-de-la-vente-des-voitures-thermiques-en-2035-20250217" target="_blank" class="text-green-700 hover:text-green-900" x-text="currentLanguage === 'fr' ? 'Vote des députés contre l\'accord' : 'Vote of deputies against the agreement'">Analyse des risques pour le climat</a>
+    </div>
+    </div>
+
+    <div class="risk-alert mt-6">
+        <i class="fas fa-exclamation-circle mr-3"></i>
+        <div>
+            <h4 class="font-bold" x-text="currentLanguage === 'fr' ? 'Conclusion' : 'Conclusion'">Conclusion</h4>
+            <p x-text="currentLanguage === 'fr' ? 'Le Pacte vert européen a déjà produit des avancées tangibles, notamment dans les filières énergie et transports : en 2024, les énergies renouvelables ont représenté 45 % de l\'électricité européenne, tandis que les ventes de véhicules zéro-émission ont bondi de 24 % au premier trimestre, contribuant à une baisse continue des émissions de CO₂ depuis 1990. Toutefois, l\'essor des droites nationalistes et populistes au Parlement européen pèse sur le calendrier du Green Deal : si un démantèlement complet reste peu probable, plusieurs gouvernements et groupes (notamment PPE et ECR) cherchent déjà à renégocier l\'interdiction des voitures thermiques en 2035 et d\'autres normes, mettant en péril la stabilité de l\'ambition climatique européenne.' : 'The European Green Deal has already produced tangible progress, particularly in energy and transport sectors: in 2024, renewable energy accounted for 45% of European electricity, while zero-emission vehicle sales jumped 24% in the first quarter, contributing to a continuous decrease in CO₂ emissions since 1990. However, the rise of nationalist and populist right-wing parties in the European Parliament weighs on the Green Deal timeline: while a complete dismantling remains unlikely, several governments and groups (notably EPP and ECR) are already seeking to renegotiate the 2035 ban on combustion cars and other standards, jeopardizing the stability of European climate ambition.'">Le Pacte vert européen a déjà produit des avancées tangibles, notamment dans les filières énergie et transports : en 2024, les énergies renouvelables ont représenté 45 % de l'électricité européenne, tandis que les ventes de véhicules zéro-émission ont bondi de 24 % au premier trimestre, contribuant à une baisse continue des émissions de CO₂ depuis 1990. Toutefois, l'essor des droites nationalistes et populistes au Parlement européen pèse sur le calendrier du Green Deal : si un démantèlement complet reste peu probable, plusieurs gouvernements et groupes (notamment PPE et ECR) cherchent déjà à renégocier l'interdiction des voitures thermiques en 2035 et d'autres normes, mettant en péril la stabilité de l'ambition climatique européenne.</p>
+            
+            <p x-text="currentLanguage === 'fr' ? 'Pour préserver la trajectoire verte, certaines possibilités sont d\'allier justice sociale et compétitivité : compenser les ménages modestes via des aides à l\'achat de véhicules propres et à l\'isolation ; investir massivement dans les renouvelables, les infrastructures de recharge et les technologies propres pour créer des emplois « verts » ; et renforcer un « Green Deal industriel » (batteries, hydrogène vert, ajustement carbone aux frontières) pour démontrer que la décarbonation stimule la croissance. Sur le plan politique, élargir les alliances — en convainquant des modérés du PPE et de Renew Europe que l\'écologie rime avec relance économique — sera crucial : comme le montre une étude du Centre Jacques Delors, la majorité des citoyens soutient les investissements verts et accepte même des mesures impopulaires (taxe CO₂, régulations) dès lors qu\'elles incluent des compensations sociales, et seule une rhétorique misant sur une « minorité d\'obstructeurs » risquerait de provoquer un « climat de fatigue » face à l\'écologie.' : 'To preserve the green trajectory, some possibilities are to combine social justice and competitiveness: compensating modest households through aid for purchasing clean vehicles and insulation; investing massively in renewables, charging infrastructure and clean technologies to create \"green\" jobs; and strengthening an \"industrial Green Deal\" (batteries, green hydrogen, carbon border adjustment) to demonstrate that decarbonization stimulates growth. Politically, broadening alliances — by convincing moderates from the EPP and Renew Europe that ecology rhymes with economic recovery — will be crucial: as a Jacques Delors Centre study shows, the majority of citizens support green investments and even accept unpopular measures (CO₂ tax, regulations) as long as they include social compensation, and only rhetoric focusing on a \"minority of obstructionists\" could create a \"climate fatigue\" towards ecology.'">Pour préserver la trajectoire verte, certaines possibilités sont d'allier justice sociale et compétitivité : compenser les ménages modestes via des aides à l'achat de véhicules propres et à l'isolation ; investir massivement dans les renouvelables, les infrastructures de recharge et les technologies propres pour créer des emplois « verts » ; et renforcer un « Green Deal industriel » (batteries, hydrogène vert, ajustement carbone aux frontières) pour démontrer que la décarbonation stimule la croissance. Sur le plan politique, élargir les alliances — en convainquant des modérés du PPE et de Renew Europe que l'écologie rime avec relance économique — sera crucial : comme le montre une étude du Centre Jacques Delors, la majorité des citoyens soutient les investissements verts et accepte même des mesures impopulaires (taxe CO₂, régulations) dès lors qu'elles incluent des compensations sociales, et seule une rhétorique misant sur une « minorité d'obstructeurs » risquerait de provoquer un « climat de fatigue » face à l'écologie.</p>
+            
+            <div class="mt-3">
+                <a href="https://www.delorscentre.eu/en/publications/detail/pub/climate-policy-pushback-in-europe" target="_blank" class="text-green-700 hover:text-green-900 mr-4" x-text="currentLanguage === 'fr' ? 'Publication de l\'institut Jacques Delors' : 'Jacques Delors Institute publication'">Publication de l'institut Jacques Delors</a>
+                <a href="https://www.cleanenergywire.org/news/right-wing-populists-challenge-europes-climate-efforts" target="_blank" class="text-green-700 hover:text-green-900" x-text="currentLanguage === 'fr' ? 'Article de Clean Energy Wire' : 'Clean Energy Wire article'">Article de Clean Energy Wire</a>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
         </div>
     </section>
@@ -1134,17 +1205,156 @@
     <!-- Partie 5 : Europe dans le Monde -->
 <div x-show="activeSection === 'monde'" x-transition>
     <h3 class="text-2xl font-bold text-earth-green mb-6">L'Europe dans le Monde</h3>
+  
     <p>L’Europe représente environ 8 % de la population mondiale, mais sa consommation énergétique par habitant reste relativement élevée par rapport à la moyenne mondiale, bien que plus faible que celle des États-Unis ou du Canada.</p>
     <p class="mt-4">Sur le plan de la production, l’Europe est dépendante de nombreuses importations : gaz russe, uranium canadien, pétrole du Moyen-Orient. Elle investit cependant massivement dans les énergies renouvelables.</p>
     <p class="mt-4">En termes de pollution, l’UE a significativement réduit ses émissions de CO₂ depuis 1990, contrairement à d'autres régions du monde où elles continuent d'augmenter (ex. : Asie du Sud-Est).</p>
-    <p class="mt-4 italic">Illustration à venir : graphiques comparatifs par habitant, cartes des flux énergétiques mondiaux, histogramme des émissions de CO₂.</p>
+    <!-- illustration des émissions par pays par habitants, sans prise en compte des émissions externes -->
+    <iframe src="https://ourworldindata.org/grapher/co-emissions-per-capita?time=latest&country=OWID_WRL~OWID_EU27~IND~CHN~ZAF~CAN~KEN~DEU~USA~CRI&tab=line" loading="lazy" style="width: 100%; height: 600px; border: 0px none;" allow="web-share; clipboard-write"></iframe>
+  
+    <!-- Nouvelle sous-partie : Analyse comparative -->
+    <div class="mt-10">
+      <h4 class="text-xl font-semibold text-herbe mb-4">Comparaison et étude de cas : où en est réellement l’Europe ?</h4>
+      <p>Comme on l’a vu dans la partie <strong>"Transitions & controverses"</strong> et dans les points clés de la politique environnementale plus haut, l’Europe réduit ses émissions de gaz à effet de serre et entreprend des actions concrètes en ce sens.</p>
+      <p class="mt-4">Le bilan est cependant à nuancer : l’Allemagne, première économie de l’UE, illustre bien à la fois les succès et les limites de la transition énergétique européenne.</p>
+      
+      <h5 class="mt-6 text-lg font-medium text-amber-800">Étude de cas : l’Allemagne</h5>
+      <ul class="list-disc list-inside mt-2 space-y-1">
+        <li>Sortie du nucléaire après Fukushima, compensée temporairement par le charbon.</li>
+        <li>Forte croissance des énergies renouvelables, mais dépendance persistante aux importations.</li>
+        <li>Objectifs climatiques ambitieux, mais émissions encore élevées par habitant.</li>
+      </ul>
+  
+      <h5 class="mt-6 text-lg font-medium text-amber-800">Une empreinte écologique réelle souvent sous-estimée</h5>
+      <p class="mt-2">En intégrant les émissions importées (liées à la production de biens consommés en Europe mais fabriqués ailleurs), l’empreinte carbone réelle de l’UE est bien plus élevée qu’indiqué dans ses bilans officiels.</p>
+  
+      <h5 class="mt-6 text-lg font-medium text-amber-800">Indices de performance environnementale</h5>
+      <p class="mt-2">L’Europe figure généralement en bonne position dans les classements internationaux (ex. : Climate Change Performance Index), grâce à ses politiques environnementales, mais des disparités internes demeurent.</p>
+  
+      <h5 class="mt-6 text-lg font-medium text-amber-800">Comparaisons internationales</h5>
+      <p class="mt-2">Comparée aux grandes puissances émergentes comme la Chine ou l’Inde, l’UE reste un bon élève, mais la pression démographique et industrielle est bien moindre. La situation mondiale montre que les efforts européens, bien que significatifs, restent insuffisants à l’échelle globale.</p>
+    </div>
   </div>
+  
   
   </section>
   
 Reste à faire : 
-agriculture, énergie : Europe dans le monde et Focus Nucléaire
-démocratie et climatosceptiques (montée des extrêmes ? ingénieurs du chaos, bulle réseaux...), pouvoir legislatif de l'Europe (en quoi la legislation européenne à un impact mondial, rgpd, téléphones, encadrer les pratiques pour éviter les dystopies...)
+agriculture, énergie : Europe dans le monde -> compléter avec ma synthèse et Focus Nucléaire à faire
+démocratie et climatosceptiques (montée des extrêmes ? ingénieurs du chaos, bulle réseaux...) -> quasi fait dans le rouge des points clés donc simplement le mentionner dans les ressources ?, pouvoir legislatif de l'Europe (en quoi la legislation européenne à un impact mondial, rgpd, téléphones, encadrer les pratiques pour éviter les dystopies...)
+
+<!-- Section pouvoir législatif de l'UE avec design amélioré -->
+<section class="content-section mb-16">
+    <h2 class="section-title">Le pouvoir législatif de l'Union Européenne</h2>
+    <div class="space-y-4 text-gray-700 mb-8">
+        <p>Depuis les années 1950, l'Union européenne a progressivement consolidé son pouvoir législatif. Des traités fondateurs comme le traité de Paris (1951) et le traité de Rome (1957) ont jeté les bases de la coopération économique, tandis que le traité de Maastricht (1992) a marqué une étape cruciale en instituant l'UE et en élargissant ses compétences législatives.</p>
+        <p>Cliquez sur les icônes ci-dessous pour découvrir différents aspects du pouvoir législatif européen.</p>
+    </div>
+    
+    <!-- Section cartes interactives des aspects -->
+    <div class="max-w-4xl mx-auto mb-8" x-data="{ activeAspect: null }">
+        <!-- Icônes des aspects -->
+        <div class="flex justify-center space-x-12 mb-6">
+            <div class="region-icon-container" 
+                :class="{ 'active': activeAspect === 'construction' }"
+                @click="activeAspect = activeAspect === 'construction' ? null : 'construction'">
+                <div class="region-icon bg-earth-green">
+                    <i class="fas fa-landmark text-white"></i>
+                </div>
+                <p class="text-center mt-2 font-medium">Construction</p>
+            </div>
+            
+            <div class="region-icon-container" 
+                :class="{ 'active': activeAspect === 'brussels' }"
+                @click="activeAspect = activeAspect === 'brussels' ? null : 'brussels'">
+                <div class="region-icon bg-earth-green">
+                    <i class="fas fa-globe-europe text-white"></i>
+                </div>
+                <p class="text-center mt-2 font-medium">Effet Bruxelles</p>
+            </div>
+            
+            <div class="region-icon-container" 
+                :class="{ 'active': activeAspect === 'examples' }"
+                @click="activeAspect = activeAspect === 'examples' ? null : 'examples'">
+                <div class="region-icon bg-earth-green">
+                    <i class="fas fa-balance-scale text-white"></i>
+                </div>
+                <p class="text-center mt-2 font-medium">Exemples</p>
+            </div>
+            
+            <div class="region-icon-container" 
+                :class="{ 'active': activeAspect === 'challenges' }"
+                @click="activeAspect = activeAspect === 'challenges' ? null : 'challenges'">
+                <div class="region-icon bg-earth-green">
+                    <i class="fas fa-exclamation-triangle text-white"></i>
+                </div>
+                <p class="text-center mt-2 font-medium">Défis</p>
+            </div>
+        </div>
+        
+        <!-- Contenu des aspects -->
+        <div class="region-content-area">
+            <!-- Contenu Construction -->
+            <div class="region-content" 
+                x-show="activeAspect === 'construction'" 
+                x-transition:enter="fade-enter"
+                x-transition:enter-start="fade-enter-start"
+                x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2 text-earth-green">La construction du pouvoir législatif européen</h3>
+                <p class="mb-3">L'histoire du pouvoir législatif européen débute avec les traités fondateurs des années 1950, notamment le traité de Paris (1951) créant la Communauté européenne du charbon et de l'acier, et le traité de Rome (1957) établissant la Communauté économique européenne.</p>
+                <p class="mb-3">Le traité de Maastricht (1992) a constitué un tournant majeur en instituant officiellement l'Union européenne et en élargissant considérablement ses compétences législatives, notamment dans la création du marché unique et l'harmonisation des normes entre les États membres.</p>
+                <p>Les traités ultérieurs comme le traité d'Amsterdam (1997), le traité de Nice (2001) et le traité de Lisbonne (2007) ont progressivement renforcé les pouvoirs du Parlement européen et restructuré le processus décisionnel, consolidant ainsi le pouvoir législatif de l'UE.</p>
+            </div>
+            
+            <!-- Contenu Effet Bruxelles -->
+            <div class="region-content" 
+                x-show="activeAspect === 'brussels'"
+                x-transition:enter="fade-enter"
+                x-transition:enter-start="fade-enter-start"
+                x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2 text-earth-green">L'« Effet Bruxelles » : une puissance normative globale</h3>
+                <p class="mb-3">Le concept d'« effet Bruxelles », introduit par la professeure Anu Bradford, décrit la capacité unique de l'Union européenne à exporter ses normes et régulations au-delà de ses frontières, façonnant ainsi les pratiques commerciales et les standards à l'échelle mondiale.</p>
+                <p class="mb-3">Grâce à l'attrait de son vaste marché de plus de 450 millions de consommateurs et à la rigueur de ses réglementations, l'UE incite les entreprises internationales à adopter ses standards pour accéder à ce marché lucratif, influençant ainsi les pratiques commerciales dans le monde entier.</p>
+                <p>Cette influence réglementaire transforme l'UE en une véritable puissance normative mondiale, capable d'exercer son pouvoir sans recourir à des moyens militaires traditionnels, démontrant ainsi l'efficacité de la "puissance douce" (soft power) dans les relations internationales modernes.</p>
+            </div>
+            
+            <!-- Contenu Exemples -->
+            <div class="region-content" 
+                x-show="activeAspect === 'examples'"
+                x-transition:enter="fade-enter"
+                x-transition:enter-start="fade-enter-start"
+                x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2 text-earth-green">Exemples concrets d'influence réglementaire</h3>
+                <p class="mb-3"><strong>Protection des données :</strong> Le Règlement général sur la protection des données (RGPD) de 2018 a établi des normes strictes en matière de confidentialité et de protection des données personnelles, poussant des géants technologiques comme Facebook, Google et Apple à aligner leurs politiques mondiales sur ces exigences européennes.</p>
+                <p class="mb-3"><strong>Sécurité des produits :</strong> Des réglementations comme REACH (enregistrement, évaluation et autorisation des substances chimiques) ont conduit des fabricants internationaux à modifier la composition de leurs produits pour se conformer aux normes européennes, affectant ainsi la production mondiale et les chaînes d'approvisionnement.</p>
+                <p><strong>Technologie et économie numérique :</strong> Les récentes directives sur les marchés numériques (DMA) et les services numériques (DSA) imposent des obligations significatives aux géants de la technologie, influençant leurs opérations et leurs modèles commerciaux bien au-delà des frontières européennes.</p>
+            </div>
+            
+            <!-- Contenu Défis -->
+            <div class="region-content" 
+                x-show="activeAspect === 'challenges'"
+                x-transition:enter="fade-enter"
+                x-transition:enter-start="fade-enter-start"
+                x-transition:enter-end="fade-enter-end">
+                <h3 class="font-bold text-xl mb-2 text-earth-green">Les critiques et défis de l'approche réglementaire</h3>
+                <p class="mb-3"><strong>Impérialisme réglementaire :</strong> Certains critiques estiment que l'UE impose ses normes sans considération suffisante pour les spécificités locales et les contextes économiques différents des autres pays, créant ainsi une forme d'impérialisme réglementaire.</p>
+                <p class="mb-3"><strong>Frein à l'innovation :</strong> Des voix, notamment dans le secteur technologique, suggèrent que des réglementations trop strictes pourraient entraver l'innovation et la compétitivité des entreprises, limitant ainsi le développement économique et technologique.</p>
+                <p><strong>Protectionnisme déguisé :</strong> Il est parfois reproché à l'UE d'utiliser ses normes comme une forme de protectionnisme déguisé, visant à protéger ses industries locales au détriment des concurrents étrangers, ce qui pourrait nuire aux relations commerciales internationales.</p>
+            </div>
+            
+            <!-- Message par défaut -->
+            <div class="text-center text-gray-500 italic py-8" x-show="activeAspect === null">
+                <p>Cliquez sur un aspect pour découvrir plus d'informations sur le pouvoir législatif de l'UE</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="space-y-4 text-gray-700">
+        <p>L'Union européenne, bien que n'étant pas une superpuissance militaire traditionnelle, exerce une influence mondiale significative grâce à son pouvoir législatif et réglementaire. En établissant des normes élevées dans divers domaines, elle façonne les pratiques mondiales et démontre que la régulation peut être un outil puissant de politique internationale. Cette "puissance par la loi" constitue l'une des contributions les plus distinctives de l'UE à la gouvernance mondiale.</p>
+        <p>Pour approfondir ce sujet, vous pouvez consulter l'ouvrage d'Anu Bradford, <a href="https://youtu.be/luoWIooemwE" class="text-earth-green"><em>The Brussels Effect: How the European Union Rules the World</em></a>, qui explore en détail ce phénomène d'influence réglementaire mondiale.
+        Je me suis notamment inspiré de cette vidéo <a href="https://youtu.be/hR8wy4B_sTg" class="text-earth-green"><em>The world's unexpected true superpower</em></a></p>
+    </div>
+</section>
 
     <!-- Section ressources et liens -->
 <section class="content-section mb-16">
@@ -1205,7 +1415,12 @@ démocratie et climatosceptiques (montée des extrêmes ? ingénieurs du chaos, 
                             <span x-text="currentLanguage === 'fr' ? 'Vidéo de Brut sur l\'agriculture française ' : ' Brut video on French agriculture'">Brut agriculture</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a href="https://podcast.fr/episode/36-lunion-europeenne-a-la-pointe-du-welfarisme-alice-di-concetto-1-2/" target="_blank" class="flex items-center text-earth-green hover:text-light-purple transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span x-text="currentLanguage === 'fr' ? 'Excellent épisode de podcast sur la legislation européenne et son fonctionnement pour le cas de la protection animale.  ' : ' Excellent episode of podcast on European legislation and its operation for the case of animal protection'">Podcast</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             
