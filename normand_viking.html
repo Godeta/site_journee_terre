@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Héritage Viking en Normandie</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f3e9;
+      color: #333;
+    }
+    
+    .header {
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    
+    .header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .container {
+      margin: 60px auto;
+      max-width: 800px;
+      padding-bottom: 100px;
+      width: 90%;
+    }
+    
+    .intro {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    
+    .card-container {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding-top: 20px;
+      margin-bottom: 100px;
+      height: 480px;
+    }
+    
+    .splash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      clip-path: path("M 0 303.5 C 0 292.454 8.995 285.101 20 283.5 L 460 219.5 C 470.085 218.033 480 228.454 480 239.5 L 500 430 C 500 441.046 491.046 450 480 450 L 20 450 C 8.954 450 0 441.046 0 430 Z");
+    }
+    
+    .card {
+      width: 300px;
+      height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      border-radius: 20px;
+      background: #f5f5f5;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      transform-origin: 10% 60%;
+      transform: translateY(300px);
+      transition: transform 0.8s cubic-bezier(0.17, 0.67, 0.35, 1.4);
+      padding: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .card-image {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 15px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+    
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #555;
+    }
+    
+    .card.visible {
+      transform: translateY(50px) rotate(-10deg);
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    /* image reveal slider */
+    .image-compare {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  height: 400px;
+}
+
+.image-compare img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-compare .img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  border-right: 3px solid white;
+}
+
+.img-overlay img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: ew-resize;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.slider::after {
+  content: '⟷';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 15px;
+  padding: 5px 10px;
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 45%;
+  z-index: 20;
+}
+
+.image-label.left {
+  left: 15px;
+}
+
+.image-label.right {
+  right: 15px;
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>L'Héritage Viking en Normandie</h1>
+    <p>Découvrez l'histoire de Rollon et des échanges entre Vikings et Francs</p>
+  </div>
+  
+  <div class="container">
+    <div class="intro">
+      <p>La présence viking en France a profondément marqué l'histoire médiévale européenne. À partir du IXe siècle, ces navigateurs scandinaves, aussi appelés "Normands" (hommes du Nord), ont établi des contacts avec le royaume franc, d'abord par des raids puis par une installation permanente qui a donné naissance à la Normandie. Découvrez leur héritage culturel et les échanges commerciaux qui ont façonné cette période fascinante.</p>
+    </div>
+    
+    
+    <div id="container"></div>
+  </div>
+
+  <div class="image-compare" id="image-compare">
+    <img src="https://images.pexels.com/photos/14578362/pexels-photo-14578362.jpeg" alt="Normands modernes">
+    <div class="img-overlay">
+      <img src="https://images.pexels.com/photos/334202/pexels-photo-334202.jpeg" alt="Vikings historiques">
+    </div>
+    
+    <div class="slider" id="slider"></div>
+    <div class="image-label left">Vikings (800-1075) : Guerriers et explorateurs scandinaves qui établirent des colonies en Normandie sous la conduite de chefs comme Rollon</div>
+    <div class="image-label right">Normands modernes : Héritiers d'un riche mélange culturel, conservant certaines traditions et un fort attachement à leur identité régionale</div>
+  
+  </div>
+  <p> Sources : <a href="https://www.academia.edu/39619457/Le_travail_et_le_commerce_du_verre_au_Haut_Moyen_Age_un_révélateur_pour_lhistoire_économique"> Article échanges verre moyen-âge</a></p> 
+  
+  <div class="footer">
+    <p>© 2025 - L'Héritage Viking en Normandie</p>
+  </div>
+  
+  <script>
+    // Helper function for hue
+    const hue = (h) => `hsl(${h}, 85%, 45%)`;
+    
+    // Data for viking content
+    const vikingData = [
+      {
+        title: "Rollon",
+        desc: "Premier duc de Normandie (911-927), Rollon était un chef viking qui reçut des terres en échange de sa protection contre d'autres raids vikings. Par le traité de Saint-Clair-sur-Epte, il devint vassal du roi Charles le Simple et fut baptisé.",
+        image: "👑",
+        hueA: 200, 
+        hueB: 230
+      },
+      {
+        title: "La Normandie",
+        desc: "Territoire cédé aux Vikings en 911, la Normandie (terre des hommes du Nord) devint rapidement un duché puissant. Les Vikings s'y installèrent, adoptèrent la langue et certaines coutumes locales tout en conservant leur esprit d'aventure.",
+        image: "🏰",
+        hueA: 160, 
+        hueB: 190
+      },
+      {
+        title: "Bijoux en verre",
+        desc: "Les Vikings appréciaient particulièrement le verre teinté produit dans les ateliers francs. Ils l'utilisaient pour créer des perles colorées et des bijoux précieux, témoignant d'échanges commerciaux actifs entre les deux cultures. Comme le montre l'article 'article \"Le travail et le commerce du verre au Haut Moyen Âge\" qui examine les circuits d'échange du verre brut et manufacturé en Europe occidentale durant le Haut Moyen Âge. Il met en évidence que le verre, souvent produit à partir de natron importé du Proche-Orient, était transformé dans des ateliers situés en territoire franc, puis redistribué vers le nord, notamment vers les régions scandinaves.",
+        image: "💎",
+        hueA: 280, 
+        hueB: 320
+      },
+      {
+        title: "Drakkars",
+        desc: "Ces navires emblématiques permettaient aux Vikings de naviguer en haute mer comme sur les rivières. Leur conception avancée leur a permis d'atteindre les côtes françaises et de remonter la Seine jusqu'à Paris.",
+        image: "⛵",
+        hueA: 20, 
+        hueB: 40
+      },
+      {
+        title: "Échanges commerciaux",
+        desc: "Au-delà des raids, les Vikings établirent des routes commerciales importantes. Ils exportaient fourrures, ivoire, ambre et importaient vin, céréales, métaux et verre des royaumes francs.",
+        image: "🔄",
+        hueA: 100, 
+        hueB: 140
+      },
+      {
+        title: "Assimilation culturelle",
+        desc: "En seulement quelques générations, les Vikings de Normandie adoptèrent la langue romane, le christianisme et les coutumes franques, tout en conservant certains aspects de leur culture nordique.",
+        image: "🤝",
+        hueA: 340, 
+        hueB: 10
+      },
+    ];
+    
+    // Function to create a card
+    function createCard(data, index) {
+      // Create card container
+      const cardContainer = document.createElement('div');
+      cardContainer.className = `card-container card-container-${index}`;
+      
+      // Create splash background
+      const splash = document.createElement('div');
+      splash.className = 'splash';
+      splash.style.background = `linear-gradient(306deg, ${hue(data.hueA)}, ${hue(data.hueB)})`;
+      
+      // Create card
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      // Create image (using emoji as placeholder)
+      const imageDiv = document.createElement('div');
+      imageDiv.className = 'card-image';
+      imageDiv.style.fontSize = '80px';
+      imageDiv.textContent = data.image;
+      
+      // Create title
+      const title = document.createElement('h3');
+      title.textContent = data.title;
+      
+      // Create description
+      const desc = document.createElement('p');
+      desc.textContent = data.desc;
+      
+      // Append elements
+      card.appendChild(imageDiv);
+      card.appendChild(title);
+      card.appendChild(desc);
+      
+      cardContainer.appendChild(splash);
+      cardContainer.appendChild(card);
+      
+      return { cardContainer, card };
+    }
+    
+    // Function to check if element is in viewport
+    function isInViewport(element, threshold = 0.5) {
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      // Check if element is at least threshold% visible
+      const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+      const elementHeight = rect.bottom - rect.top;
+      
+      return visibleHeight >= elementHeight * threshold;
+    }
+    
+    // Function to initialize the app
+    function initApp() {
+      const container = document.getElementById('container');
+      const cards = [];
+      
+      // Create all cards
+      vikingData.forEach((data, index) => {
+        const { cardContainer, card } = createCard(data, index);
+        container.appendChild(cardContainer);
+        cards.push(card);
+      });
+      
+      // Check visibility on scroll
+      function checkVisibility() {
+        cards.forEach(card => {
+          if (isInViewport(card)) {
+            card.classList.add('visible');
+          } else {
+            card.classList.remove('visible');
+          }
+        });
+      }
+      
+      // Initial check
+      setTimeout(checkVisibility, 300);
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', checkVisibility);
+      // Initialize the image-compare slider here
+      initImageCompare();
+    }
+    
+    // Initialize when the DOM is ready
+    document.addEventListener('DOMContentLoaded', initApp);
+
+    // Image comparison slider functionality
+function initImageCompare() {
+  const slider = document.getElementById('slider');
+  const container = document.getElementById('image-compare');
+  const overlay = container.querySelector('.img-overlay');
+  const leftLbl  = container.querySelector('.image-label.left');
+  const rightLbl = container.querySelector('.image-label.right');
+  let isDown = false;
+
+  function getPosition(event) {
+    // Get mouse or touch position
+    const containerRect = container.getBoundingClientRect();
+    let clientX = 0;
+    
+    if (event.type.includes('mouse')) {
+      clientX = event.clientX;
+    } else if (event.type.includes('touch')) {
+      clientX = event.touches[0].clientX;
+    }
+    
+    return {
+      x: clientX - containerRect.left,
+      width: containerRect.width
+    };
+  }
+
+  function move(event) {
+    if (!isDown) return;
+    const { x, width } = getPosition(event);
+    let pct = (x / width) * 100;
+    pct = Math.max(5, Math.min(95, pct));
+
+    // crop-reveal by adjusting overlay width & slider position
+    overlay.style.width = pct + '%';
+    slider.style.left   = pct + '%';
+    updateLabels(pct);
+  }
+  
+  // Mouse Events
+  slider.addEventListener('mousedown', () => {
+    isDown = true;
+  });
+  
+  container.addEventListener('mousemove', (e) => {
+    move(e);
+  });
+  
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+  
+  // Touch Events
+  slider.addEventListener('touchstart', () => {
+    isDown = true;
+  });
+  
+  container.addEventListener('touchmove', (e) => {
+    move(e);
+  });
+  
+  window.addEventListener('touchend', () => {
+    isDown = false;
+  });
+  
+  // Set initial position
+  overlay.style.width = '50%';
+  updateLabels(50);
+}
+
+// // Add image compare init to the main init function
+// const originalInitApp = initApp;
+// initApp = function() {
+//   originalInitApp();
+//   initImageCompare();
+// };
+  </script>
+</body>
+</html>
